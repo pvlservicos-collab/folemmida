@@ -12,36 +12,30 @@
 
 <body>
 
-
   <!-- ============================================================
-       DOBRA 1 — HERO (APROVADO — NÃO MEXA)
-       Foto de fundo: f1.png (desktop) / f1-mob.png (mobile)
+       DOBRA 1 — HERO
        ============================================================ -->
   <section class="hero" id="hero">
     <div class="hero__inner">
       <div class="hero__content">
 
-        <!-- Logo -->
         <img src="logo-voxel.png" alt="Voxel" class="hero__logo">
 
-        <!-- Headline principal -->
         <h1 class="hero__headline">
           Descubra para onde vai <span class="hero__headline--gold">cada real do seu Restaurante</span><span
             class="hero__headline--sub">e tenha lucro previsível em <mark class="hero__mark">30 dias</mark></span>
         </h1>
 
-        <!-- Prova social -->
+        <!-- ALTERAÇÃO: "terceirizando o financeiro com a Voxel" -->
         <p class="hero__proof">
           <strong>Mais de 300 restaurantes</strong> já conquistaram isso
-          terceirizando seu financeiro à Voxel.
+          terceirizando o financeiro com a Voxel.
         </p>
 
-        <!-- CTA -->
         <a href="#form" class="hero__cta" id="hero-cta">
           Quero ter clareza nos meus números
         </a>
 
-        <!-- Selos / Bullets -->
         <ul class="hero__bullets">
           <li class="hero__bullet hero__bullet--check">
             <span class="hero__bullet-icon">✓</span>
@@ -75,48 +69,49 @@
   </section>
   <!-- ============================================================ -->
 
-
   <!-- ============================================================
        LOGOS BAR — Scroll infinito
-       "Confiam na maior Assessoria Financeira do Brasil"
        ============================================================ -->
   <section class="logos-bar">
-    <p class="logos-bar__label">Mais de 290 restaurantes em todo brasil confiam na maior Assessoria Financeira do Brasil
-    </p>
+    <!-- ALTERAÇÃO: novo texto -->
+    <p class="logos-bar__label">Restaurantes do Brasil e Portugal confiam na maior assessoria financeira para
+      Foodservice da América Latina</p>
     <div class="logos-tape">
       <div class="logos-tape__track" id="logoTrack">
-        <div class="logos-tape__item"><img src="logos/lapasta.png" alt="La Pasta Gialla"></div>
-        <div class="logos-tape__item"><img src="logos/subway.png" alt="Subway"></div>
-        <div class="logos-tape__item"><img src="logos/pizzaprime.png" alt="Pizza Prime"></div>
-        <div class="logos-tape__item"><img src="logos/cafe.png" alt="Café e um Chero"></div>
-        <div class="logos-tape__item"><img src="logos/dunnas.png" alt="Dunnas"></div>
-        <div class="logos-tape__item"><img src="logos/grao.png" alt="Grão"></div>
-        <div class="logos-tape__item"><img src="logos/sunsaki.png" alt="Sunsaki"></div>
-        <div class="logos-tape__item"><img src="logos/detroit.png" alt="Detroit"></div>
+        <div class="logos-tape__item"><img src="Logo - Bob´s.png" alt="Bob's"></div>
+        <div class="logos-tape__item"><img src="Logo - Cannoleria do Bixiga.png" alt="Cannoleria do Bixiga"></div>
+        <div class="logos-tape__item"><img src="Logo - Forneria Original.png" alt="Forneria Original"></div>
+        <div class="logos-tape__item"><img src="Logo - Herois Burguer.png" alt="Heróis Burguer"></div>
+        <div class="logos-tape__item"><img src="Logo - Janga.jpg" alt="Janga"></div>
+        <div class="logos-tape__item"><img src="Logo - La pasta Gialla.jpg" alt="La Pasta Gialla"></div>
+        <div class="logos-tape__item"><img src="Logo - Meatz Burguer.png" alt="Meatz Burguer"></div>
+        <div class="logos-tape__item"><img src="Logo - Mirá.jpg" alt="Mirá"></div>
+        <div class="logos-tape__item"><img src="Logo - Outros 500.png" alt="Outros 500"></div>
+        <div class="logos-tape__item"><img src="Logo - Pizza Prime.png" alt="Pizza Prime"></div>
+        <div class="logos-tape__item"><img src="Logo - QCB.png" alt="QCB"></div>
+        <div class="logos-tape__item"><img src="Logo - Subway.png" alt="Subway"></div>
       </div>
     </div>
+    <p class="pulse-stat">
+      <span class="pulse-dot"></span>
+      E mais de <strong>290 restaurantes</strong> em todo o Brasil
+    </p>
   </section>
 
   <script>
-    // Carrossel infinito via JS — velocidade controlada por pixels/segundo
     (function () {
       const track = document.getElementById('logoTrack');
       if (!track) return;
-
-      // Duplica os itens para o loop
       track.innerHTML += track.innerHTML;
-
       let pos = 0;
-      const speed = 0.5; // px por frame — diminua para mais lento (ex: 0.3), aumente para mais rápido (ex: 1)
+      const speed = 0.5;
       const halfWidth = track.scrollWidth / 2;
-
       function animate() {
         pos += speed;
         if (pos >= halfWidth) pos = 0;
         track.style.transform = 'translateX(-' + pos + 'px)';
         requestAnimationFrame(animate);
       }
-
       animate();
     })();
   </script>
@@ -124,78 +119,105 @@
 
 
   <!-- ============================================================
-       DOBRA 2 — DOR A PROVA
-       "Isso soa familiar?"
+       DOBRA 2 — DOR
        ============================================================ -->
   <section class="dor" id="dor">
     <div class="wrap">
 
-      <!-- Eyebrow -->
       <p class="dor__eyebrow reveal">Isso soa familiar?</p>
 
-      <!-- Headline da dobra -->
       <h2 class="dor__headline reveal">
-        Você não está perdendo dinheiro por falta de esforço.
+        Você não está perdendo <span class="dor__headline--gold">dinheiro</span> por falta de esforço.
         <span class="dor__headline--sub">Está perdendo porque ninguém te mostrou para onde ele está indo.</span>
       </h2>
 
-      <!-- Bloco 1: O problema -->
-      <div class="dor__bloco1">
-        <div class="dor__bloco-num">1</div>
-        <div class="dor__bloco-body">
-          <h3 class="dor__bloco-title">O problema</h3>
-          <div class="dor__checks">
-            <p><span class="check-green">✓</span> Salão cheio &nbsp;<span class="check-green">✓</span> Delivery rodando
-              &nbsp;<span class="check-green">✓</span> Trabalhando muito</p>
+      <div class="dor__cards-wrap">
+
+        <!-- CARD 1: O PROBLEMA -->
+        <div class="dor__card dor__card--problema reveal">
+          <div class="dor__card-badge">O Problema</div>
+
+          <div class="dor__card-items">
+            <div class="dor__card-item dor__card-item--green">
+              <i class="ico">✓</i><span>Salão <strong>cheio</strong></span>
+            </div>
+            <div class="dor__card-item dor__card-item--green">
+              <i class="ico">✓</i><span>Delivery <strong>rodando</strong></span>
+            </div>
+            <div class="dor__card-item dor__card-item--green">
+              <i class="ico">✓</i><span>Trabalhando <strong>muito</strong></span>
+            </div>
           </div>
-          <p class="dor__bloco-text">Mas no final do mês o caixa não reflete o movimento.</p>
-          <div class="dor__negatives">
-            <p><span class="x-red">✕</span> A planilha é bagunçada</p>
-            <p><span class="x-red">✕</span> O sistema gera relatório que ninguém entende</p>
+
+          <p class="dor__card-text">Mas no final do mês o caixa <strong>não reflete</strong> o movimento.</p>
+
+          <div class="dor__card-items">
+            <div class="dor__card-item dor__card-item--red">
+              <i class="ico ico--red">✕</i><span>O sistema gera relatório que ninguém entende</span>
+            </div>
+            <div class="dor__card-item dor__card-item--red">
+              <i class="ico ico--red">✕</i><span>A planilha é bagunçada</span>
+            </div>
           </div>
         </div>
-      </div>
 
-      <!-- Bloco 2: Enquanto isso -->
-      <div class="dor__bloco reveal">
-        <div class="dor__bloco-num">2</div>
-        <div class="dor__bloco-body">
-          <h3 class="dor__bloco-title">Enquanto isso</h3>
-          <div class="dor__questions">
-            <p><span class="q-mark">?</span> Quanto posso investir no próximo mês?</p>
-            <p><span class="q-mark">?</span> Contratar mais um funcionário ou cortar?</p>
-            <p><span class="q-mark">?</span> Posso abrir uma segunda unidade?</p>
-          </div>
-          <p class="dor__bloco-text">Você responde no achismo — porque não tem outra opção.</p>
-          <p class="dor__bloco-text">E o financeiro vai para casa com você.</p>
-          <div class="dor__consequencias">
-            <span>— Conversas que não deveriam acontecer</span>
-            <span>— Noites mal dormidas</span>
-            <span>— Finais de semana que deveriam ser de descanso</span>
-          </div>
-        </div>
-      </div>
+        <!-- CARD 2: ENQUANTO ISSO -->
+        <div class="dor__card dor__card--cinza reveal">
+          <div class="dor__card-badge">Enquanto isso</div>
 
-      <!-- Bloco 3: A virada -->
-      <div class="dor__bloco dor__bloco--virada reveal">
-        <div class="dor__bloco-num">3</div>
-        <div class="dor__bloco-body">
-          <h3 class="dor__bloco-title">A virada</h3>
-          <p class="dor__bloco-text dor__bloco-text--big">
-            A Voxel faz o que planilha e sistema nunca fizeram —<br>
-            <strong>te mostra exatamente para onde vai cada real</strong>
-          </p>
-          <div class="dor__virada-checks">
-            <p><span class="check-gold">✓</span> Você começa a crescer com segurança</p>
-            <p><span class="check-gold">✓</span> Toma decisões com dados reais</p>
-            <p><span class="check-gold">✓</span> Para de adivinhar</p>
+          <div class="dor__card-items">
+            <div class="dor__card-item dor__card-item--dark">
+              <i class="ico ico--gray">?</i><span>Quanto <strong>posso investir</strong> no próximo mês?</span>
+            </div>
+            <div class="dor__card-item dor__card-item--dark">
+              <i class="ico ico--gray">?</i><span><strong>Contratar</strong> mais um funcionário ou
+                <strong>cortar</strong>?</span>
+            </div>
+            <div class="dor__card-item dor__card-item--dark">
+              <i class="ico ico--gray">?</i><span>Vale abrir uma <strong>segunda unidade</strong>?</span>
+            </div>
+          </div>
+
+          <p class="dor__card-text">Você responde no achismo porque não tem outra opção. <strong>E o financeiro vai
+              para casa com você.</strong></p>
+
+          <div class="dor__card-items">
+            <div class="dor__card-item dor__card-item--ghost">
+              <i class="ico">✕</i><span>Conversas que <strong>não deveriam acontecer</strong></span>
+            </div>
+            <div class="dor__card-item dor__card-item--ghost">
+              <i class="ico">✕</i><span>Noites que você <strong>não consegue dormir</strong></span>
+            </div>
+            <div class="dor__card-item dor__card-item--ghost">
+              <i class="ico">✕</i><span>Finais de semana que deveriam <strong>ser de descanso</strong></span>
+            </div>
           </div>
         </div>
+
+        <!-- CARD 3: A VIRADA -->
+        <div class="dor__card dor__card--virada reveal">
+          <div class="dor__card-badge dor__card-badge--green">A Virada</div>
+
+          <p class="dor__card-text--virada">A <strong>Voxel</strong> faz o que planilha e sistema nunca fizeram te
+            mostra exatamente para onde vai cada real</p>
+
+          <div class="dor__card-items">
+            <div class="dor__card-item dor__card-item--gold">
+              <i class="ico">✓</i><span>Você começa a <strong>crescer com segurança</strong></span>
+            </div>
+            <div class="dor__card-item dor__card-item--gold">
+              <i class="ico">✓</i><span>Toma decisões com <strong>dados reais</strong></span>
+            </div>
+            <div class="dor__card-item dor__card-item--gold">
+              <i class="ico">✓</i><span>Para de <strong>adivinhar</strong></span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <!-- CTA da dobra 2 -->
       <div class="dor__cta-wrap reveal">
-        <a href="#form" class="cta-gold">Quero ter Clareza nos meus números →</a>
+        <a href="#form" class="cta-gold">Quero ter Lucro Previsível →</a>
       </div>
 
     </div>
@@ -203,127 +225,134 @@
   <!-- ============================================================ -->
 
   <!-- ============================================================
+
+
+
+
+
+  <!-- ============================================================
        DOBRA 3 — PROVA SOCIAL
-       Estrutura: stats → vídeos com depoimento → cards texto → caso real → CTA
        ============================================================ -->
   <section class="prova" id="prova">
     <div class="wrap">
 
-      <!-- Cabeçalho -->
       <div class="sec-hd reveal">
         <p class="sec-eyebrow">Ouça quem já passou por isso</p>
-        <h2 class="sec-title">O que acontece quando um restaurante<br><em>para de adivinhar.</em></h2>
-        <p class="prova__sub">Mais de 300 donos de restaurante já tomaram essa decisão. Veja o que eles conquistaram.
-        </p>
+        <!-- ALTERAÇÃO: nova headline e sub -->
+        <h2 class="sec-title">O que acontece quando o Dono de Restaurante <em>domina seu financeiro</em></h2>
+        <p class="prova__sub">Mais de 300 tomaram essa decisão. Veja o que eles conquistaram.</p>
       </div>
 
-      <!-- STATS -->
+      <!-- ALTERAÇÃO: stats corrigidos -->
       <div class="prova__stats reveal">
         <div class="prova__stat2">
           <span class="prova__stat-num">+300</span>
-          <span class="prova__stat-label">restaurantes atendidos em todo o Brasil</span>
+          <span class="prova__stat-label">Restaurantes atendidos em 26 estados do Brasil e Portugal</span>
         </div>
+        <!-- ALTERAÇÃO: tirou +R$30mil, manteve só 30 dias com novo texto -->
         <div class="prova__stat-row">
-          <div class="prova__stat">
-            <span class="prova__stat-num">+R$30mil</span>
-            <span class="prova__stat-label">média de margem recuperada nos primeiros meses</span>
-          </div>
-          <div class="prova__stat">
+          <div class="prova__stat" style="grid-column: 1 / -1;">
             <span class="prova__stat-num">30 dias</span>
-            <span class="prova__stat-label">para ter clareza financeira total</span>
+            <span class="prova__stat-label">Para ter clareza total de seus números</span>
           </div>
         </div>
       </div>
 
-      <!-- LABEL VÍDEOS -->
       <p class="prova__section-label reveal">Depoimentos em vídeo</p>
 
       <!-- VÍDEOS COM DEPOIMENTO -->
       <div class="prova__videos">
 
         <div class="pvideo reveal">
-          <div class="pvideo__thumb">
-            <div class="pvideo__play" aria-label="Reproduzir vídeo">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5,3 19,12 5,21" />
-              </svg>
+          <div class="pvideo__inner">
+            <div class="pvideo__video-col">
+              <vturb-smartplayer id="vid-69b1cc21faf9397e232e2bee"
+                style="display: block; width: 100%;"></vturb-smartplayer>
+              <script type="text/javascript">
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1cc21faf9397e232e2bee/v4/player.js",
+                  s.async = !0, document.head.appendChild(s);
+              </script>
             </div>
-            <span class="pvideo__dur">2:10</span>
-          </div>
-          <div class="pvideo__body">
-            <div class="pvideo__auth">
-              <div class="pvideo__av">A</div>
-              <div>
-                <strong>António</strong>
-                <span>Galo Grijo — Porto, Portugal</span>
+            <div class="pvideo__body">
+              <div class="pvideo__auth">
+                <div class="pvideo__av"><img src="Antonio.png" alt="António"></div>
+                <div>
+                  <strong>António</strong>
+                  <span>Galo Grijo — Porto, Portugal</span>
+                </div>
               </div>
+              <blockquote class="pvideo__quote">
+                "Quem cuidava do financeiro era minha esposa. Isso gerava muito conflito. Hoje ganhei tranquilidade,
+                convívio familiar melhor e tempo para tocar meu negócio."
+              </blockquote>
             </div>
-            <blockquote class="pvideo__quote">
-              "Quem cuidava do financeiro era minha esposa. Isso gerava muito conflito. Hoje ganhei tranquilidade,
-              convívio familiar melhor e tempo para tocar meu negócio."
-            </blockquote>
           </div>
         </div>
 
         <div class="pvideo reveal">
-          <div class="pvideo__thumb">
-            <div class="pvideo__play" aria-label="Reproduzir vídeo">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5,3 19,12 5,21" />
-              </svg>
+          <div class="pvideo__inner">
+            <div class="pvideo__video-col">
+              <vturb-smartplayer id="vid-69b1d3b0ee2947d3ff28669d"
+                style="display: block; width: 100%;"></vturb-smartplayer>
+              <script type="text/javascript">
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1d3b0ee2947d3ff28669d/v4/player.js",
+                  s.async = !0, document.head.appendChild(s);
+              </script>
             </div>
-            <span class="pvideo__dur">1:00</span>
-          </div>
-          <div class="pvideo__body">
-            <div class="pvideo__auth">
-              <div class="pvideo__av">S</div>
-              <div>
-                <strong>Sinval Júnior</strong>
-                <span>Dom Manju — Brasília, DF</span>
+            <div class="pvideo__body">
+              <div class="pvideo__auth">
+                <div class="pvideo__av"><img src="Sinval.png" alt="Sinval"></div>
+                <div>
+                  <strong>Sinval Júnior</strong>
+                  <span>Dom Manju — Brasília, DF</span>
+                </div>
               </div>
+              <blockquote class="pvideo__quote">
+                "A gente tinha uma dor por não ter clareza. Saímos de uma reunião com a Voxel e encontramos um furo no
+                estoque que não víamos — e saímos com ações para resolver no mesmo dia."
+              </blockquote>
             </div>
-            <blockquote class="pvideo__quote">
-              "A gente tinha uma dor por não ter clareza. Saímos de uma reunião com a Voxel e encontramos um furo no
-              estoque que não víamos — e saímos com ações para resolver no mesmo dia."
-            </blockquote>
           </div>
         </div>
 
         <div class="pvideo reveal">
-          <div class="pvideo__thumb">
-            <div class="pvideo__play" aria-label="Reproduzir vídeo">
-              <svg viewBox="0 0 24 24" fill="currentColor">
-                <polygon points="5,3 19,12 5,21" />
-              </svg>
+          <div class="pvideo__inner">
+            <div class="pvideo__video-col">
+              <vturb-smartplayer id="vid-69b1cbe3a10d9a398ab7a83c"
+                style="display: block; width: 100%;"></vturb-smartplayer>
+              <script type="text/javascript">
+                var s = document.createElement("script");
+                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1cbe3a10d9a398ab7a83c/v4/player.js",
+                  s.async = !0, document.head.appendChild(s);
+              </script>
             </div>
-            <span class="pvideo__dur">1:15</span>
-          </div>
-          <div class="pvideo__body">
-            <div class="pvideo__auth">
-              <div class="pvideo__av">M</div>
-              <div>
-                <strong>Marina Major</strong>
-                <span>Restaurante Major</span>
+            <div class="pvideo__body">
+              <div class="pvideo__auth">
+                <div class="pvideo__av"><img src="Marina.png" alt="Marina"></div>
+                <div>
+                  <strong>Marina Major</strong>
+                  <span>Restaurante Major</span>
+                </div>
               </div>
+              <blockquote class="pvideo__quote">
+                "Quando a Voxel apareceu na minha vida, eles abriram um novo mundo que eu sequer sabia que existia."
+              </blockquote>
             </div>
-            <blockquote class="pvideo__quote">
-              "Quando a Voxel apareceu na minha vida, eles abriram um novo mundo que eu sequer sabia que existia."
-            </blockquote>
           </div>
         </div>
 
       </div>
 
-      <!-- LABEL TEXTO -->
       <p class="prova__section-label reveal">O que mais clientes dizem</p>
 
-      <!-- CARDS DE TEXTO EMPILHADOS -->
       <div class="prova__cards">
 
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av">J</div>
+              <div class="pcard__av"><img src="Jean.png" alt="Jean"></div>
               <div>
                 <strong>Jean</strong>
                 <span>Takematos — 4 unidades, Brasília</span>
@@ -331,13 +360,13 @@
             </div>
             <div class="pcard__stars">★★★★★</div>
           </div>
-          <p class="pcard__txt">"A Voxel me deu liberdade para crescer e liderar — não ficar montando planilha."</p>
+          <p class="pcard__txt">"A Voxel me deu liberdade para crescer e liderar não ficar montando planilha."</p>
         </div>
 
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av">L</div>
+              <div class="pcard__av"><img src="leticia.png" alt="Letícia"></div>
               <div>
                 <strong>Letícia</strong>
                 <span>Sabor Nordestino — Maceió, AL</span>
@@ -351,7 +380,7 @@
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av">F</div>
+              <div class="pcard__av"><img src="Felipe.png" alt="Felipe"></div>
               <div>
                 <strong>Felipe</strong>
                 <span>Meatz Burger — 18 operações, 5 estados</span>
@@ -359,14 +388,14 @@
             </div>
             <div class="pcard__stars">★★★★★</div>
           </div>
-          <p class="pcard__txt">"Parceiro no dia a dia e na estratégia — nos dá certeza dos indicadores que importam."
+          <p class="pcard__txt">"Parceiro no dia a dia e na estratégia nos dá certeza dos indicadores que importam."
           </p>
         </div>
 
         <div class="pcard reveal">
           <div class="pcard__top">
             <div class="pcard__auth">
-              <div class="pcard__av">R</div>
+              <div class="pcard__av"><img src="Rodrigo.png" alt="Rodrigo"></div>
               <div>
                 <strong>Rodrigo</strong>
                 <span>Mesanina — Brasília, DF</span>
@@ -379,58 +408,71 @@
 
       </div>
 
-      <!-- CASO REAL COM NÚMERO -->
+      <!-- CASO REAL: Verona com vídeo -->
+
       <div class="caso-real reveal">
-        <div class="caso-real__badge">Caso real com número</div>
-        <div class="caso-real__num">26,5%</div>
-        <p class="caso-real__desc">de CMV — recorde no pior mês do ano</p>
-        <div class="caso-real__row">
-          <div class="caso-real__mini caso-real__mini--red">
-            <span>-3,5%</span>
-            <small>redução no CMV vs meta</small>
-          </div>
-          <div class="caso-real__mini caso-real__mini--gold">
-            <span>outubro</span>
-            <small>mês mais fraco de Brasília</small>
-          </div>
+        <div class="caso-real__video-col">
+          <vturb-smartplayer id="vid-69b2380a46625199476510ea" style="display: block; width: 100%;"></vturb-smartplayer>
+          <script type="text/javascript">
+            var s = document.createElement("script");
+            s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b2380a46625199476510ea/v4/player.js",
+              s.async = !0, document.head.appendChild(s);
+          </script>
         </div>
-        <div class="caso-real__auth">
-          <div class="caso-real__av">V</div>
-          <div>
-            <strong>Verona Restaurante</strong>
-            <span>Brasília, DF</span>
+        <div class="caso-real__body">
+          <div class="caso-real__badge">Caso real com número</div>
+          <div class="caso-real__num">26,5%</div>
+          <p class="caso-real__desc">De CMV recorde no pior mês do ano</p>
+          <div class="caso-real__row">
+            <div class="caso-real__mini caso-real__mini--gold">
+              <span>+R$40mil</span>
+              <small>De lucro mensal em 6 meses</small>
+            </div>
+            <div class="caso-real__mini caso-real__mini--red">
+              <span>-14,5%</span>
+              <small>Redução do CMV</small>
+            </div>
           </div>
+          <div class="caso-real__auth">
+            <div class="caso-real__av">
+              <img src="Verona.png" alt="Verona Restaurante">
+            </div>
+            <div>
+              <strong>Verona Restaurante</strong>
+              <span>Brasília, DF</span>
+            </div>
+          </div>
+          <blockquote class="caso-real__quote">
+            "A gente conseguiu bater o melhor CMV recorde do Verona no pior mês tanto de movimento quanto na
+            estratégia de compra. Hoje temos um estudo perfeito do nosso estabelecimento."
+          </blockquote>
         </div>
-        <blockquote class="caso-real__quote">
-          "A gente conseguiu bater o melhor CMV recorde do Verona no pior mês — tanto de movimento quanto na estratégia
-          de compra. Hoje temos um estudo perfeito do nosso estabelecimento."
-        </blockquote>
       </div>
 
-      <!-- CTA -->
+
       <div class="sec-cta reveal">
         <a href="#form" class="cta-gold cta-gold--big">Quero ter lucro previsível →</a>
       </div>
 
     </div>
+
   </section>
   <!-- ============================================================ -->
+
   <!-- ============================================================
        DOBRA 4 — PROPOSTA DE VALOR
        ============================================================ -->
   <section class="valor" id="valor">
     <div class="wrap">
 
-      <!-- Cabeçalho — NÃO MEXA -->
       <div class="sec-hd reveal">
         <p class="sec-eyebrow">O que a Voxel entrega</p>
-        <h2 class="sec-title">Tudo que o seu financeiro precisa.<br><em>Sem tomar seu tempo.</em></h2>
-        <p class="valor__sub">Assumimos todo seu Financeiro</p>
+        <!-- ALTERAÇÃO: headline e sub corretos -->
+        <h2 class="sec-title">Assumimos todo seu financeiro.</h2>
+        <p class="valor__sub">Você foca no crescimento</p>
       </div>
 
-      <!-- ── BLOCO 1: A Voxel faz por você ── -->
-      <p class="valor__section-label reveal">A Voxel faz por você</p>
-
+      <!-- ALTERAÇÃO: tirou label "A Voxel faz por você" -->
       <div class="valor__lista reveal">
 
         <div class="vlista__item">
@@ -459,7 +501,7 @@
           </div>
           <div class="vlista__body">
             <strong>Conciliação bancária</strong>
-            <p>Cada movimentação registrada e conferida todo dia — para que seus números reflitam a realidade.</p>
+            <p>Cada movimentação registrada e conferida todo dia para que seus números reflitam a realidade.</p>
           </div>
         </div>
 
@@ -473,7 +515,7 @@
           </div>
           <div class="vlista__body">
             <strong>Auditoria de recebíveis</strong>
-            <p>iFood, UberEats, Cielo, Stone — conferimos tudo para garantir que cada venda foi paga.</p>
+            <p>iFood, UberEats, Cielo, Stone conferimos tudo para garantir que cada venda foi paga.</p>
           </div>
         </div>
 
@@ -495,38 +537,31 @@
 
       </div>
 
-      <!-- ── BLOCO 2: Você recebe para decidir ── -->
       <p class="valor__section-label reveal">Você recebe para decidir</p>
 
       <div class="valor__grid stagger">
-
         <div class="vcard reveal">
           <div class="vcard__sigla">DRE</div>
           <div class="vcard__label">Demonstrativo de Resultado</div>
           <div class="vcard__desc">Lucro ou prejuízo real do mês</div>
         </div>
-
         <div class="vcard reveal">
           <div class="vcard__sigla">DFC</div>
           <div class="vcard__label">Fluxo de Caixa</div>
           <div class="vcard__desc">Para onde vai cada real</div>
         </div>
-
         <div class="vcard reveal">
           <div class="vcard__sigla">CMV</div>
           <div class="vcard__label">Custo de Mercadoria</div>
           <div class="vcard__desc">Se seu cardápio está saudável</div>
         </div>
-
         <div class="vcard reveal">
           <div class="vcard__sigla">CO</div>
           <div class="vcard__label">Custo Operacional</div>
           <div class="vcard__desc">Onde cortar sem prejudicar</div>
         </div>
-
       </div>
 
-      <!-- ── BLOCO 3: Reunião mensal ── -->
       <div class="valor__reuniao reveal">
         <div class="valor__reuniao-header">
           <div class="valor__reuniao-ico">
@@ -554,7 +589,6 @@
         </ul>
       </div>
 
-      <!-- ── BLOCO 4: Consultor disponível ── -->
       <div class="valor__consultor reveal">
         <div class="valor__consultor-ico">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
@@ -568,8 +602,8 @@
         </div>
       </div>
 
-      <!-- CTA -->
       <div class="sec-cta reveal">
+        <!-- ALTERAÇÃO: tira traços, texto simples -->
         <p class="valor__cta-pre">Tudo isso começa com 30 minutos de diagnóstico gratuito.</p>
         <a href="#form" class="cta-gold cta-gold--big">Quero ter Clareza nos meus números →</a>
         <div class="valor__cta-selos">
@@ -581,6 +615,7 @@
     </div>
   </section>
   <!-- ============================================================ -->
+
   <!-- ============================================================
        DOBRA 5 — FECHAMENTO
        ============================================================ -->
@@ -595,18 +630,18 @@
           Você pode continuar no achismo. Ou pode ter <em>lucro previsível em 30 dias.</em>
         </h2>
 
+        <!-- ALTERAÇÃO: "O diagnóstico é gratuito e leva 30 minutos" -->
         <p class="fechamento__sub">
-          O diagnóstico é gratuito, leva 30 minutos e <strong>não gera nenhum compromisso.</strong>
+          O diagnóstico é gratuito e leva 30 minutos. <strong>Não gera nenhum compromisso.</strong>
         </p>
 
-        <!-- Card vagas -->
         <div class="fechamento__vagas">
           <div class="fechamento__vagas-header">
             <span class="fechamento__vagas-label">Vagas este mês</span>
             <span class="fechamento__vagas-badge">Limitado</span>
           </div>
           <div class="fechamento__vagas-num">18</div>
-          <p class="fechamento__vagas-desc">novos restaurantes por mês — limite real de capacidade dos nossos
+          <p class="fechamento__vagas-desc">Novos restaurantes por mês limite real de capacidade dos nossos
             consultores.</p>
           <div class="fechamento__vagas-bar-wrap">
             <div class="fechamento__vagas-bar-labels">
@@ -619,7 +654,6 @@
           </div>
         </div>
 
-        <!-- Botões -->
         <div class="fechamento__btns">
           <a href="#form" class="cta-gold cta-gold--big">
             Quero ter Clareza nos meus números →
@@ -642,13 +676,12 @@
   <!-- ============================================================ -->
 
   <!-- ============================================================
-     DOBRA 6 — FORMULÁRIO
-     ============================================================ -->
+       DOBRA 6 — FORMULÁRIO
+       ============================================================ -->
   <section class="formulario" id="form">
     <div class="wrap">
       <div class="form__inner reveal">
 
-        <!-- Cópia -->
         <div class="form__copy">
           <p class="fechamento__eyebrow">Diagnóstico Gratuito</p>
           <h2 class="form__hl">O que acontece quando você clica</h2>
@@ -660,7 +693,7 @@
             </li>
             <li>
               <span class="form__step-icon">✓</span>
-              <p>Recebe um <strong>diagnóstico real do seu financeiro</strong> — mesmo que não contrate</p>
+              <p>Recebe um <strong>diagnóstico real do seu financeiro</strong> mesmo que não contrate</p>
             </li>
             <li>
               <span class="form__step-icon">✓</span>
@@ -669,8 +702,7 @@
           </ul>
 
           <p class="form__destaque"><span class="form__destaque-grip">
-              Em 30 minutos você sabe exatamente o que está impedindo seu restaurante de
-              crescer.</span></span>
+              Em 30 minutos você sabe exatamente o que está impedindo seu restaurante de crescer.</span>
           </p>
 
           <div class="form__selos">
@@ -680,7 +712,6 @@
           </div>
         </div>
 
-        <!-- Formulário -->
         <div class="form__side">
           <form class="form__box" action="#" method="POST">
             <p class="form__side-title">Preencha abaixo. Um especialista entra em contato em até 24h.</p>
@@ -717,8 +748,9 @@
     </div>
   </section>
   <!-- ============================================================ -->
+
   <!-- ============================================================
-       RODAPÉ — Logo + tagline
+       RODAPÉ
        ============================================================ -->
   <footer class="rodape">
     <div class="wrap">
@@ -731,13 +763,7 @@
   </footer>
   <!-- ============================================================ -->
 
-
-
-  <!-- ============================================================
-       JS — FAQ accordion + Scroll reveal
-       ============================================================ -->
   <script>
-    // Scroll reveal
     var obs = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }

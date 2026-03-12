@@ -103,15 +103,12 @@ button {
   font-size: clamp(1.8rem, 3vw, 2.6rem);
   font-weight: 800;
   color: var(--white);
-
   line-height: 1.25;
 }
 
 .sec-title2 {
-
   font-size: clamp(1.7rem, 3vw, 1.8rem);
   font-weight: 600;
-
   color: #ffc501;
   line-height: 1.25;
   margin-top: 12px;
@@ -133,7 +130,7 @@ button {
   background: linear-gradient(135deg, var(--gold) 0%, #d4900a 100%);
   color: #ffffff;
   font-weight: 800;
-  font-size: 2.8vw;
+  font-size: 1.1vw;
   padding: 20px 40px;
   border-radius: 8px;
   width: fit-content;
@@ -150,7 +147,6 @@ button {
 }
 
 .cta-gold--big {
-  font-size: 2.60vw;
   padding: 22px 52px;
 }
 
@@ -164,7 +160,7 @@ button {
   padding: 16px 40px;
   border-radius: 9px;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.1vw;
   transition: all var(--ease);
 }
 
@@ -297,8 +293,6 @@ button {
 
 .hero__image-col {}
 
-/* coluna vazia — reserva espaço para a foto aparecer */
-
 .hero__content {
   display: flex;
   flex-direction: column;
@@ -362,7 +356,7 @@ button {
   background: linear-gradient(135deg, var(--gold) 0%, #d4900a 100%);
   color: #ffffff;
   font-weight: 800;
-  font-size: 1.05rem;
+  font-size: 1.1vw;
   padding: 20px 40px;
   border-radius: 8px;
   width: fit-content;
@@ -407,7 +401,6 @@ button {
   font-size: 1rem;
   color: var(--gold);
 }
-
 
 /* ================================================================
    LOGOS BAR — Scroll infinito
@@ -458,9 +451,8 @@ button {
 
 .logos-tape__track {
   display: flex;
-  gap: 14px;
+  gap: 16px;
   width: max-content;
-  /* animação removida — controlada pelo JS */
 }
 
 .logos-tape__item {
@@ -468,18 +460,18 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 14px 22px;
-  background: var(--bg3);
+  width: 110px;
+  height: 110px;
+  border-radius: 14px;
+  overflow: hidden;
   border: 1px solid var(--bd);
-  border-radius: 10px;
-  min-width: 140px;
 }
 
 .logos-tape__item img {
-  height: 40px;
-  width: auto;
-  object-fit: contain;
-  filter: grayscale(1) brightness(1.5);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(1) brightness(1.4);
   transition: filter var(--ease);
 }
 
@@ -487,13 +479,54 @@ button {
   filter: grayscale(0) brightness(1);
 }
 
+.pulse-stat {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #ccc;
+  margin-top: 24px;
+  justify-content: center;
+}
+
+.pulse-stat strong {
+  color: #fff;
+  font-weight: 700;
+}
+
+.pulse-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #f5c518;
+  flex-shrink: 0;
+  animation: breathe-dot 3s ease-in-out infinite;
+}
+
+@keyframes breathe-dot {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.2;
+  }
+}
+
+
+
+
+
 
 /* ================================================================
    DOBRA 2 — DOR
    ================================================================ */
 .dor {
   background: var(--bg);
-  padding: 100px 40px;
+  padding: 70px 40px 80px;
 }
 
 .dor__eyebrow {
@@ -516,6 +549,13 @@ button {
   margin: 0 auto 72px;
 }
 
+/* NOVO: destaque dourado na palavra "dinheiro" */
+.dor__headline--gold {
+  color: var(--gold);
+  font-style: normal;
+  text-shadow: 0 0 30px rgba(255, 197, 1, .3);
+}
+
 .dor__headline--sub {
   display: block;
   font-size: clamp(1rem, 1.6vw, 1.2rem);
@@ -524,237 +564,267 @@ button {
   margin-top: 14px;
 }
 
-.dor__bloco {
-  display: flex;
-  gap: 36px;
-  align-items: flex-start;
-  background: var(--bg2);
-  border: 1px solid var(--bd);
-  border-radius: 16px;
-  padding: 44px 40px;
-  margin-bottom: 20px;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all var(--ease);
-}
+/* ================================================================
+   DOBRA 2 — CARDS VERTICAIS (pixel-match da referência)
+   ================================================================ */
 
-.dor__bloco1 {
-  display: flex;
-  gap: 6px;
-  align-items: flex-start;
-  background: rgba(180, 30, 30, .08);
-  border-color: rgba(248, 113, 113, .2);
-  border: 1px solid var(--bd);
-  border-radius: 16px;
-  padding: 44px 40px;
-  margin-bottom: 20px;
-  max-width: 860px;
-  margin-left: auto;
-  margin-right: auto;
-  transition: all var(--ease);
-}
-
-.dor__bloco:hover {
-  border-color: var(--gold-bd);
-}
-
-.dor__bloco:nth-child(1) {
-  background: rgba(180, 30, 30, .08);
-  border-color: rgba(248, 113, 113, .2);
-}
-
-.dor__bloco:nth-child(1):hover {
-  border-color: rgba(248, 113, 113, .45);
-}
-
-.dor__bloco--virada {
-  background: rgba(255, 197, 1, .06);
-  border-color: rgba(255, 197, 1, .35);
-}
-
-.dor__bloco--virada:hover {
-  border-color: rgba(255, 197, 1, .6);
-}
-
-.dor__bloco-num {
-  font-size: 4rem;
-  font-weight: 900;
-  color: var(--gold);
-  line-height: 1;
-  flex-shrink: 0;
-  min-width: 48px;
-}
-
-.dor__bloco-body {
-  flex: 1;
+.dor__cards-wrap {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 40px;
+  align-items: center;
+  width: 100%;
 }
 
-.dor__bloco-title {
-  font-size: 1.4rem;
+/* ── Card base ── */
+.dor__card {
+  width: 100%;
+  max-width: 420px;
+  border-radius: 20px;
+  padding: 44px 20px 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+/* CARD 1 — vermelho */
+.dor__card--problema {
+  background: linear-gradient(180deg, #150303 0%, #0a0101 100%);
+  border: 1px solid #5a1515;
+}
+
+/* CARD 2 — cinza */
+.dor__card--cinza {
+  background: linear-gradient(180deg, #141414 0%, #090909 100%);
+  border: 1px solid #222222;
+}
+
+/* CARD 3 — verde */
+.dor__card--virada {
+  background: linear-gradient(180deg, #081a0f 0%, #040e09 100%);
+  border: 1px solid #0f3d1e;
+}
+
+/* ── Badge flutua sobre a borda superior ── */
+.dor__card-badge {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-block;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  padding: 6px 20px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.dor__card--problema .dor__card-badge {
+  background: linear-gradient(135deg, #3d0707 0%, #280404 100%);
+  color: #ffffff;
+  border: 1px solid #5a1515;
+}
+
+.dor__card--cinza .dor__card-badge {
+  background: linear-gradient(135deg, #222222 0%, #141414 100%);
+  color: #ffffff;
+  border: 1px solid #333333;
+}
+
+.dor__card--virada .dor__card-badge {
+  background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+  color: #ffffff;
+  border: 1px solid #22c55e;
+}
+
+/* ── Lista de itens ── */
+.dor__card-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+/* ── Item base ── */
+.dor__card-item {
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: .88rem;
+  font-weight: 700;
+  line-height: 1.4;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+}
+
+/* Ícone genérico */
+.dor__card-item .ico {
+  font-style: normal;
+  font-size: .9rem;
+  flex-shrink: 0;
+  min-width: 16px;
+  text-align: center;
+  color: var(--gold);
   font-weight: 900;
-  color: var(--white);
-  letter-spacing: -.01em;
 }
 
-.dor__bloco--virada .dor__bloco-title {
+.ico--red {
+  color: #f87171 !important;
+}
+
+.ico--gray {
+  color: #9ca3af !important;
+}
+
+/* ✓ verde — fundo vinho */
+.dor__card-item--green {
+  background: #1e0b0b;
+  color: #ffffff;
+}
+
+.dor__card-item--green .ico {
   color: var(--gold);
-  font-size: 1.5rem;
 }
 
-.dor__bloco-text {
-  font-size: 1.2rem;
-  color: var(--white);
-  font-weight: 400;
-  line-height: 1.5;
-  background: none;
-  border: none;
-  padding: 0;
+/* ✗ vermelho — caixa escura */
+.dor__card-item--red {
+  background: #160505;
+  color: #ffffff;
 }
 
-.dor__bloco-text--big {
-  font-size: 1.2rem;
-  color: var(--white);
-  font-weight: 400;
-  line-height: 1.55;
-  background: none;
-  border: none;
-  padding: 0;
+.dor__card-item--red .ico {
+  color: #f87171;
 }
 
-.dor__bloco-text--big strong {
+/* ? cinza — caixa escura */
+.dor__card-item--dark {
+  background: #111111;
+  color: #ffffff;
+  font-style: italic;
+}
+
+.dor__card-item--dark .ico {
+  color: #9ca3af;
+}
+
+/* consequências — sem caixa, ícone amarelo, texto branco */
+.dor__card-item--ghost {
+  background: transparent;
+  color: #ffffff;
+  font-style: normal;
+  font-weight: 600;
+  padding: 6px 4px;
+}
+
+.dor__card-item--ghost .ico {
   color: var(--gold);
+}
+
+/* ✓ virada — fundo verde escuro */
+.dor__card-item--gold {
+  background: #081a0f;
+  color: #ffffff;
+}
+
+.dor__card-item--gold .ico {
+  color: var(--gold);
+}
+
+/* ── Texto central — borda esquerda + degradê ── */
+.dor__card-text {
+  font-size: .88rem;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.6;
+  text-align: left;
+  margin: 16px 0;
+  width: 100%;
+  background: linear-gradient(90deg, rgba(255, 197, 1, .07) 0%, transparent 100%);
+  border: none;
+  border-left: 2px solid rgba(255, 197, 1, .5);
+  border-radius: 0 8px 8px 0;
+  padding: 12px 16px;
+}
+
+.dor__card--cinza .dor__card-text {
+  border-left-color: rgba(107, 114, 128, .6);
+  background: linear-gradient(90deg, rgba(107, 114, 128, .1) 0%, transparent 100%);
+}
+
+.dor__card-text strong {
+  color: #ffffff;
   font-weight: 800;
 }
 
-.dor__bloco-text.dor__bloco-text--achismo {
-  font-size: 1rem;
-  font-weight: 400;
-  color: var(--white);
-  background: none;
-  border: none;
-  padding: 0;
-}
-
-.dor__checks {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.dor__checks p {
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--white);
+.dor__card-text--virada {
+  font-size: .92rem;
+  font-weight: 600;
+  color: #ffffff;
   line-height: 1.6;
+  text-align: center;
+  margin-bottom: 20px;
+  width: 100%;
 }
 
+.dor__card-text--virada strong {
+  color: #ffffff;
+  font-weight: 900;
+}
+
+/* ── CTA ── */
+.dor__cta-wrap {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* helpers */
 .check-green {
   color: #4ade80;
   font-weight: 900;
-  margin-right: 8px;
-}
-
-.dor__negatives {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.dor__negatives p {
-  font-size: .95rem;
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.6;
-}
-
-.x-red {
-  color: #f87171;
-  font-weight: 900;
-  margin-right: 8px;
-}
-
-.dor__questions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.dor__questions p {
-  font-size: 1.05rem;
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.5;
-}
-
-.q-mark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: rgba(255, 197, 1, .15);
-  color: var(--gold);
-  font-weight: 900;
-  font-size: .9rem;
-  margin-right: 10px;
-}
-
-.dor__consequencias {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  padding-left: 16px;
-  border-left: 2px solid rgba(255, 255, 255, .12);
-  margin-top: 4px;
-}
-
-.dor__consequencias span {
-  font-size: .9rem;
-  font-weight: 400;
-  color: var(--w40);
-  font-style: italic;
-  line-height: 1.7;
-}
-
-.dor__virada-checks {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 4px;
-}
-
-.dor__virada-checks p {
-  font-size: 1.1rem;
-  font-weight: 400;
-  color: var(--white);
-  line-height: 1.5;
+  margin-right: 6px;
 }
 
 .check-gold {
   color: var(--gold);
   font-weight: 900;
-  margin-right: 10px;
+  margin-right: 6px;
 }
 
-.dor__cta-wrap {
-  text-align: center;
-  margin-top: 60px;
+.x-red {
+  color: #f87171;
+  font-weight: 900;
+  margin-right: 6px;
 }
 
-@media (max-width: 900px) {
-  .dor__bloco {
-    flex-direction: column;
-    gap: 16px;
+/* ── Mobile ── */
+@media (max-width: 600px) {
+  .dor {
+    padding: 60px 16px 70px;
   }
 
-  .dor__bloco-num {
-    font-size: 2.5rem;
+  .dor__card {
+    padding: 32px 14px 24px;
+    max-width: 100%;
+  }
+
+  .dor__card-item {
+    font-size: .84rem;
+    padding: 10px 12px;
+  }
+
+  .dor__card-text {
+    font-size: .84rem;
+    padding: 10px 14px;
+  }
+
+  .dor__cards-wrap {
+    gap: 32px;
   }
 }
 
@@ -767,6 +837,15 @@ button {
 }
 
 
+
+/* ================================================================
+   DOBRA 3 — PROVA SOCIAL
+   ================================================================ */
+.prova {
+  background: linear-gradient(90deg, #0c0c0c 0%, var(--bg2) 40%, var(--bg2) 60%, #111111 100%);
+  padding: 100px 40px;
+}
+
 .prova__sub {
   font-size: 1rem;
   color: #ffffff;
@@ -774,7 +853,6 @@ button {
   line-height: 1.6;
 }
 
-/* ── Label de seção interna ────────────────────────────────────── */
 .prova__section-label {
   font-size: .72rem;
   font-weight: 700;
@@ -791,12 +869,12 @@ button {
    ================================================================ */
 .prova__stats {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
   margin-bottom: 8px;
+  align-items: stretch;
 }
 
-/* Card destaque — ocupa largura total */
 .prova__stat2 {
   background: #ffc501;
   border-radius: 14px;
@@ -804,29 +882,29 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   box-shadow: 0 8px 40px rgba(255, 196, 1, 0.10);
+  flex: 1;
 }
 
 .prova__stat2 .prova__stat-num {
   font-size: clamp(2.4rem, 5vw, 3.2rem);
   font-weight: 900;
-  color: #111;
+  color: #ffffff;
   line-height: 1;
 }
 
 .prova__stat2 .prova__stat-label {
   font-size: .88rem;
   font-weight: 600;
-  color: #111;
+  color: #ffffff;
   text-align: center;
 }
 
-/* Row com 2 cards menores */
 .prova__stat-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+  display: flex;
+  flex: 1;
 }
 
 .prova__stat {
@@ -836,7 +914,9 @@ button {
   padding: 24px 28px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 6px;
+  flex: 1;
   transition: border-color var(--ease);
 }
 
@@ -853,8 +933,18 @@ button {
 
 .prova__stat-label {
   font-size: .8rem;
-  color: var(--w40);
+  color: #ffffff;
   line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .prova__stats {
+    flex-direction: column;
+  }
+
+  .prova__stat2 {
+    padding: 28px 24px;
+  }
 }
 
 /* ================================================================
@@ -878,69 +968,21 @@ button {
   border-color: var(--gold-bd);
 }
 
-/* Thumbnail do vídeo */
-.pvideo__thumb {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 7;
-  background: #0a0a0a;
-  display: flex;
+.pvideo__inner {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
   align-items: center;
-  justify-content: center;
-  cursor: pointer;
+  padding: 24px;
+}
+
+.pvideo__video-col {
+  border-radius: 12px;
   overflow: hidden;
+  flex-shrink: 0;
 }
 
-.pvideo__thumb::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse at center, rgba(255, 197, 1, .04) 0%, transparent 70%);
-}
-
-/* Botão play */
-.pvideo__play {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, .95);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 1;
-  transition: all var(--ease);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, .4);
-}
-
-.pvideo__play:hover {
-  background: var(--gold);
-  transform: scale(1.08);
-}
-
-.pvideo__play svg {
-  width: 20px;
-  height: 20px;
-  color: #111;
-  margin-left: 3px;
-}
-
-/* Duração */
-.pvideo__dur {
-  position: absolute;
-  bottom: 10px;
-  right: 12px;
-  font-size: .75rem;
-  font-weight: 700;
-  color: var(--white);
-  background: rgba(0, 0, 0, .7);
-  padding: 2px 8px;
-  border-radius: 4px;
-}
-
-/* Corpo abaixo do vídeo */
 .pvideo__body {
-  padding: 20px 24px 24px;
   display: flex;
   flex-direction: column;
   gap: 14px;
@@ -953,8 +995,8 @@ button {
 }
 
 .pvideo__av {
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
   background: var(--gold);
   color: #111;
@@ -964,30 +1006,47 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+}
+
+.pvideo__av img,
+.pcard__av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .pvideo__auth strong {
   display: block;
-  font-size: .92rem;
+  font-size: 1.1rem;
   color: var(--white);
   font-weight: 700;
 }
 
 .pvideo__auth span {
   display: block;
-  font-size: .76rem;
+  font-size: .85rem;
   color: var(--w40);
   margin-top: 2px;
 }
 
 .pvideo__quote {
-  font-size: .9rem;
-  color: var(--w70);
-  line-height: 1.7;
+  font-size: 1.05rem;
+  color: var(--white);
+  line-height: 1.75;
   font-style: italic;
   border-left: 2px solid var(--gold-bd);
   padding-left: 14px;
   margin: 0;
+}
+
+@media (max-width: 700px) {
+  .pvideo__inner {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 16px;
+  }
 }
 
 /* ================================================================
@@ -1028,8 +1087,8 @@ button {
 }
 
 .pcard__av {
-  width: 36px;
-  height: 36px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: var(--gold-20);
   border: 1.5px solid var(--gold-bd);
@@ -1040,6 +1099,7 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
 .pcard__auth strong {
@@ -1065,7 +1125,7 @@ button {
 
 .pcard__txt {
   font-size: .9rem;
-  color: var(--w70);
+  color: #ffffff;
   line-height: 1.65;
   font-style: italic;
 }
@@ -1077,11 +1137,26 @@ button {
   background: var(--bg);
   border: 1px solid var(--gold-bd);
   border-radius: 16px;
-  padding: 36px 32px;
+  padding: 40px 36px;
   margin-top: 52px;
   display: flex;
+  flex-direction: row;
+  gap: 48px;
+  align-items: center;
+}
+
+/* coluna do vídeo — largura fixa para vídeo vertical */
+.caso-real__video-col {
+  flex-shrink: 0;
+  width: 280px;
+}
+
+/* coluna do depoimento — ocupa o resto */
+.caso-real__body {
+  flex: 1;
+  display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 18px;
 }
 
 .caso-real__badge {
@@ -1089,26 +1164,26 @@ button {
   background: var(--gold-20);
   color: var(--gold);
   border: 1px solid var(--gold-bd);
-  font-size: .7rem;
+  font-size: .72rem;
   font-weight: 700;
   letter-spacing: .1em;
   text-transform: uppercase;
-  padding: 4px 14px;
+  padding: 5px 16px;
   border-radius: 999px;
   align-self: flex-start;
 }
 
 .caso-real__num {
-  font-size: clamp(2.8rem, 6vw, 4rem);
+  font-size: clamp(3.2rem, 6vw, 5rem);
   font-weight: 900;
   color: var(--gold);
   line-height: 1;
 }
 
 .caso-real__desc {
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: var(--w70);
-  margin-top: -8px;
+  margin-top: -10px;
 }
 
 .caso-real__row {
@@ -1119,20 +1194,20 @@ button {
 
 .caso-real__mini {
   border-radius: 10px;
-  padding: 16px 18px;
+  padding: 18px 20px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
 .caso-real__mini span {
-  font-size: 1.4rem;
+  font-size: 1.6rem;
   font-weight: 900;
   line-height: 1;
 }
 
 .caso-real__mini small {
-  font-size: .76rem;
+  font-size: .82rem;
   color: var(--w40);
   line-height: 1.4;
 }
@@ -1158,13 +1233,13 @@ button {
 .caso-real__auth {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   padding-top: 4px;
 }
 
 .caso-real__av {
-  width: 40px;
-  height: 40px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: var(--gold);
   color: #111;
@@ -1174,38 +1249,50 @@ button {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
+  border: 2px solid var(--gold-bd);
+}
+
+.caso-real__av img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .caso-real__auth strong {
   display: block;
-  font-size: .92rem;
+  font-size: 1.05rem;
   color: var(--white);
   font-weight: 700;
 }
 
 .caso-real__auth span {
   display: block;
-  font-size: .76rem;
+  font-size: .82rem;
   color: var(--w40);
   margin-top: 2px;
 }
 
 .caso-real__quote {
-  font-size: .88rem;
+  font-size: 1rem;
   color: var(--w70);
-  line-height: 1.7;
+  line-height: 1.75;
   font-style: italic;
   border-left: 2px solid var(--gold-bd);
-  padding-left: 14px;
+  padding-left: 16px;
   margin: 0;
 }
 
-/* ================================================================
-   RESPONSIVO
-   ================================================================ */
-@media (max-width: 600px) {
-  .prova__stat-row {
-    grid-template-columns: 1fr;
+@media (max-width: 700px) {
+  .caso-real {
+    flex-direction: column;
+    gap: 28px;
+    padding: 24px 20px;
+  }
+
+  .caso-real__video-col {
+    width: 100%;
   }
 
   .caso-real__row {
@@ -1216,10 +1303,6 @@ button {
     flex-direction: column;
     align-items: flex-start;
     gap: 8px;
-  }
-
-  .caso-real {
-    padding: 24px 20px;
   }
 }
 
@@ -1239,7 +1322,6 @@ button {
   text-align: center;
 }
 
-/* ── Label de seção interna ────────────────────────────────────── */
 .valor__section-label {
   font-size: .72rem;
   font-weight: 700;
@@ -1252,7 +1334,7 @@ button {
 }
 
 /* ================================================================
-   LISTA — A Voxel faz por você
+   LISTA — serviços
    ================================================================ */
 .valor__lista {
   display: flex;
@@ -1276,7 +1358,6 @@ button {
   transform: translateX(4px);
 }
 
-/* Item destaque — borda dourada */
 .vlista__item--destaque {
   border-color: rgba(255, 197, 1, .25);
   background: rgba(255, 197, 1, .04);
@@ -1381,7 +1462,6 @@ button {
   width: 100%;
 }
 
-/* Sigla grande */
 .vcard__sigla {
   font-size: 2.6rem;
   font-weight: 900;
@@ -1390,7 +1470,6 @@ button {
   letter-spacing: -.02em;
 }
 
-/* Sub-label menor */
 .vcard__label {
   font-size: .78rem;
   font-weight: 600;
@@ -1400,7 +1479,6 @@ button {
   line-height: 1.4;
 }
 
-/* Descrição em branco destaque */
 .vcard__desc {
   font-size: 1rem;
   font-weight: 700;
@@ -1461,7 +1539,6 @@ button {
   color: var(--white);
   font-weight: 400;
   line-height: 1.7;
-  padding-left: 4px;
   border-left: 2px solid var(--gold-bd);
   padding-left: 16px;
 }
@@ -1539,9 +1616,6 @@ button {
   line-height: 1.65;
 }
 
-/* ================================================================
-   CTA FINAL DA DOBRA
-   ================================================================ */
 .valor__cta-pre {
   font-size: 1rem;
   font-style: italic;
@@ -1563,9 +1637,6 @@ button {
   color: var(--w40);
 }
 
-/* ================================================================
-   RESPONSIVO
-   ================================================================ */
 @media (max-width: 900px) {
   .valor__grid {
     grid-template-columns: 1fr;
@@ -1592,7 +1663,6 @@ button {
     gap: 12px;
   }
 }
-
 
 /* ================================================================
    DOBRA 5 — FECHAMENTO
@@ -1626,7 +1696,6 @@ button {
   gap: 28px;
 }
 
-/* Headline — alinhada à esquerda, bem grande */
 .fechamento__hl {
   font-size: clamp(2rem, 4vw, 2.8rem);
   font-weight: 900;
@@ -1639,7 +1708,6 @@ button {
   font-style: italic;
 }
 
-/* Sub — branco, bold no trecho final */
 .fechamento__sub {
   font-size: 1rem;
   color: var(--white);
@@ -1653,7 +1721,6 @@ button {
   font-weight: 800;
 }
 
-/* ── Card de vagas ─────────────────────────────────────────────── */
 .fechamento__vagas {
   background: var(--bg);
   border: 1px solid var(--gold-bd);
@@ -1729,12 +1796,10 @@ button {
 .fechamento__vagas-fill {
   height: 100%;
   width: 61%;
-  /* 11/18 */
   background: var(--gold);
   border-radius: 999px;
 }
 
-/* ── Botões ────────────────────────────────────────────────────── */
 .fechamento__btns {
   display: flex;
   flex-direction: column;
@@ -1752,7 +1817,6 @@ button {
   justify-content: center;
 }
 
-/* ── Selos ─────────────────────────────────────────────────────── */
 .fechamento__selos {
   display: flex;
   gap: 20px;
@@ -1763,7 +1827,7 @@ button {
 .fechamento__selos span {
   font-size: .82rem;
   font-weight: 600;
-  color: var(--w40);
+  color: #ffffff;
 }
 
 .fechamento__eyebrow {
@@ -1780,9 +1844,6 @@ button {
   border-radius: 999px;
 }
 
-/* ================================================================
-   RESPONSIVO
-   ================================================================ */
 @media (max-width: 600px) {
   .fechamento {
     padding: 70px 24px;
@@ -1801,8 +1862,6 @@ button {
   }
 }
 
-
-
 /* ================================================================
    DOBRA 6 — FORMULÁRIO
    ================================================================ */
@@ -1820,7 +1879,6 @@ button {
   margin: 0 auto;
 }
 
-/* ── Cópia ─────────────────────────────────────────────────────── */
 .form__hl {
   font-size: clamp(1.8rem, 2.8vw, 2.4rem);
   font-weight: 900;
@@ -1829,7 +1887,6 @@ button {
   margin: 16px 0 32px;
 }
 
-/* Steps */
 .form__steps {
   list-style: none;
   display: flex;
@@ -1849,7 +1906,6 @@ button {
   border-top: 1px solid var(--bd);
 }
 
-/* Ícone menor */
 .form__step-icon {
   width: 22px;
   height: 22px;
@@ -1877,7 +1933,6 @@ button {
   font-weight: 800;
 }
 
-/* Badge "30 minutos" */
 .form__badge {
   display: inline-block;
   background: rgba(255, 255, 255, .06);
@@ -1891,7 +1946,6 @@ button {
   line-height: 1.7;
 }
 
-/* Frase destaque */
 .form__destaque {
   font-size: 1.05rem;
   font-weight: 700;
@@ -1902,7 +1956,6 @@ button {
   border-left: 3px solid var(--gold);
 }
 
-/* Selos */
 .form__selos {
   display: flex;
   flex-direction: column;
@@ -1916,7 +1969,6 @@ button {
   color: #ffffff;
 }
 
-/* ── Lado direito (título + form) ──────────────────────────────── */
 .form__side {
   display: flex;
   flex-direction: column;
@@ -1930,7 +1982,6 @@ button {
   line-height: 1.4;
 }
 
-/* ── Caixa do formulário ───────────────────────────────────────── */
 .form__box {
   background: var(--bg2);
   border: 1px solid var(--bd);
@@ -1981,12 +2032,12 @@ button {
 
 .form__btn {
   background: var(--gold);
-  color: #111;
+  color: #ffffff;
   padding: 18px;
   border-radius: 9px;
   font-family: var(--font);
   font-weight: 800;
-  font-size: 1rem;
+  font-size: 1.1vw;
   cursor: pointer;
   transition: all var(--ease);
   animation: heroPulse 2.5s ease 1s infinite;
@@ -2004,7 +2055,6 @@ button {
   text-align: center;
 }
 
-/* ── Responsivo ────────────────────────────────────────────────── */
 @media (max-width: 900px) {
   .form__inner {
     grid-template-columns: 1fr;
@@ -2069,8 +2119,26 @@ button {
   margin-top: 4px;
 }
 
+/* ================================================================
+   HELPERS
+   ================================================================ */
+.check-green {
+  color: #4ade80;
+  font-weight: 900;
+  margin-right: 8px;
+}
 
+.check-gold {
+  color: var(--gold);
+  font-weight: 900;
+  margin-right: 10px;
+}
 
+.x-red {
+  color: #f87171;
+  font-weight: 900;
+  margin-right: 8px;
+}
 
 /* ================================================================
    RESPONSIVO — TABLET (≤ 900px)
@@ -2097,15 +2165,6 @@ button {
     gap: 36px;
   }
 
-  .dor__bloco {
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .dor__bloco-num {
-    font-size: 2rem;
-  }
-
   .fechamento__btns {
     flex-direction: column;
     align-items: center;
@@ -2118,16 +2177,9 @@ button {
     text-align: center;
   }
 
-  .dor__bloco1 {
-    display: grid;
-
-  }
-
-
   /* ================================================================
-   RESPONSIVO — HERO MOBILE (≤ 768px)
-   Troca imagem de fundo + ajusta tipografia da dobra 1
-   ================================================================ */
+     RESPONSIVO — HERO MOBILE (≤ 768px)
+     ================================================================ */
   @media (max-width: 768px) {
     .hero {
       background-image: url('f1-mob.jpg');
@@ -2140,7 +2192,6 @@ button {
       padding-bottom: 5vw;
       padding-left: 6%;
       padding-right: 6%;
-
     }
 
     .hero__image-col {
@@ -2171,7 +2222,7 @@ button {
     }
 
     .hero__cta {
-      font-size: 3.7vw;
+      font-size: 14px;
       padding: 16px 24px;
       width: 100%;
       text-align: center;
@@ -2195,11 +2246,9 @@ button {
     }
   }
 
-
   /* ================================================================
-   RESPONSIVO — MOBILE (≤ 600px)
-   Ajustes gerais das demais dobras
-   ================================================================ */
+     RESPONSIVO — MOBILE (≤ 600px)
+     ================================================================ */
   @media (max-width: 600px) {
     .logos-bar {
       padding: 32px 0;
@@ -2226,5 +2275,11 @@ button {
       width: 100%;
       justify-content: center;
       text-align: center;
+      font-size: 14px;
+    }
+
+    .form__btn {
+      font-size: 14px;
     }
   }
+}
