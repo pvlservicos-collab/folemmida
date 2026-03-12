@@ -260,6 +260,7 @@ button {
 }
 
 
+
 /* ================================================================
    HERO — APROVADO / NÃO MEXA
    ================================================================ */
@@ -311,9 +312,6 @@ button {
   color: var(--white);
   line-height: 1.38;
   margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
 }
 
 .hero__headline--gold {
@@ -327,15 +325,12 @@ button {
   color: var(--white);
 }
 
-.hero__mark {
+.hero__marca {
   font-weight: 800;
   color: var(--white);
   background: none;
   -webkit-text-fill-color: var(--white);
-  text-decoration: underline;
-  text-decoration-color: var(--gold);
-  text-underline-offset: 4px;
-  text-decoration-thickness: 3px;
+  text-decoration: none;
 }
 
 .hero__proof {
@@ -401,6 +396,44 @@ button {
   font-size: 1rem;
   color: var(--gold);
 }
+
+@media (max-width: 768px) {
+  .hero__content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero__headline {
+    align-items: center;
+  }
+
+  .hero__proof {
+    text-align: center;
+  }
+
+  .hero__bullets {
+    align-items: center;
+  }
+
+  .marca {
+    background: none;
+    color: inherit;
+  }
+
+  .hero__marca {
+    background: none;
+    -webkit-text-fill-color: var(--white);
+    display: inline;
+  }
+}
+
+
+
+
+
+
+
+
 
 /* ================================================================
    LOGOS BAR — Scroll infinito
