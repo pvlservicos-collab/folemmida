@@ -2,774 +2,517 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Voxel - Gestão Financeira para Restaurantes</title>
-  <meta name="description"
-    content="Descubra para onde vai cada real do seu restaurante e tenha lucro previsível em 30 dias.">
-  <link rel="stylesheet" href="index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bravy School – LSC 3ª Edição</title>
+  <link rel="stylesheet" href="index.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
 
   <!-- ============================================================
-       DOBRA 1 — HERO
-       ============================================================ -->
+       BRAVY SCHOOL – LSC 3ª EDIÇÃO · index.html
+       Seções:
+         1. HERO         – Topbar countdown + título + mockup + CTA
+         2. CRONOGRAMA   – Schedule em cards, Dia 1 e Dia 2
+         3. MENTOR       – Foto, bio, stats e certificações
+         4. POR QUE FALHA – Cards de erros comuns + CTA
+         5. 4 PILARES    – Diagrama losango + promo ClickUp
+         6. BÔNUS        – Grid de bonus cards
+         7. PRICING      – Simple Pass vs Pro Pass
+         8. PROVA SOCIAL – Grid de proof cards (famosos)
+         9. FOOTER       – WhatsApp + copy + social
+  ============================================================ -->
+
+  <!-- BLOCO 1 · HERO -->
   <section class="hero" id="hero">
-    <div class="hero__inner">
-      <div class="hero__content">
-
-        <img src="logo-voxel.png" alt="Voxel" class="hero__logo">
-
-        <h1 class="hero__headline">
-          DESCUBRA PARA ONDE VAI <span class="hero__headline--gold">CADA REAL DO SEU RESTAURANTE</span> E TENHA LUCRO
-          PREVISÍVEL EM <u style="text-decoration-color: var(--gold);">30 DIAS</u>
-        </h1>
-
-        <!-- ALTERAÇÃO: "terceirizando o financeiro com a Voxel" -->
-        <p class="hero__proof">
-          <strong>Mais de 300 restaurantes</strong> já conquistaram isso
-          terceirizando o financeiro com a Voxel.
-        </p>
-
-        <a href="#form" class="hero__cta" id="hero-cta">
-          Quero ter clareza nos meus números</a>
-
-        <ul class="hero__bullets">
-          <li class="hero__bullet hero__bullet--check">
-            <span class="hero__bullet-icon">✓</span>
-            Sem planilhas
-          </li>
-          <li class="hero__bullet">
-            <span class="hero__bullet-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="11" cy="11" r="8" />
-                <line x1="21" y1="21" x2="16.65" y2="16.65" />
-              </svg>
-            </span>
-            Diagnóstico Gratuíto
-          </li>
-          <li class="hero__bullet">
-            <span class="hero__bullet-icon">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                stroke-linecap="round" stroke-linejoin="round">
-                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                <circle cx="12" cy="7" r="4" />
-              </svg>
-            </span>
-            Fale agora com um especialista
-          </li>
-        </ul>
-
+    <div class="hero__topbar">
+      <div class="countdown-pill">
+        <span class="hero__topbar-text">2º lote encerra em</span>
+        <div class="countdown">
+          <span class="countdown__unit"><b id="cd-d">00</b><small>d</small></span>
+          <span class="countdown__sep">:</span>
+          <span class="countdown__unit"><b id="cd-h">00</b><small>h</small></span>
+          <span class="countdown__sep">:</span>
+          <span class="countdown__unit"><b id="cd-m">00</b><small>m</small></span>
+          <span class="countdown__sep">:</span>
+          <span class="countdown__unit"><b id="cd-s">00</b><small>s</small></span>
+        </div>
       </div>
-      <div class="hero__image-col" aria-hidden="true"></div>
+      <a href="#pricing" class="btn btn--primary">Garantir minha vaga &rarr;</a>
+    </div>
+
+    <div class="hero__content container">
+      <div class="hero__meta">
+        <span class="hero__date">21 E 22 <small>MARÇO</small></span>
+        <span class="hero__time">10h ÀS 18h <small>HORÁRIO</small></span>
+        <span class="hero__platform">ZOOM <small>AO VIVO</small></span>
+      </div>
+      <h1 class="hero__title">Implemente e automatize seus<br />processos dentro do ClickUp em 2 dias</h1>
+      <div class="mockup-browser">
+        <div class="mockup-browser__bar">
+          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+          <div class="mockup-browser__url">app.clickup.com / workspace</div>
+        </div>
+        <div class="mockup-browser__screen">
+          <div class="mockup-sidebar">
+            <div class="mockup-sidebar__item active"></div>
+            <div class="mockup-sidebar__item"></div>
+            <div class="mockup-sidebar__item"></div>
+            <div class="mockup-sidebar__item"></div>
+            <div class="mockup-sidebar__item"></div>
+            <div class="mockup-sidebar__item"></div>
+          </div>
+          <div class="mockup-content">
+            <div class="mockup-row mockup-row--header"></div>
+            <div class="mockup-task"><span class="task-dot orange"></span>
+              <div class="task-line long"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot orange"></span>
+              <div class="task-line medium"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot gray"></span>
+              <div class="task-line short"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot gray"></span>
+              <div class="task-line long"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot gray"></span>
+              <div class="task-line medium"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot orange"></span>
+              <div class="task-line short"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot gray"></span>
+              <div class="task-line long"></div>
+            </div>
+            <div class="mockup-task"><span class="task-dot orange"></span>
+              <div class="task-line medium"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="hero__desc">Ao final, você terá seus processos centralizados e automatizados dentro do
+        ClickUp.<br />Seu time estará treinado para extrair o máximo potencial dela. E você terá mais<br />tempo para
+        focar no que realmente importa.</p>
+      <a href="#pricing" class="btn btn--primary btn--lg">Quero implementar o ClickUp &rarr;</a>
+      <div class="hero__progress">
+        <span class="hero__progress-label">Encerramento do 2º lote</span>
+        <span class="hero__progress-total">75/100</span>
+        <div class="progress-bar">
+          <div class="progress-bar__fill" style="width:75%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ticker">
+      <div class="ticker__track">
+        <span>SEM REPLAY</span><span class="dot-sep">&bull;</span>
+        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
+        <span>1 FINAL DE SEMANA</span><span class="dot-sep">&bull;</span>
+        <span>SEM REPLAY</span><span class="dot-sep">&bull;</span>
+        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
+        <span>1 FINAL DE SEMANA</span><span class="dot-sep">&bull;</span>
+        <span>SEM REPLAY</span><span class="dot-sep">&bull;</span>
+        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
+        <span>1 FINAL DE SEMANA</span><span class="dot-sep">&bull;</span>
+        <span>SEM REPLAY</span><span class="dot-sep">&bull;</span>
+        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
+        <span>1 FINAL DE SEMANA</span><span class="dot-sep">&bull;</span>
+      </div>
     </div>
   </section>
-  <!-- ============================================================ -->
 
-  <!-- ============================================================
-       LOGOS BAR — Scroll infinito
-       ============================================================ -->
-  <section class="logos-bar">
-    <!-- ALTERAÇÃO: novo texto -->
-    <p class="logos-bar__label">Restaurantes do Brasil e Portugal confiam na maior assessoria financeira para
-      Foodservice da América latina
-    </p>
-    <div class="logos-tape">
-      <div class="logos-tape__track" id="logoTrack">
-        <div class="logos-tape__item"><img src="Logo - Bob´s.png" alt="Bob's"></div>
-        <div class="logos-tape__item"><img src="Logo - Cannoleria do Bixiga.png" alt="Cannoleria do Bixiga"></div>
-        <div class="logos-tape__item"><img src="Logo - Forneria Original.png" alt="Forneria Original"></div>
-        <div class="logos-tape__item"><img src="Logo - Herois Burguer.png" alt="Heróis Burguer"></div>
-        <div class="logos-tape__item"><img src="Logo - Janga.png" alt="Janga"></div>
-        <div class="logos-tape__item"><img src="Logo - La pasta Gialla.png" alt="La Pasta Gialla"></div>
-        <div class="logos-tape__item"><img src="Logo - Meatz Burguer.png" alt="Meatz Burguer"></div>
-        <div class="logos-tape__item"><img src="Logo - Mirá.png" alt="Mirá"></div>
-        <div class="logos-tape__item"><img src="Logo - Outros 500.png" alt="Outros 500"></div>
-        <div class="logos-tape__item"><img src="Logo - Pizza Prime.png" alt="Pizza Prime"></div>
-        <div class="logos-tape__item"><img src="Logo - QCB.png" alt="QCB"></div>
-        <div class="logos-tape__item"><img src="Logo - Subway.png" alt="Subway"></div>
+  <!-- BLOCO 2 · CRONOGRAMA -->
+  <section class="schedule" id="schedule">
+    <div class="container">
+      <span class="label-tag">CRONOGRAMA COMPLETO</span>
+      <h2 class="section-title">O que você vai aprender</h2>
+      <p class="section-sub">2 dias intensivos, das 10h às 18h, com pausa para almoço</p>
+      <div class="schedule__tabs">
+        <button class="tab tab--active">Dia 1 &ndash; 21/03</button>
+        <button class="tab">Dia 2 &ndash; 22/03</button>
       </div>
-    </div>
-    <p class="pulse-stat">
-      <span class="pulse-dot"></span>
-      Mais de <strong>300 restaurantes</strong> no Brasil e em Portugal
-    </p>
-  </section>
-
-  <script>
-    (function () {
-      const track = document.getElementById('logoTrack');
-      if (!track) return;
-      track.innerHTML += track.innerHTML;
-      let pos = 0;
-      const speed = 0.5;
-      const halfWidth = track.scrollWidth / 2;
-      function animate() {
-        pos += speed;
-        if (pos >= halfWidth) pos = 0;
-        track.style.transform = 'translateX(-' + pos + 'px)';
-        requestAnimationFrame(animate);
-      }
-      animate();
-    })();
-  </script>
-  <!-- ============================================================ -->
-
-
-  <!-- ============================================================
-       DOBRA 2 — DOR
-       ============================================================ -->
-  <section class="dor" id="dor">
-    <div class="wrap">
-
-
-
-      <h2 class="dor__headline reveal">
-        Você não está perdendo <span class="dor__headline--gold">dinheiro</span> por falta de esforço.
-        <span class="dor__headline--sub">Está perdendo porque ninguém te mostrou para onde ele está indo.</span>
-      </h2>
-
-      <div class="dor__cards-wrap">
-
-        <!-- CARD 1: O PROBLEMA -->
-        <div class="dor__card dor__card--problema reveal">
-          <div class="dor__card-badge">O Problema</div>
-
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--green">
-              <i class="ico">✓</i><span>Salão <strong>cheio</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--green">
-              <i class="ico">✓</i><span>Delivery <strong>rodando</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--green">
-              <i class="ico">✓</i><span>Muito <strong>trabalho</strong></span>
-            </div>
-          </div>
-
-          <p class="dor__card-text">Mas no final do mês o caixa <strong>não reflete</strong> o movimento.</p>
-
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--red">
-              <i class="ico ico--red">✕</i><span>O sistema gera relatório que ninguém entende</span>
-            </div>
-            <div class="dor__card-item dor__card-item--red">
-              <i class="ico ico--red">✕</i><span>A planilha é bagunçada</span>
-            </div>
+      <div class="schedule__list">
+        <div class="schedule__item"><span class="schedule__time">10:00</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Abertura e Boas-vindas</strong>
+            <p>Introdução ao workshop e alinhamento de expectativas</p>
           </div>
         </div>
-
-        <!-- CARD 2: ENQUANTO ISSO -->
-        <div class="dor__card dor__card--cinza reveal">
-          <div class="dor__card-badge">Enquanto isso</div>
-
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--dark">
-              <i class="ico ico--gray">→</i><span>Quanto <strong>posso investir</strong> no próximo mês?</span>
-            </div>
-            <div class="dor__card-item dor__card-item--dark">
-              <i class="ico ico--gray">→</i><span><strong>Contratar</strong> mais um funcionário ou
-                <strong>cortar</strong>?</span>
-            </div>
-            <div class="dor__card-item dor__card-item--dark">
-              <i class="ico ico--gray">→</i><span>Posso abrir uma <strong>segunda unidade</strong>?</span>
-            </div>
-          </div>
-
-          <p class="dor__card-text">Você responde no achismo porque não tem outra opção.</p>
-
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Conversas <strong>desnecessárias</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Noites <strong>mal dormidas</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--ghost">
-              <i class="ico">✕</i><span>Finais de semana <strong>sem descanso
-                </strong></span>
-            </div>
+        <div class="schedule__item"><span class="schedule__time">10:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Fundamentos do ClickUp</strong>
+            <p>Entendendo a estrutura: Workspace, Spaces, Folders e Lists</p>
           </div>
         </div>
-
-        <!-- CARD 3: A VIRADA -->
-        <div class="dor__card dor__card--virada reveal">
-          <div class="dor__card-badge dor__card-badge--green">A Virada</div>
-
-          <p class="dor__card-text--virada">A <strong>Voxel</strong> faz o que planilha e sistema nunca fizeram te
-            mostra exatamente para onde vai cada real </p>
-
-          <div class="dor__card-items">
-            <div class="dor__card-item dor__card-item--gold">
-              <i class="ico">✓</i><span>Você cresce <strong>com segurança</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--gold">
-              <i class="ico">✓</i><span>Toma decisões com <strong>dados reais</strong></span>
-            </div>
-            <div class="dor__card-item dor__card-item--gold">
-              <i class="ico">✓</i><span>Para de <strong>decidir no escuro</strong></span>
-            </div>
+        <div class="schedule__item"><span class="schedule__time">11:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Mapeamento de Processos</strong>
+            <p>Como identificar e documentar os processos da sua empresa</p>
           </div>
         </div>
-
+        <div class="schedule__item schedule__item--break"><span class="schedule__time">12:30</span>
+          <div class="schedule__dot schedule__dot--gray"></div>
+          <div class="schedule__info"><strong>Almoço</strong>
+            <p>Intervalo para refeição</p>
+          </div>
+        </div>
+        <div class="schedule__item"><span class="schedule__time">13:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Estruturando seu Workspace</strong>
+            <p>Criando a arquitetura ideal para o seu negócio</p>
+          </div>
+        </div>
+        <div class="schedule__item"><span class="schedule__time">14:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Custom Fields e Automações Básicas</strong>
+            <p>Personalizando campos e criando automações nativas</p>
+          </div>
+        </div>
+        <div class="schedule__item"><span class="schedule__time">15:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Dashboards e Relatórios</strong>
+            <p>Visualizando dados e métricas importantes</p>
+          </div>
+        </div>
+        <div class="schedule__item"><span class="schedule__time">16:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Sessão de Dúvidas &ndash; Dia 1</strong>
+            <p>Tire suas dúvidas sobre o conteúdo do dia</p>
+          </div>
+        </div>
+        <div class="schedule__item"><span class="schedule__time">17:30</span>
+          <div class="schedule__dot"></div>
+          <div class="schedule__info"><strong>Encerramento Dia 1</strong>
+            <p>Resumo e preparação para o Dia 2</p>
+          </div>
+        </div>
       </div>
-
-      <div class="dor__cta-wrap reveal">
-        <a href="#form" class="cta-gold">Quero ter Lucro Previsível</a>
-      </div>
-
+      <a href="#pricing" class="btn btn--primary btn--lg">Comprar ingresso agora &rarr;</a>
     </div>
   </section>
-  <!-- ============================================================ -->
 
-  <!-- ============================================================
-
-
-
-
-
-  <!-- ============================================================
-       DOBRA 3 — PROVA SOCIAL
-       ============================================================ -->
-  <section class="prova" id="prova">
-    <div class="wrap">
-
-      <div class="sec-hd reveal">
-        <p class="sec-eyebrow">Ouça quem já passou por isso</p>
-        <!-- ALTERAÇÃO: nova headline e sub -->
-        <h2 class="sec-title">O que acontece quando o Dono de Restaurante <em>domina seu financeiro</em></h2>
-        <p class="prova__sub">Mais de 300 tomaram essa decisão. Veja o que eles conquistaram.</p>
-      </div>
-
-      <!-- ALTERAÇÃO: stats corrigidos -->
-      <div class="prova__stats reveal">
-        <div class="prova__stat2">
-          <span class="prova__stat-num">+300</span>
-          <span class="prova__stat-label">Restaurantes atendidos em 26 estados do Brasil e Portugal</span>
-        </div>
-        <!-- ALTERAÇÃO: tirou +R$30mil, manteve só 30 dias com novo texto -->
-        <div class="prova__stat-row">
-          <div class="prova__stat" style="grid-column: 1 / -1;">
-            <span class="prova__stat-num">30 dias</span>
-            <span class="prova__stat-label">Para ter clareza total de seus números</span>
+  <!-- BLOCO 3 · MENTOR -->
+  <section class="mentor" id="mentor">
+    <div class="container">
+      <span class="label-tag">QUEM SERÁ O SEU MENTOR?</span>
+      <h2 class="section-title">Aprenda diretamente com quem <span class="accent">já viveu na prática</span></h2>
+      <div class="mentor__grid">
+        <div class="mentor__photo">
+          <div class="mentor__photo-placeholder">
+            <!-- Substitua pelo: <img src="foto-joao-pedro.jpg" alt="João Pedro Nascimento" /> -->
+            JP
           </div>
         </div>
-      </div>
-
-      <p class="prova__section-label reveal">Depoimentos em vídeo</p>
-
-      <!-- VÍDEOS COM DEPOIMENTO -->
-      <div class="prova__videos">
-
-        <div class="pvideo reveal">
-          <div class="pvideo__inner">
-            <div class="pvideo__video-col">
-              <vturb-smartplayer id="vid-69b1cc21faf9397e232e2bee"
-                style="display: block; width: 100%;"></vturb-smartplayer>
-              <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1cc21faf9397e232e2bee/v4/player.js",
-                  s.async = !0, document.head.appendChild(s);
-              </script>
-            </div>
-            <div class="pvideo__body">
-              <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Antonio.png" alt="António"></div>
-                <div>
-                  <strong>António</strong>
-                  <span>Galo Grijo — Porto, Portugal</span>
+        <div class="mentor__info">
+          <h3 class="mentor__name">João Pedro Nascimento</h3>
+          <span class="mentor__role accent">Fundador da Bravy School</span>
+          <p>Especialista em gestão e automação de processos, João Pedro já ajudou centenas de empresas a
+            transformarem sua operação através do ClickUp.</p>
+          <p>Com anos de experiência implementando sistemas de gestão em negócios de diferentes tamanhos, ele
+            desenvolveu uma metodologia prática e aplicável que você vai aprender neste workshop intensivo.</p>
+          <p>Esqueça teoria sem fim. Aqui você vai aprender fazendo, com acompanhamento direto de quem já passou pelos
+            mesmos desafios que você enfrenta hoje.</p>
+          <div class="mentor__stats">
+            <div class="stat"><strong>+10k</strong><span>Alunos</span></div>
+            <div class="stat"><strong>+1k</strong><span>Empresas implementadas</span></div>
+            <div class="stat"><strong>+14</strong><span>Anos de experiência</span></div>
+          </div>
+          <div class="mentor__certs">
+            <span class="label-tag" style="text-align:left">CERTIFICAÇÕES CLICKUP</span>
+            <div class="certs-grid">
+              <div class="cert-badge">
+                <div class="cert-badge__icon">&#127942;</div>
+                <div class="cert-badge__info"><strong>Verified Consultant</strong><span>Consultor certificado</span>
                 </div>
               </div>
-              <blockquote class="pvideo__quote">
-                "Quem cuidava do financeiro era minha esposa. Isso gerava muito conflito. Hoje ganhei tranquilidade,
-                convívio familiar melhor e tempo para tocar meu negócio."
-              </blockquote>
-            </div>
-          </div>
-        </div>
-
-        <div class="pvideo reveal">
-          <div class="pvideo__inner">
-            <div class="pvideo__video-col">
-              <vturb-smartplayer id="vid-69b1d3b0ee2947d3ff28669d"
-                style="display: block; width: 100%;"></vturb-smartplayer>
-              <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1d3b0ee2947d3ff28669d/v4/player.js",
-                  s.async = !0, document.head.appendChild(s);
-              </script>
-            </div>
-            <div class="pvideo__body">
-              <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Sinval.png" alt="Sinval"></div>
-                <div>
-                  <strong>Sinval Júnior</strong>
-                  <span>Dom Manju — Brasília, DF</span>
-                </div>
+              <div class="cert-badge accent-badge">
+                <div class="cert-badge__icon">&#129302;</div>
+                <div class="cert-badge__info"><strong>AI Expert</strong><span>Especialista em IA</span></div>
               </div>
-              <blockquote class="pvideo__quote">
-                "A gente tinha uma dor por não ter clareza. Saímos de uma reunião com a Voxel e encontramos um furo no
-                estoque que não víamos — e saímos com ações para resolver no mesmo dia."
-              </blockquote>
-            </div>
-          </div>
-        </div>
-
-        <div class="pvideo reveal">
-          <div class="pvideo__inner">
-            <div class="pvideo__video-col">
-              <vturb-smartplayer id="vid-69b1cbe3a10d9a398ab7a83c"
-                style="display: block; width: 100%;"></vturb-smartplayer>
-              <script type="text/javascript">
-                var s = document.createElement("script");
-                s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b1cbe3a10d9a398ab7a83c/v4/player.js",
-                  s.async = !0, document.head.appendChild(s);
-              </script>
-            </div>
-            <div class="pvideo__body">
-              <div class="pvideo__auth">
-                <div class="pvideo__av"><img src="Marina.png" alt="Marina"></div>
-                <div>
-                  <strong>Marina Major</strong>
-                  <span>Restaurante Major</span>
-                </div>
+              <div class="cert-badge">
+                <div class="cert-badge__icon">&#9889;</div>
+                <div class="cert-badge__info"><strong>Power User</strong><span>Usuário avançado</span></div>
               </div>
-              <blockquote class="pvideo__quote">
-                "Quando a Voxel apareceu na minha vida, eles abriram um novo mundo que eu sequer sabia que existia."
-              </blockquote>
-            </div>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="prova__section-label reveal">O que mais clientes dizem</p>
-
-      <div class="prova__cards">
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="Jean.png" alt="Jean"></div>
-              <div>
-                <strong>Jean</strong>
-                <span>Takematos — 4 unidades, Brasília</span>
+              <div class="cert-badge">
+                <div class="cert-badge__icon">&#127760;</div>
+                <div class="cert-badge__info"><strong>Ambassador</strong><span>Embaixador oficial</span></div>
               </div>
             </div>
-            <div class="pcard__stars">★★★★★</div>
-          </div>
-          <p class="pcard__txt">"A Voxel me deu liberdade para crescer e liderar não ficar montando planilha."</p>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="leticia.png" alt="Letícia"></div>
-              <div>
-                <strong>Letícia</strong>
-                <span>Sabor Nordestino — Maceió, AL</span>
-              </div>
-            </div>
-            <div class="pcard__stars">★★★★★</div>
-          </div>
-          <p class="pcard__txt">"Hoje sei meu custo fixo, o que cortar e onde focar. Foi um divisor de águas."</p>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="Felipe.png" alt="Felipe"></div>
-              <div>
-                <strong>Felipe</strong>
-                <span>Meatz Burger — 18 operações, 5 estados</span>
-              </div>
-            </div>
-            <div class="pcard__stars">★★★★★</div>
-          </div>
-          <p class="pcard__txt">"Parceiro no dia a dia e na estratégia nos dá certeza dos indicadores que importam."
-          </p>
-        </div>
-
-        <div class="pcard reveal">
-          <div class="pcard__top">
-            <div class="pcard__auth">
-              <div class="pcard__av"><img src="Rodrigo.png" alt="Rodrigo"></div>
-              <div>
-                <strong>Rodrigo</strong>
-                <span>Mesanina — Brasília, DF</span>
-              </div>
-            </div>
-            <div class="pcard__stars">★★★★★</div>
-          </div>
-          <p class="pcard__txt">"Otimizamos todos os custos. Rentabilidade do negócio melhorou de forma visível."</p>
-        </div>
-
-      </div>
-
-      <!-- CASO REAL: Verona com vídeo -->
-
-      <div class="caso-real reveal">
-        <div class="caso-real__video-col">
-          <vturb-smartplayer id="vid-69b2380a46625199476510ea" style="display: block; width: 100%;"></vturb-smartplayer>
-          <script type="text/javascript">
-            var s = document.createElement("script");
-            s.src = "https://scripts.converteai.net/a185c488-7371-4c95-b8a1-96cebf9b0f98/players/69b2380a46625199476510ea/v4/player.js",
-              s.async = !0, document.head.appendChild(s);
-          </script>
-        </div>
-        <div class="caso-real__body">
-          <div class="caso-real__badge">Caso real com número</div>
-
-          <div class="caso-real__row">
-            <div class="caso-real__mini caso-real__mini--gold">
-              <span>+R$40mil</span>
-              <small>De lucro mensal em 6 meses</small>
-            </div>
-            <div class="caso-real__mini caso-real__mini--red">
-              <span>-14,5%</span>
-              <small>Redução do CMV</small>
-            </div>
-          </div>
-          <div class="caso-real__auth">
-            <div class="caso-real__av">
-              <img src="Verona.png" alt="Verona Restaurante">
-            </div>
-            <div>
-              <strong>Verona Restaurante</strong>
-              <span>Brasília, DF</span>
-            </div>
-          </div>
-          <blockquote class="caso-real__quote">
-            "A gente conseguiu bater o melhor CMV recorde do Verona no pior mês tanto de movimento quanto na
-            estratégia de compra. Hoje temos um estudo perfeito do nosso estabelecimento."
-          </blockquote>
-        </div>
-      </div>
-
-
-      <div class="sec-cta reveal">
-        <a href="#form" class="cta-gold cta-gold--big">Quero ter clareza nos meus números</a>
-      </div>
-
-    </div>
-
-  </section>
-  <!-- ============================================================ -->
-
-  <!-- ============================================================
-       DOBRA 4 — PROPOSTA DE VALOR
-       ============================================================ -->
-  <section class="valor" id="valor">
-    <div class="wrap">
-
-      <div class="sec-hd reveal">
-        <p class="sec-eyebrow">O que a Voxel entrega</p>
-        <!-- ALTERAÇÃO: headline e sub corretos -->
-        <h2 class="sec-title">Assumimos todo seu financeiro.</h2>
-        <p class="valor__sub">Você foca no crescimento</p>
-      </div>
-
-      <!-- ALTERAÇÃO: tirou label "A Voxel faz por você" -->
-      <div class="valor__lista reveal">
-
-        <div class="vlista__item">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="5" width="20" height="14" rx="2" />
-              <line x1="2" y1="10" x2="22" y2="10" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Contas a pagar</strong>
-            <p>Recebimento, agendamento e execução de todos os pagamentos do seu restaurante.</p>
           </div>
         </div>
-
-        <div class="vlista__item">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="3" y="3" width="18" height="18" rx="2" />
-              <line x1="3" y1="9" x2="21" y2="9" />
-              <line x1="3" y1="15" x2="21" y2="15" />
-              <line x1="9" y1="9" x2="9" y2="21" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Conciliação bancária</strong>
-            <p>Cada movimentação registrada e conferida todo dia para que seus números reflitam a realidade.</p>
-          </div>
-        </div>
-
-        <div class="vlista__item">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Auditoria de recebíveis</strong>
-            <p>iFood, UberEats, Cielo, Stone conferimos tudo para garantir que cada venda foi paga.</p>
-          </div>
-        </div>
-
-        <div class="vlista__item vlista__item--destaque">
-          <div class="vlista__ico">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <rect x="2" y="3" width="20" height="14" rx="2" />
-              <line x1="8" y1="21" x2="16" y2="21" />
-              <line x1="12" y1="17" x2="12" y2="21" />
-            </svg>
-          </div>
-          <div class="vlista__body">
-            <strong>Relatórios prontos todo mês</strong>
-            <p>Fechamento completo do mês anterior entregue até o dia 10.</p>
-            <span class="vlista__badge">Sem você precisar pedir</span>
-          </div>
-        </div>
-
-      </div>
-
-      <p class="valor__section-label reveal">Você recebe para decidir</p>
-
-      <div class="valor__grid stagger">
-        <div class="vcard reveal">
-          <div class="vcard__sigla">DRE</div>
-          <div class="vcard__label">Demonstrativo de Resultado</div>
-          <div class="vcard__desc">Lucro ou prejuízo real do mês</div>
-        </div>
-        <div class="vcard reveal">
-          <div class="vcard__sigla">DFC</div>
-          <div class="vcard__label">Fluxo de Caixa</div>
-          <div class="vcard__desc">Para onde vai cada real</div>
-        </div>
-        <div class="vcard reveal">
-          <div class="vcard__sigla">CMV</div>
-          <div class="vcard__label">Custo de Mercadoria</div>
-          <div class="vcard__desc">Se seu cardápio está saudável</div>
-        </div>
-        <div class="vcard reveal">
-          <div class="vcard__sigla">CO</div>
-          <div class="vcard__label">Custo Operacional</div>
-          <div class="vcard__desc">Onde cortar sem prejudicar</div>
-        </div>
-      </div>
-
-      <div class="valor__reuniao reveal">
-        <div class="valor__reuniao-header">
-          <div class="valor__reuniao-ico">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
-              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-              <circle cx="9" cy="7" r="4" />
-              <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-              <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-            </svg>
-          </div>
-          <div>
-            <strong>Você não lê relatório sozinho. Nunca.</strong>
-            <span>Reunião mensal com seu consultor</span>
-          </div>
-        </div>
-        <p class="valor__reuniao-txt">
-          <strong>Seu consultor senta com você</strong>, explica os números e aponta exatamente o que fazer no próximo
-          mês.
-        </p>
-        <ul class="valor__reuniao-checks">
-          <li><span class="check-gold">✓</span> O que melhorou e o que precisa de atenção</li>
-          <li><span class="check-gold">✓</span> Decisões concretas para o próximo mês</li>
-          <li><span class="check-gold">✓</span> Comparativo com a média do mercado</li>
-        </ul>
-      </div>
-
-      <div class="valor__consultor reveal">
-        <div class="valor__consultor-ico">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-            stroke-linecap="round" stroke-linejoin="round">
-            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-          </svg>
-        </div>
-        <div>
-          <strong>Consultor disponível o mês todo</strong>
-          <p>Surgiu uma dúvida fora da reunião? Seu consultor está acessível. Você nunca decide sozinho.</p>
-        </div>
-      </div>
-
-      <div class="sec-cta reveal">
-        <!-- ALTERAÇÃO: tira traços, texto simples -->
-        <p class="valor__cta-pre">Tudo isso começa com 30 minutos de diagnóstico gratuito.</p>
-        <a href="#form" class="cta-gold cta-gold--big">Quero ter Clareza nos meus números</a>
-        <div class="valor__cta-selos">
-          <span>✓ Não precisa entender de números</span>
-          <span>🔒 Diagnóstico sem compromisso</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-  <!-- ============================================================ -->
-
-  <!-- ============================================================
-       DOBRA 5 — FECHAMENTO
-       ============================================================ -->
-  <section class="fechamento" id="fechamento">
-    <div class="fechamento__glow" aria-hidden="true"></div>
-    <div class="wrap">
-      <div class="fechamento__inner reveal">
-
-        <p class="fechamento__eyebrow">O próximo passo é seu</p>
-
-        <h2 class="fechamento__hl">
-          Você pode continuar no achismo. Ou pode ter <em>lucro previsível em 30 dias.</em>
-        </h2>
-
-        <!-- ALTERAÇÃO: "O diagnóstico é gratuito e leva 30 minutos" -->
-        <p class="fechamento__sub">
-          O diagnóstico é gratuito e leva 30 minutos.
-        </p>
-
-        <div class="fechamento__vagas">
-          <div class="fechamento__vagas-header">
-            <span class="fechamento__vagas-label">Vagas este mês</span>
-            <span class="fechamento__vagas-badge">Limitado</span>
-          </div>
-          <div class="fechamento__vagas-num">18</div>
-          <p class="fechamento__vagas-desc">Novos restaurantes por mês limite real de capacidade dos nossos
-            consultores.</p>
-          <div class="fechamento__vagas-bar-wrap">
-            <div class="fechamento__vagas-bar-labels">
-              <span>11 vagas preenchidas</span>
-              <span>7 restantes</span>
-            </div>
-            <div class="fechamento__vagas-bar">
-              <div class="fechamento__vagas-fill"></div>
-            </div>
-          </div>
-        </div>
-
-        <div class="fechamento__btns">
-          <a href="#form" class="cta-gold cta-gold--big">
-            Quero ter Clareza nos meus números
-          </a>
-          <a href="https://wa.me/5596991712835" class="cta-outline" target="_blank" rel="noopener">
-            Falar com um especialista
-          </a>
-        </div>
-
-        <div class="fechamento__selos">
-          <span>✓ Sem planilhas</span>
-          <span>✓ Diagnóstico Gratuíto</span>
-          <span>✓ 30 minutos</span>
-          <span>✓ +300 restaurantes</span>
-        </div>
-
       </div>
     </div>
   </section>
-  <!-- ============================================================ -->
 
-  <!-- ============================================================
-       DOBRA 6 — FORMULÁRIO
-       ============================================================ -->
-  <section class="formulario" id="form">
-    <div class="wrap">
-      <div class="form__inner reveal">
+  <!-- BLOCO 4 · POR QUE A MAIORIA FALHA -->
+  <section class="fails" id="fails">
+    <div class="container">
+      <span class="label-tag">POR QUE A MAIORIA FALHA</span>
+      <h2 class="section-title">A maioria erra ao tentar implementar<br />uma ferramenta como o ClickUp</h2>
+      <div class="fails__grid">
+        <div class="fail-card">
+          <div class="fail-card__icon">&#x2715;</div>
+          <p>Não têm um <strong>método claro</strong> de implementação</p>
+        </div>
+        <div class="fail-card">
+          <div class="fail-card__icon">&#9711;</div>
+          <p>Não têm <strong>processos definidos</strong> e acreditam que a ferramenta vai salvar</p>
+        </div>
+        <div class="fail-card">
+          <div class="fail-card__icon">&#x21C4;</div>
+          <p>Priorizam <strong>automação antes</strong> do processo</p>
+        </div>
+        <div class="fail-card">
+          <div class="fail-card__icon">&#x2261;</div>
+          <p>Fazem gestão orientada a <strong>tarefas</strong> e não a <strong>processos</strong></p>
+        </div>
+      </div>
+      <p class="fails__classic">Um erro clássico que sem dúvidas você comete &#128071;</p>
+      <div class="fails__bad-structure">
+        <div class="bad-folder"><span>&#128193;</span> pasta por cliente</div>
+        <div class="bad-folder"><span>&#128193;</span> pasta por projeto</div>
+        <div class="bad-folder bad-folder--list"><span>&#9776;</span> lista por colaborador</div>
+      </div>
+      <div class="fails__cta">
+        <h3>Você está <span class="strikethrough">matando</span> o ClickUp</h3>
+        <p>E eu vou te provar, <span class="accent">de forma sistemática</span>, no dia 21 e 22 de março.</p>
+      </div>
+    </div>
+  </section>
 
-        <div class="form__copy">
-          <p class="fechamento__eyebrow">Diagnóstico Gratuito</p>
-          <h2 class="form__hl">O que acontece quando você clica</h2>
+  <!-- BLOCO 5 · 4 PILARES -->
+  <section class="pillars" id="pillars">
+    <div class="container">
+      <span class="label-tag">WORKSHOP DE 2 DIAS</span>
+      <h2 class="section-title">Para você aprender, na prática, os <span class="accent">4 pilares
+          essenciais</span><br />que aumentam os lucros, geram caixa e libertam sua agenda</h2>
+      <div class="pillars__diamond">
+        <div class="pillar-node pillar-node--top">
+          <div class="pillar-node__dot"></div><span>Automação de<br />processos</span>
+        </div>
+        <div class="pillar-node pillar-node--left">
+          <div class="pillar-node__dot"></div><span>Planejamento<br />estratégico</span>
+        </div>
+        <div class="pillar-node pillar-node--right">
+          <div class="pillar-node__dot"></div><span>Processo<br />comercial</span>
+        </div>
+        <div class="pillar-node pillar-node--bottom">
+          <div class="pillar-node__dot"></div><span>Equipe<br />autoresponsável</span>
+        </div>
+        <svg class="diamond-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+              <feMerge>
+                <feMergeNode in="coloredBlur" />
+                <feMergeNode in="SourceGraphic" />
+              </feMerge>
+            </filter>
+          </defs>
+          <line x1="150" y1="30" x2="30" y2="150" stroke="#f97316" stroke-width="1.2" opacity="0.6"
+            filter="url(#glow)" />
+          <line x1="150" y1="30" x2="270" y2="150" stroke="#f97316" stroke-width="1.2" opacity="0.6"
+            filter="url(#glow)" />
+          <line x1="30" y1="150" x2="150" y2="270" stroke="#333" stroke-width="1" opacity="0.4" />
+          <line x1="270" y1="150" x2="150" y2="270" stroke="#333" stroke-width="1" opacity="0.4" />
+          <line x1="150" y1="30" x2="150" y2="270" stroke="#2a2a2a" stroke-width="0.8" opacity="0.4" />
+          <line x1="30" y1="150" x2="270" y2="150" stroke="#2a2a2a" stroke-width="0.8" opacity="0.4" />
+          <circle cx="150" cy="30" r="5" fill="#fff" opacity="0.9" />
+          <circle cx="30" cy="150" r="5" fill="#fff" opacity="0.9" />
+          <circle cx="270" cy="150" r="5" fill="#fff" opacity="0.9" />
+          <circle cx="150" cy="270" r="5" fill="#444" opacity="0.6" />
+          <circle cx="150" cy="150" r="3" fill="#2a2a2a" opacity="0.6" />
+        </svg>
+      </div>
+      <a href="#pricing" class="btn btn--primary btn--lg">Quero participar da imersão &rarr;</a>
+      <div class="clickup-promo">
+        <h3>Você aprenderá a implementar o ClickUp</h3>
+        <p>A ferramenta que os maiores players usam para organizar processos e escalar negócios</p>
+        <div class="mockup-browser mockup-browser--dark">
+          <div class="mockup-browser__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            <div class="mockup-browser__url">app.clickup.com / automation</div>
+          </div>
+          <div class="mockup-browser__screen mockup-browser__screen--alt">
+            <div class="mockup-sidebar">
+              <div class="mockup-sidebar__item active"></div>
+              <div class="mockup-sidebar__item"></div>
+              <div class="mockup-sidebar__item"></div>
+              <div class="mockup-sidebar__item"></div>
+              <div class="mockup-sidebar__item"></div>
+            </div>
+            <div class="mockup-content mockup-content--alt">
+              <div class="mockup-row mockup-row--header"></div>
+              <div class="mockup-task"><span class="task-dot orange"></span>
+                <div class="task-line long"></div>
+                <div class="task-badge"></div>
+              </div>
+              <div class="mockup-task"><span class="task-dot orange"></span>
+                <div class="task-line medium"></div>
+                <div class="task-badge task-badge--alt"></div>
+              </div>
+              <div class="mockup-task"><span class="task-dot gray"></span>
+                <div class="task-line long"></div>
+                <div class="task-badge"></div>
+              </div>
+              <div class="mockup-task"><span class="task-dot gray"></span>
+                <div class="task-line short"></div>
+                <div class="task-badge task-badge--alt"></div>
+              </div>
+              <div class="mockup-task"><span class="task-dot orange"></span>
+                <div class="task-line medium"></div>
+                <div class="task-badge"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-          <ul class="form__steps">
-            <li>
-              <span class="form__step-icon">✓</span>
-              <p>Você agenda 30 minutos com um especialista em restaurantes</p>
-            </li>
-            <li>
-              <span class="form__step-icon">✓</span>
-              <p>Recebe um <strong>diagnóstico real do seu financeiro</strong> mesmo que não contrate</p>
-            </li>
-            <li>
-              <span class="form__step-icon">✓</span>
-              <p><strong>Sem pressão. Sem compromisso. Sem custo.</strong></p>
-            </li>
+  <!-- BLOCO 6 · BÔNUS -->
+  <section class="bonuses" id="bonuses">
+    <div class="container">
+      <span class="label-tag">INCLUSO NA IMERSÃO</span>
+      <h2 class="section-title">Bônus exclusivos</h2>
+      <div class="bonuses__grid">
+        <div class="bonus-card">
+          <div class="bonus-card__icon">&#x21C4;</div>
+          <h4>Templates de ClickUp</h4>
+          <p>Estrutura orientada a processos que aumenta em 10x sua produtividade.</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-card__icon">&#9889;</div>
+          <h4>Templates de n8n e Make</h4>
+          <p>Automações prontas para turbinar seus processos no ClickUp.</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-card__icon">&#9678;</div>
+          <h4>Canva de Planejamento</h4>
+          <p>Organize objetivos e estratégias de forma clara e eficiente.</p>
+        </div>
+        <div class="bonus-card">
+          <div class="bonus-card__icon">&#10022;</div>
+          <h4>Framework de Contratação</h4>
+          <p>Seleção assertiva alinhando candidatos aos objetivos da empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 7 · PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <p class="pricing__choice">A escolha é sua, acesso ou <span class="accent underline">experiência
+          completa</span>? &#128071;</p>
+      <div class="pricing__grid">
+        <div class="pricing-card">
+          <span class="pricing-card__badge">2º lote</span>
+          <span class="pricing-card__name">simples pass</span>
+          <div class="pricing-card__price">R$ 57,00</div>
+          <ul class="pricing-card__features">
+            <li><span class="check">&#10003;</span> Acesso aos 2 dias de evento</li>
+            <li><span class="check">&#10003;</span> 2ª cadeira grátis pro sócio</li>
           </ul>
-
-          <p class="form__destaque"><span class="form__destaque-grip">
-              Em 30 minutos você sabe exatamente o que está impedindo seu restaurante de crescer.</span>
-          </p>
-
-          <div class="form__selos">
-            <span>✓ Não precisa entender de números</span>
-            <span>🔒 Diagnóstico gratuito sem compromisso</span>
-            <span>⚡ Nº1 em restaurantes no Brasil</span>
-          </div>
+          <a href="#" class="btn btn--outline btn--block">Comprar acesso simples &rarr;</a>
         </div>
-
-        <div class="form__side">
-          <form class="form__box" action="#" method="POST">
-            <p class="form__side-title">Preencha abaixo. Um especialista entra em contato em até 24h.</p>
-            <div class="form__field">
-              <label for="nome">Seu nome</label>
-              <input type="text" id="nome" name="nome" placeholder="João Silva" required>
-            </div>
-            <div class="form__field">
-              <label for="whatsapp">WhatsApp</label>
-              <input type="tel" id="whatsapp" name="whatsapp" placeholder="(11) 99999-9999" required>
-            </div>
-            <div class="form__field">
-              <label for="restaurante">Nome do restaurante</label>
-              <input type="text" id="restaurante" name="restaurante" placeholder="Nome do seu restaurante" required>
-            </div>
-            <div class="form__field">
-              <label for="faturamento">Faturamento mensal aproximado</label>
-              <select id="faturamento" name="faturamento" required>
-                <option value="" disabled selected>Selecione</option>
-                <option>Até R$ 30.000</option>
-                <option>R$ 30.000 – R$ 100.000</option>
-                <option>R$ 100.000 – R$ 300.000</option>
-                <option>Acima de R$ 300.000</option>
-              </select>
-            </div>
-            <button type="submit" class="form__btn">
-              Quero ter clareza nos meus números</button>
-            <p class="form__disclaimer">Seus dados estão seguros. Não enviamos spam.</p>
-          </form>
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge--featured">O MAIS VENDIDO</div>
+          <span class="pricing-card__badge">2º lote</span>
+          <span class="pricing-card__name">pro pass</span>
+          <div class="pricing-card__price">R$ 147,00</div>
+          <ul class="pricing-card__features">
+            <li><span class="check accent">&#10003;</span> Acesso aos 2 dias de evento</li>
+            <li><span class="check accent">&#10003;</span> 2ª cadeira grátis pro sócio</li>
+            <li><span class="check accent">&#10003;</span> Grupo VIP de 15 dias pós imersão</li>
+            <li><span class="check accent">&#10003;</span> Templates de ClickUp</li>
+            <li><span class="check accent">&#10003;</span> Templates de Automação (Make e n8n)</li>
+            <li><span class="check accent">&#10003;</span> 1 call extra de Hotseat</li>
+          </ul>
+          <a href="#" class="btn btn--primary btn--block">Comprar acesso completo &rarr;</a>
         </div>
-
       </div>
     </div>
   </section>
-  <!-- ============================================================ -->
 
-  <!-- ============================================================
-       RODAPÉ
-       ============================================================ -->
-  <footer class="rodape">
-    <div class="wrap">
-      <div class="rodape__inner">
-        <div class="rodape__logo-text">VOXEL</div>
-        <p class="rodape__tagline">Gestão Financeira para Bares e Restaurantes</p>
-        <p class="rodape__copy">© 2026 Voxel. Todos os direitos reservados.</p>
+  <!-- BLOCO 8 · PROVA SOCIAL -->
+  <section class="social-proof" id="social-proof">
+    <div class="container">
+      <h2 class="section-title">Sabe o que essas pessoas têm em comum? &#129300;</h2>
+      <p class="section-sub">Nós já implementamos o @clickup na empresa dessas pessoas, alguma te soa familiar?
+        &#128071;</p>
+      <div class="proof__grid">
+        <div class="proof-card">
+          <div class="proof-card__avatar">MP</div>
+          <div class="proof-card__info"><span class="proof-card__name">Marcos Paulo</span><span
+              class="proof-card__handle">@eusoumarcospaulo</span></div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-card__avatar">PM</div>
+          <div class="proof-card__info"><span class="proof-card__name">Pablo Marçal</span><span
+              class="proof-card__handle">@pablomarcal1</span></div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-card__avatar">CF</div>
+          <div class="proof-card__info"><span class="proof-card__name">Cris Franklin</span><span
+              class="proof-card__handle">@crisfranklin1</span></div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-card__avatar">RB</div>
+          <div class="proof-card__info"><span class="proof-card__name">Rafa Brito</span><span
+              class="proof-card__handle">@rafabri7o</span></div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-card__avatar">MS</div>
+          <div class="proof-card__info"><span class="proof-card__name">Marcello Safe</span><span
+              class="proof-card__handle">@marcellosafe</span></div>
+        </div>
+        <div class="proof-card">
+          <div class="proof-card__avatar">JR</div>
+          <div class="proof-card__info"><span class="proof-card__name">Junior Renke</span><span
+              class="proof-card__handle">@junior.renke</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BLOCO 9 · FOOTER -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <a href="#" class="footer__whatsapp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+        </svg>
+        ATENDIMENTO HUMANO ONLINE
+      </a>
+      <div class="footer__divider"></div>
+      <p class="footer__copy">&#169; 2026 Bravy. Todos os direitos reservados</p>
+      <div class="footer__social">
+        <a href="#">&#64;jp.asv</a><span>&#183;</span><a href="#">&#64;bravyschool</a>
       </div>
     </div>
   </footer>
-  <!-- ============================================================ -->
 
   <script>
-    var obs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
-      });
-    }, { threshold: 0.1 });
-    document.querySelectorAll('.reveal').forEach(function (el) { obs.observe(el); });
+    (function () {
+      var target = new Date('2026-03-21T10:00:00').getTime();
+      function pad(n) { return n < 10 ? '0' + n : n; }
+      function tick() {
+        var diff = target - Date.now();
+        if (diff < 0) diff = 0;
+        document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
+        document.getElementById('cd-h').textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        document.getElementById('cd-m').textContent = pad(Math.floor((diff % 3600000) / 60000));
+        document.getElementById('cd-s').textContent = pad(Math.floor((diff % 60000) / 1000));
+      }
+      tick(); setInterval(tick, 1000);
+    })();
   </script>
-
 </body>
 
 </html>
