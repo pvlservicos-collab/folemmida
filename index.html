@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Imersão Closer Digital 10k – Jezreel Soares</title>
+  <title>Imersão Closer Digital – Jezreel Soares</title>
   <link rel="stylesheet" href="index.css" />
   <link
     href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
@@ -13,714 +13,425 @@
 
 <body>
 
-  <!-- ============================================================
-       JEZREEL SOARES – IMERSÃO CLOSER DIGITAL 10K · index.html
-       Seções:
-         1. HERO         – Topbar countdown + título + mockup + CTA
-         2. CRONOGRAMA   – Schedule em cards, Dia do evento
-         3. MENTOR       – Foto, bio, stats e credenciais
-         4. POR QUE FALHA – Cards de erros comuns + CTA
-         5. COMO FUNCIONA – 3 passos simples
-         6. BÔNUS        – Grid de bonus cards
-         7. PRICING      – Oferta única
-         8. PROVA SOCIAL – Depoimentos
-         9. FOOTER       – WhatsApp + copy + social
-  ============================================================ -->
-
-  <!-- BLOCO 1 · HERO -->
-  <section class="hero" id="hero">
-    <div class="hero__topbar">
-      <div class="countdown-pill">
-        <span class="hero__topbar-text">1º lote encerra em</span>
-        <div class="countdown">
-          <span class="countdown__unit"><b id="cd-d">00</b><small>d</small></span>
-          <span class="countdown__sep">:</span>
-          <span class="countdown__unit"><b id="cd-h">00</b><small>h</small></span>
-          <span class="countdown__sep">:</span>
-          <span class="countdown__unit"><b id="cd-m">00</b><small>m</small></span>
-          <span class="countdown__sep">:</span>
-          <span class="countdown__unit"><b id="cd-s">00</b><small>s</small></span>
-        </div>
-      </div>
-      <a href="#pricing" class="btn btn--primary">Garantir minha vaga &rarr;</a>
-    </div>
-
-    <div class="hero__content container">
-      <div class="hero__meta">
-        <span class="hero__date">AO VIVO no Zoom <small>FORMATO</small></span>
-        <span class="hero__time">09h30 às 17h30 <small>HORÁRIO</small></span>
-        <span class="hero__platform">08/03 <small>DATA</small></span>
-      </div>
-      <h1 class="hero__title">Em 1 dia inteiro, vamos construir e planejar sua carreira de <span class="accent">Closer
-          Digital para ganhar 10k p/mês</span></h1>
-      <div class="mockup-browser">
-        <div class="mockup-browser__bar">
-          <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-          <div class="mockup-browser__url">zoom.us / imersao-closer-digital</div>
-        </div>
-        <div class="mockup-browser__screen">
-          <div class="mockup-sidebar">
-            <div class="mockup-sidebar__item active"></div>
-            <div class="mockup-sidebar__item"></div>
-            <div class="mockup-sidebar__item"></div>
-            <div class="mockup-sidebar__item"></div>
-            <div class="mockup-sidebar__item"></div>
-            <div class="mockup-sidebar__item"></div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__bg"></div>
+    <div class="hero__container">
+      <div class="hero__card">
+        <div class="hero__badge">Evento ao vivo · 08/03</div>
+        <h1 class="hero__title">
+          Ganhe de <span class="c-orange">5 a 16 mil</span><br>
+          Trabalhando de casa<br>
+          Como <span class="c-orange">Closer No Digital</span>
+        </h1>
+        <p class="hero__sub">
+          Mesmo sem experiência em vendas, sem seguidores e começando do zero,
+          você pode aprender a trabalhar de casa dedicando cerca de 3 horas por dia.
+        </p>
+        <p class="hero__info">
+          Serão mais de <strong>8h de imersão ao vivo</strong> no dia <strong>08/03</strong>.
+        </p>
+        <div class="video-block">
+          <div class="video-play-btn">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
+              <polygon points="5,3 19,12 5,21" />
+            </svg>
           </div>
-          <div class="mockup-content">
-            <div class="mockup-row mockup-row--header"></div>
-            <div class="mockup-task"><span class="task-dot orange"></span>
-              <div class="task-line long"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot orange"></span>
-              <div class="task-line medium"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot gray"></span>
-              <div class="task-line short"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot gray"></span>
-              <div class="task-line long"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot gray"></span>
-              <div class="task-line medium"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot orange"></span>
-              <div class="task-line short"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot gray"></span>
-              <div class="task-line long"></div>
-            </div>
-            <div class="mockup-task"><span class="task-dot orange"></span>
-              <div class="task-line medium"></div>
-            </div>
-          </div>
+          <p class="video-hint">Assista a apresentação completa</p>
         </div>
+        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
       </div>
-      <p class="hero__desc">O QUE VOCÊ VAI APRENDER:<br /><br />
-        ✓ Planejamento para ganhar 10k por mês<br />
-        ✓ Script que gerou +40 milhões em vendas<br />
-        ✓ Como quebrar as principais objeções<br />
-        ✓ Mentalidade de alta performance<br />
-        ✓ Como conseguir sua primeira vaga</p>
-      <a href="#pricing" class="btn btn--primary btn--lg">Garantir minha vaga por R$27 &rarr;</a>
-      <div class="hero__progress">
-        <span class="hero__progress-label">Pagamento seguro • Primeira lote por tempo limitado</span>
-        <span class="hero__progress-total">De R$479 <strong class="accent">por R$27</strong></span>
-        <div class="progress-bar">
-          <div class="progress-bar__fill" style="width:70%"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ticker">
-      <div class="ticker__track">
-        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
-        <span>1 DIA INTEIRO</span><span class="dot-sep">&bull;</span>
-        <span>10K P/MÊS</span><span class="dot-sep">&bull;</span>
-        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
-        <span>1 DIA INTEIRO</span><span class="dot-sep">&bull;</span>
-        <span>10K P/MÊS</span><span class="dot-sep">&bull;</span>
-        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
-        <span>1 DIA INTEIRO</span><span class="dot-sep">&bull;</span>
-        <span>10K P/MÊS</span><span class="dot-sep">&bull;</span>
-        <span>AO VIVO NO ZOOM</span><span class="dot-sep">&bull;</span>
-        <span>1 DIA INTEIRO</span><span class="dot-sep">&bull;</span>
-        <span>10K P/MÊS</span><span class="dot-sep">&bull;</span>
+      <div class="hero__visual">
+        <div class="hero__photo"><span class="ph-initials">JS</span></div>
+        <div class="hero__glow"></div>
       </div>
     </div>
   </section>
 
-  <!-- BLOCO 2 · CRONOGRAMA -->
-  <section class="schedule" id="schedule">
-    <div class="container">
-      <span class="label-tag">CRONOGRAMA COMPLETO</span>
-      <h2 class="section-title">O que você vai aprender</h2>
-      <p class="section-sub">1 dia intensivo, das 09h30 às 17h30, com pausa para almoço</p>
-      <div class="schedule__tabs">
-        <button class="tab tab--active">Dia 1 &ndash; 08/03</button>
-      </div>
-      <div class="schedule__list">
-        <div class="schedule__item"><span class="schedule__time">09:30</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Abertura e introdução à profissão de Closer no digital</strong>
-            <p>Introdução ao workshop e alinhamento de expectativas</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time">10:30</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Planejamento estratégico de carreira e metas</strong>
-            <p>Como montar seu plano para chegar a 10k/mês como Closer</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time">12:00</span>
-          <div class="schedule__dot schedule__dot--gray"></div>
-          <div class="schedule__info"><strong>Intervalo</strong>
-            <p>Pausa para almoço</p>
-          </div>
-        </div>
-        <div class="schedule__item schedule__item--break"><span class="schedule__time">13:00</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Script na prática e condução de conversa</strong>
-            <p>O script que gerou +40 milhões em vendas aplicado na prática</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time">14:00</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Objeções principais e como quebrar com segurança</strong>
-            <p>Como responder as principais objeções sem travar e sem perder a venda</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time">15:30</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Mentalidade do Closer de alta performance</strong>
-            <p>O mindset que separa quem chega a 10k de quem fica no improviso</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time">16:30</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Como conseguir a primeira vaga e se posicionar</strong>
-            <p>Onde procurar vagas e como ser aprovado em processos seletivos</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time">17:15</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Fechamento e próximos passos</strong>
-            <p>Resumo, Q&A ao vivo e orientações para continuar evoluindo</p>
-          </div>
-        </div>
-      </div>
-      <a href="#pricing" class="btn btn--primary btn--lg">Garantir minha vaga por R$27 &rarr;</a>
-    </div>
-  </section>
-
-  <!-- BLOCO 3 · MENTOR -->
-  <section class="mentor" id="mentor">
-    <div class="container">
-      <span class="label-tag">QUEM SERÁ O SEU MENTOR?</span>
-      <h2 class="section-title">Quem é <span class="accent">Jezreel Soares</span>?</h2>
-      <div class="mentor__grid">
-        <div class="mentor__photo">
-          <div class="mentor__photo-placeholder">
-            <!-- Substitua pelo: <img src="foto-jezreel.jpg" alt="Jezreel Soares" /> -->
-            JS
-          </div>
-        </div>
-        <div class="mentor__info">
-          <h3 class="mentor__name">Jezreel Soares</h3>
-          <span class="mentor__role accent">Criador do Método Chave Mestra</span>
-          <p>Especialista em vendas 1 a 1 e formação de Closers digitais, Jezreel já treinou mais de 1.500 vendedores e
-            gerou mais de 42 milhões em vendas ao longo da sua carreira.</p>
-          <p>Ex Head Comercial de Erico Rocha e da Reg Life, foi destaque na Wiser Educação vendendo e liderando equipes
-            de alta performance no mercado digital.</p>
-          <p>Esqueça improviso e sorte. Aqui você vai aprender o processo exato que funciona, com acompanhamento de quem
-            já construiu e escalou operações comerciais multimilionárias.</p>
-          <div class="mentor__stats">
-            <div class="stat"><strong>+1.500</strong><span>Vendedores treinados</span></div>
-            <div class="stat"><strong>+42M</strong><span>Em vendas 1 a 1</span></div>
-            <div class="stat"><strong>+10</strong><span>Anos de mercado</span></div>
-          </div>
-          <div class="mentor__certs">
-            <span class="label-tag" style="text-align:left">CREDENCIAIS</span>
-            <div class="certs-grid">
-              <div class="cert-badge">
-                <div class="cert-badge__icon">&#127942;</div>
-                <div class="cert-badge__info"><strong>Ex Head Comercial</strong><span>Erico Rocha</span></div>
-              </div>
-              <div class="cert-badge accent-badge">
-                <div class="cert-badge__icon">&#128200;</div>
-                <div class="cert-badge__info"><strong>Ex Head Comercial</strong><span>Reg Life</span></div>
-              </div>
-              <div class="cert-badge">
-                <div class="cert-badge__icon">&#9889;</div>
-                <div class="cert-badge__info"><strong>Destaque Wiser</strong><span>Educação</span></div>
-              </div>
-              <div class="cert-badge">
-                <div class="cert-badge__icon">&#127760;</div>
-                <div class="cert-badge__info"><strong>Método Chave Mestra</strong><span>Criador</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCO 4 · POR QUE A MAIORIA FALHA -->
-  <section class="fails" id="fails">
-    <div class="container">
-      <span class="label-tag">POR QUE A MAIORIA FALHA</span>
-      <h2 class="section-title">A maioria erra ao tentar entrar<br />na carreira de Closer Digital</h2>
-      <div class="fails__grid">
-        <div class="fail-card">
-          <div class="fail-card__icon">&#x2715;</div>
-          <p>Não têm um <strong>script testado</strong> e dependem de improviso</p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#9711;</div>
-          <p>Não sabem <strong>conduzir uma call</strong> com controle e clareza</p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#x21C4;</div>
-          <p>Travam nas <strong>objeções</strong> e perdem a venda na reta final</p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#x2261;</div>
-          <p>Não sabem onde <strong>buscar vagas</strong> e como passar em processos seletivos</p>
-        </div>
-      </div>
-      <p class="fails__classic">Um erro clássico que sem dúvidas você comete &#128071;</p>
-      <div class="fails__bad-structure">
-        <div class="bad-folder"><span>&#128193;</span> vender sem processo</div>
-        <div class="bad-folder"><span>&#128193;</span> improvisar na call</div>
-        <div class="bad-folder bad-folder--list"><span>&#9776;</span> esperar o cliente fechar sozinho</div>
-      </div>
-      <div class="fails__cta">
-        <h3>Você está <span class="strikethrough">matando</span> suas chances de fechar</h3>
-        <p>E eu vou te provar, <span class="accent">de forma sistemática</span>, no dia 08 de março.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCO 5 · AO FINAL VOCÊ SERÁ CAPAZ -->
-  <section class="pillars" id="pillars">
-    <div class="container">
-      <span class="label-tag">RESULTADO GARANTIDO</span>
-      <h2 class="section-title">Ao final desse evento, você será capaz de:</h2>
-      <div class="pillars__diamond">
-        <div class="pillar-node pillar-node--top">
-          <div class="pillar-node__dot"></div><span>Montar seu plano<br />de carreira 10k</span>
-        </div>
-        <div class="pillar-node pillar-node--left">
-          <div class="pillar-node__dot"></div><span>Conduzir calls<br />com controle</span>
-        </div>
-        <div class="pillar-node pillar-node--right">
-          <div class="pillar-node__dot"></div><span>Usar script<br />testado +40M</span>
-        </div>
-        <div class="pillar-node pillar-node--bottom">
-          <div class="pillar-node__dot"></div><span>Conseguir<br />sua primeira vaga</span>
-        </div>
-        <svg class="diamond-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur" />
-              <feMerge>
-                <feMergeNode in="coloredBlur" />
-                <feMergeNode in="SourceGraphic" />
-              </feMerge>
-            </filter>
-          </defs>
-          <line x1="150" y1="30" x2="30" y2="150" stroke="#f97316" stroke-width="1.2" opacity="0.6"
-            filter="url(#glow)" />
-          <line x1="150" y1="30" x2="270" y2="150" stroke="#f97316" stroke-width="1.2" opacity="0.6"
-            filter="url(#glow)" />
-          <line x1="30" y1="150" x2="150" y2="270" stroke="#333" stroke-width="1" opacity="0.4" />
-          <line x1="270" y1="150" x2="150" y2="270" stroke="#333" stroke-width="1" opacity="0.4" />
-          <line x1="150" y1="30" x2="150" y2="270" stroke="#2a2a2a" stroke-width="0.8" opacity="0.4" />
-          <line x1="30" y1="150" x2="270" y2="150" stroke="#2a2a2a" stroke-width="0.8" opacity="0.4" />
-          <circle cx="150" cy="30" r="5" fill="#fff" opacity="0.9" />
-          <circle cx="30" cy="150" r="5" fill="#fff" opacity="0.9" />
-          <circle cx="270" cy="150" r="5" fill="#fff" opacity="0.9" />
-          <circle cx="150" cy="270" r="5" fill="#444" opacity="0.6" />
-          <circle cx="150" cy="150" r="3" fill="#2a2a2a" opacity="0.6" />
-        </svg>
-      </div>
-      <a href="#pricing" class="btn btn--primary btn--lg">Garantir minha vaga por R$27 &rarr;</a>
-      <div class="clickup-promo">
-        <h3>Agenda do dia 08/03</h3>
-        <p>Um dia intensivo e prático, das 09h30 às 17h30, com pausas estratégicas</p>
-        <div class="mockup-browser mockup-browser--dark">
-          <div class="mockup-browser__bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span>
-            <div class="mockup-browser__url">zoom.us / closer-digital-10k / 08-03</div>
-          </div>
-          <div class="mockup-browser__screen mockup-browser__screen--alt">
-            <div class="mockup-sidebar">
-              <div class="mockup-sidebar__item active"></div>
-              <div class="mockup-sidebar__item"></div>
-              <div class="mockup-sidebar__item"></div>
-              <div class="mockup-sidebar__item"></div>
-              <div class="mockup-sidebar__item"></div>
-            </div>
-            <div class="mockup-content mockup-content--alt">
-              <div class="mockup-row mockup-row--header"></div>
-              <div class="mockup-task"><span class="task-dot orange"></span>
-                <div class="task-line long"></div>
-                <div class="task-badge"></div>
-              </div>
-              <div class="mockup-task"><span class="task-dot orange"></span>
-                <div class="task-line medium"></div>
-                <div class="task-badge task-badge--alt"></div>
-              </div>
-              <div class="mockup-task"><span class="task-dot gray"></span>
-                <div class="task-line long"></div>
-                <div class="task-badge"></div>
-              </div>
-              <div class="mockup-task"><span class="task-dot gray"></span>
-                <div class="task-line short"></div>
-                <div class="task-badge task-badge--alt"></div>
-              </div>
-              <div class="mockup-task"><span class="task-dot orange"></span>
-                <div class="task-line medium"></div>
-                <div class="task-badge"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCO 6 · BÔNUS / O QUE ESTÁ INCLUSO -->
-  <section class="bonuses" id="bonuses">
-    <div class="container">
-      <span class="label-tag">O QUE ESTÁ INCLUSO</span>
-      <h2 class="section-title">Tudo que você recebe na imersão</h2>
-      <div class="bonuses__grid">
-        <div class="bonus-card">
-          <div class="bonus-card__icon">&#127909;</div>
-          <h4>Imersão ao vivo no Zoom</h4>
-          <p>Um dia inteiro de conteúdo prático e aplicável, com Jezreel Soares ao vivo.</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-card__icon">&#9889;</div>
-          <h4>Script base que gerou +40M em vendas</h4>
-          <p>O processo exato testado em operações multimilionárias do mercado digital.</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-card__icon">&#127919;</div>
-          <h4>Direção para buscar e passar em vagas</h4>
-          <p>Saiba onde procurar vagas de Closer e como se posicionar para ser aprovado.</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-card__icon">&#10022;</div>
-          <h4>Bônus — Q&A ao vivo</h4>
-          <p>Sessão exclusiva para tirar suas dúvidas em tempo real com o mentor.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCO 7a · PRA QUEM É -->
-  <section class="schedule" id="para-quem">
-    <div class="container">
-      <span class="label-tag">PRA QUEM É ESSA IMERSÃO</span>
-      <h2 class="section-title">Pra quem é essa imersão</h2>
-      <div class="fails__grid">
-        <div class="fail-card">
-          <div class="fail-card__icon">&#128218;</div>
-          <p>CLT frustrado querendo <strong>transição pro digital</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#128200;</div>
-          <p>Vendedor travado que quer <strong>ganhar mais e ter direção</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#127968;</div>
-          <p>Quem quer trabalhar <strong>home office</strong> e crescer por performance</p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#127891;</div>
-          <p>Quem quer entrar no digital <strong>sem depender de faculdade</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#128269;</div>
-          <p>Quem já tentou vender e <strong>se perdeu em script e improviso</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#128073;</div>
-          <p>Quem quer conseguir a <strong>primeira vaga sem cair em furada</strong></p>
-        </div>
-      </div>
-      <a href="#pricing" class="btn btn--primary btn--lg">Garantir minha vaga por R$27 &rarr;</a>
-    </div>
-  </section>
-
-  <!-- BLOCO 7b · AO FINAL VOCÊ SERÁ CAPAZ -->
-  <section class="fails" id="resultados">
-    <div class="container">
-      <span class="label-tag">RESULTADO GARANTIDO</span>
-      <h2 class="section-title">Ao final desse evento, você será capaz de:</h2>
-      <div class="fails__grid">
-        <div class="fail-card">
-          <div class="fail-card__icon">&#9989;</div>
-          <p>Montar seu plano de carreira e metas pra chegar nos <strong>10k/mês</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#9989;</div>
-          <p>Entender como conduzir uma <strong>call com mais controle e clareza</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#9989;</div>
-          <p>Usar um script testado e <strong>adaptar sem engessar a conversa</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#9989;</div>
-          <p>Responder objeções <strong>sem travar</strong></p>
-        </div>
-        <div class="fail-card">
-          <div class="fail-card__icon">&#9989;</div>
-          <p>Saber onde procurar vagas e como ser <strong>aprovado em processos seletivos</strong></p>
-        </div>
-      </div>
-      <a href="#pricing" class="btn btn--primary btn--lg">Garantir minha vaga por R$27 &rarr;</a>
-    </div>
-  </section>
-
-  <!-- BLOCO 7c · COMO FUNCIONA -->
-  <section class="bonuses" id="como-funciona">
-    <div class="container">
-      <span class="label-tag">COMO FUNCIONA</span>
-      <h2 class="section-title">Como funciona</h2>
-      <div class="bonuses__grid" style="grid-template-columns:repeat(3,1fr)">
-        <div class="bonus-card">
-          <div class="bonus-card__icon" style="font-size:1.5rem;font-weight:800;color:#f97316">1</div>
-          <h4>Garanta sua vaga</h4>
-          <p>Você garante sua vaga por R$27.</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-card__icon" style="font-size:1.5rem;font-weight:800;color:#f97316">2</div>
-          <h4>Receba o acesso</h4>
-          <p>Você recebe o acesso do Zoom por e-mail e entra no grupo do WhatsApp.</p>
-        </div>
-        <div class="bonus-card">
-          <div class="bonus-card__icon" style="font-size:1.5rem;font-weight:800;color:#f97316">3</div>
-          <h4>Participe ao vivo</h4>
-          <p>No dia 08/03, você participa ao vivo das 09h30 às 17h30 e sai com seu plano pronto.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCO 7d · FAQ -->
-  <section class="schedule" id="faq">
-    <div class="container">
-      <span class="label-tag">PERGUNTAS FREQUENTES</span>
-      <h2 class="section-title">Perguntas frequentes</h2>
-      <div class="schedule__list" style="max-width:700px;margin:0 auto">
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Preciso ter experiência em vendas?</strong>
-            <p>Não. A imersão foi desenhada para quem está começando do zero e também para quem já vende mas quer
-              melhorar o processo.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Isso serve pra quem é tímido?</strong>
-            <p>Sim. Vender não é sobre ser extrovertido, é sobre método. Você vai aprender um processo que funciona
-              independente do seu perfil.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Vou sair com o quê pronto no final?</strong>
-            <p>Com seu plano de carreira, o script base testado, domínio das principais objeções e direção para buscar
-              sua primeira vaga.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Vai ficar gravado?</strong>
-            <p>Não. O evento é 100% ao vivo e sem replay, para garantir a qualidade e o engajamento de todos os
-              participantes.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Como vou receber o link do Zoom?</strong>
-            <p>Após a compra, você recebe o acesso por e-mail e é adicionado ao grupo de WhatsApp com todas as
-              instruções.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Esse evento é pra conseguir vaga mesmo?</strong>
-            <p>Sim. Uma parte do conteúdo é focada em mostrar onde procurar vagas de Closer e como se posicionar para
-              ser aprovado.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Qual a diferença disso para um curso comum?</strong>
-            <p>É uma imersão ao vivo, prática e intensa. Em 1 dia você aplica, tira dúvidas em tempo real e sai com tudo
-              estruturado.</p>
-          </div>
-        </div>
-        <div class="schedule__item"><span class="schedule__time" style="font-size:.75rem">?</span>
-          <div class="schedule__dot"></div>
-          <div class="schedule__info"><strong>Posso participar pelo celular?</strong>
-            <p>Sim, o Zoom funciona perfeitamente no celular. Recomendamos usar fones de ouvido para melhor experiência.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BLOCO 7e · CTA FINAL COM COUNTDOWN -->
-  <section class="pricing" id="cta-final" style="padding-top:0">
-    <div class="container">
-      <div class="pricing-card pricing-card--featured"
-        style="max-width:520px;margin:0 auto;text-align:center;padding:2.5rem 2rem">
-        <p
-          style="color:#f97316;font-weight:700;font-size:.9rem;letter-spacing:.1em;text-transform:uppercase;margin-bottom:1rem">
-          O LOTE 1 ENCERRA HOJE!</p>
-        <div class="countdown" style="justify-content:center;font-size:1.6rem;margin-bottom:1.5rem">
-          <span class="countdown__unit"><b id="cd-d2">00</b><small>h</small></span>
-          <span class="countdown__sep">:</span>
-          <span class="countdown__unit"><b id="cd-h2">00</b><small>m</small></span>
-          <span class="countdown__sep">:</span>
-          <span class="countdown__unit"><b id="cd-m2">00</b><small>s</small></span>
-        </div>
-        <ul class="pricing-card__features" style="text-align:left;margin-bottom:1.5rem">
-          <li><span class="check accent">&#10003;</span> +8 horas de imersão ao vivo</li>
-          <li><span class="check accent">&#10003;</span> Passo a passo para conseguir sua primeira vaga</li>
-          <li><span class="check accent">&#10003;</span> Planejamento completo para atingir 10k/mês como Closer</li>
-          <li><span class="check accent">&#10003;</span> Script para Closers que gerou +40 milhões em vendas</li>
-          <li><span class="check accent">&#10003;</span> Script base para SDRs</li>
-          <li><span class="check accent">&#10003;</span> Como quebrar as principais objeções</li>
-          <li><span class="check accent">&#10003;</span> Mentalidade de alta performance</li>
-          <li><span class="check accent">&#10003;</span> Bônus — Q&A ao vivo</li>
+  <!-- INSIGHT -->
+  <section class="insight">
+    <div class="wrap insight__wrap">
+      <div class="insight__photo"><span class="ph-initials">JS</span></div>
+      <div class="insight__text">
+        <h2 class="insight__title">
+          Se você chegou até aqui,<br>três coisas já ficaram claras:
+        </h2>
+        <ul class="dash-list">
+          <li><span class="c-orange">Closer Digital</span> é uma profissão real.</li>
+          <li>Existe <span class="c-orange">dinheiro envolvido</span> para quem fecha.</li>
+          <li>A maioria fracassa por entrar sem <span class="c-orange">método</span>.</li>
         </ul>
-        <p style="color:#aaa;font-size:.85rem;text-decoration:line-through;margin:0">De R$479</p>
-        <p style="color:#aaa;font-size:.9rem;margin:.25rem 0 .5rem">adquira agora por:</p>
-        <div class="pricing-card__price" style="font-size:3.5rem;color:#f97316">R$27</div>
-        <a href="#" class="btn btn--primary btn--block" style="margin-top:1rem">GARANTIR VAGA &rarr;</a>
-        <p style="color:#666;font-size:.75rem;margin-top:.75rem">Vagas limitadas para manter a qualidade do evento ao
-          vivo</p>
+        <div class="insight__box">
+          O <strong>Evento no dia 08/03</strong> existe para resolver isso
+          <strong>ANTES</strong> de você apostar meses da sua vida.
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOCO 7 · PRICING -->
-  <section class="pricing" id="pricing">
-    <div class="container">
-      <p class="pricing__choice">A escolha é sua, acesso ou <span class="accent underline">experiência completa</span>?
-        &#128071;</p>
-      <div class="pricing__grid">
-        <div class="pricing-card">
-          <span class="pricing-card__badge">1º lote</span>
-          <span class="pricing-card__name">simples pass</span>
-          <div class="pricing-card__price">R$ 57,00</div>
-          <ul class="pricing-card__features">
-            <li><span class="check">&#10003;</span> Acesso ao dia de evento</li>
-            <li><span class="check">&#10003;</span> Script base de vendas</li>
+  <!-- FOR WHO -->
+  <section class="forwho">
+    <div class="wrap">
+      <h2 class="sec-title">Esse evento é para mim?</h2>
+      <div class="forwho__grid">
+        <div class="forwho__col">
+          <h3 class="forwho__sub">É pra você se:</h3>
+          <ul class="dot-list">
+            <li>Está cansado da rotina corrida e de ganhar pouco pelo esforço que entrega.</li>
+            <li>Sente que o tempo passa e você continua preso num trabalho sem reconhecimento.</li>
+            <li>Quer trabalhar de casa, ter liberdade e ser bem pago pelo seu resultado.</li>
+            <li>Vê o mercado digital crescendo, mas não sabe por onde começar.</li>
           </ul>
-          <a href="#" class="btn btn--outline btn--block">Comprar acesso simples &rarr;</a>
         </div>
-        <div class="pricing-card pricing-card--featured">
-          <div class="pricing-card__badge--featured">O MAIS VENDIDO</div>
-          <span class="pricing-card__badge">1º lote</span>
-          <span class="pricing-card__name">pro pass</span>
-          <div class="pricing-card__price">R$ 147,00</div>
-          <ul class="pricing-card__features">
-            <li><span class="check accent">&#10003;</span> Acesso ao dia de evento</li>
-            <li><span class="check accent">&#10003;</span> Script base de vendas</li>
-            <li><span class="check accent">&#10003;</span> Grupo VIP de 15 dias pós imersão</li>
-            <li><span class="check accent">&#10003;</span> Script para Closers que gerou +40M em vendas</li>
-            <li><span class="check accent">&#10003;</span> Script base para SDRs</li>
-            <li><span class="check accent">&#10003;</span> 1 call extra de Hotseat</li>
+        <div class="forwho__sep"></div>
+        <div class="forwho__col">
+          <h3 class="forwho__sub">O que você vai descobrir na aula ao vivo:</h3>
+          <ul class="dot-list">
+            <li>O que faz um Closer Digital e por que essa profissão cresce tanto.</li>
+            <li>Como começar do zero e ganhar de 3 a 10 mil por mês como Closer Digital.</li>
+            <li>Onde encontrar empresas e experts que estão contratando Closers.</li>
+            <li>Os erros que travam iniciantes e como evitá-los.</li>
           </ul>
-          <a href="#" class="btn btn--primary btn--block">Comprar acesso completo &rarr;</a>
+        </div>
+      </div>
+      <div class="forwho__foot">
+        <p>Não perca essa oportunidade de mudar sua carreira e entrar na profissão que mais cresce no digital.</p>
+        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTRUCTOR -->
+  <section class="instructor">
+    <div class="wrap instructor__wrap">
+      <div class="instructor__left">
+        <div class="instructor__photo"><span class="ph-initials">JS</span></div>
+        <div class="instructor__badge">+40 milhões em vendas</div>
+      </div>
+      <div class="instructor__right">
+        <p class="instructor__pre">Quem conduz o evento vive isso no campo.</p>
+        <h2 class="instructor__name">Jezreel Soares</h2>
+        <p class="instructor__bio">
+          Jezreel Soares já participou de operações que somam mais de 40 milhões em vendas,
+          liderou e estruturou times comerciais em algumas das maiores operações do digital.
+        </p>
+        <p class="instructor__motto">Aqui não tem teoria. <strong>Tem prática.</strong></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEOS DEPOIMENTO -->
+  <section class="videos">
+    <div class="wrap">
+      <h2 class="sec-title">
+        Pessoas comuns já usaram esse mesmo caminho para sair do zero,
+        fazer suas primeiras calls e gerar comissões no digital.
+      </h2>
+      <div class="videos__grid">
+        <div class="video-card">
+          <div class="video-thumb">
+            <div class="video-play-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </div>
+          </div>
+          <p class="video-name">Ely Nascimento</p>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb">
+            <div class="video-play-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </div>
+          </div>
+          <p class="video-name">Santos Vinícius / Elias Farias</p>
+        </div>
+        <div class="video-card">
+          <div class="video-thumb">
+            <div class="video-play-btn">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                <polygon points="5,3 19,12 5,21" />
+              </svg>
+            </div>
+          </div>
+          <p class="video-name">Mirian Eugênia</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- BLOCO 8 · PROVA SOCIAL -->
-  <section class="social-proof" id="social-proof">
-    <div class="container">
-      <h2 class="section-title">Resultados e histórias &#129300;</h2>
-      <p class="section-sub">Veja o que dizem quem já passou pela metodologia de Jezreel Soares &#128071;</p>
-      <div class="proof__grid">
-        <div class="proof-card">
-          <div class="proof-card__avatar">LM</div>
-          <div class="proof-card__info">
-            <span class="proof-card__name">Lucas M.</span>
-            <span class="proof-card__handle">@lucas_closer</span>
-            <p style="font-size:.8rem;color:#aaa;margin-top:.5rem;">"Saí da imersão com clareza total do que preciso
-              fazer. Em duas semanas já estava em processo seletivo."</p>
+  <!-- RESULTADOS / PRINTS -->
+  <section class="results">
+    <div class="wrap">
+      <h2 class="sec-title">
+        Veja os resultados dos <span class="c-green">nossos membros.</span>
+      </h2>
+      <div class="results__grid">
+        <div class="result-card">
+          <div class="result-card__top">
+            <div class="result-avatar">JP</div>
+            <div>
+              <div class="result-name">Jean Phillipe</div>
+              <div class="result-role">Aluno FC-360 · 10 de dez.</div>
+            </div>
           </div>
+          <p class="result-text">Fiz uma Black num projeto e fechei R$4.650,00 usando o Método Chave Mestra e todo o
+            direcionamento do @Jezreel Soares.</p>
+          <div class="result-value">R$ 4.650,00</div>
         </div>
-        <div class="proof-card">
-          <div class="proof-card__avatar">CR</div>
-          <div class="proof-card__info">
-            <span class="proof-card__name">Camila R.</span>
-            <span class="proof-card__handle">@camila_digital</span>
-            <p style="font-size:.8rem;color:#aaa;margin-top:.5rem;">"Nunca tinha feito nenhuma venda. Entendi o Closer
-              Digital e consegui entender o processo inteiro em um dia."</p>
+        <div class="result-card">
+          <div class="result-card__top">
+            <div class="result-avatar">RA</div>
+            <div>
+              <div class="result-name">Raphael</div>
+              <div class="result-role">Aluno FC-360 · 3 de dez.</div>
+            </div>
           </div>
+          <p class="result-text">Fui ao top 1 aqui na Black. Peguei 100% da meta. Com 22 anos ganhando um salário de
+            25k, nunca me imaginaria aqui.</p>
+          <div class="result-value">R$ 25.000/mês</div>
         </div>
-        <div class="proof-card">
-          <div class="proof-card__avatar">RS</div>
-          <div class="proof-card__info">
-            <span class="proof-card__name">Rafael S.</span>
-            <span class="proof-card__handle">@rafaels_vendas</span>
-            <p style="font-size:.8rem;color:#aaa;margin-top:.5rem;">"O script que me passaram mudou minha forma de
-              conduzir calls. Hoje tenho muito mais segurança pra vender."</p>
+        <div class="result-card">
+          <div class="result-card__top">
+            <div class="result-avatar">ME</div>
+            <div>
+              <div class="result-name">Mirian Eugênia</div>
+              <div class="result-role">Aluna FC-360 · terça-feira</div>
+            </div>
           </div>
+          <p class="result-text">Batei meus primeiros 10k no mês. Estou muito feliz! Muito obrigada pelos ensinamentos!
+          </p>
+          <div class="result-value">R$ 10.000</div>
         </div>
-        <div class="proof-card">
-          <div class="proof-card__avatar">AM</div>
-          <div class="proof-card__info"><span class="proof-card__name">Ana M.</span><span
-              class="proof-card__handle">@ana_closer10k</span></div>
+        <div class="result-card">
+          <div class="result-card__top">
+            <div class="result-avatar">JM</div>
+            <div>
+              <div class="result-name">Johnny Ma</div>
+              <div class="result-role">Aluno FC-360 · 11 de dez.</div>
+            </div>
+          </div>
+          <p class="result-text">Uma das dicas que você me deu e eu apliquei foi receber o valor da entrada na call, sem
+            deixar ele sair.</p>
+          <div class="result-value">R$ 7.000 em uma call</div>
         </div>
-        <div class="proof-card">
-          <div class="proof-card__avatar">PT</div>
-          <div class="proof-card__info"><span class="proof-card__name">Pedro T.</span><span
-              class="proof-card__handle">@pedrot_digital</span></div>
+        <div class="result-card">
+          <div class="result-card__top">
+            <div class="result-avatar">JM</div>
+            <div>
+              <div class="result-name">Johnny Ma</div>
+              <div class="result-role">Aluno FC-360 · 11 de dez.</div>
+            </div>
+          </div>
+          <p class="result-text">Hoje consegui vender minha primeira mentoria de R$20 mil com R$7 mil de entrada. Muito
+            obrigado @Jezreel Soares.</p>
+          <div class="result-value">R$ 20.000</div>
         </div>
-        <div class="proof-card">
-          <div class="proof-card__avatar">JN</div>
-          <div class="proof-card__info"><span class="proof-card__name">Juliana N.</span><span
-              class="proof-card__handle">@junascimento</span></div>
+        <div class="result-card">
+          <div class="result-card__top">
+            <div class="result-avatar">MV</div>
+            <div>
+              <div class="result-name">Marcos Vinícius</div>
+              <div class="result-role">5 de dezembro</div>
+            </div>
+          </div>
+          <p class="result-text">Queria compartilhar com você esse último resultado. Rompemos! Transferência Pix
+            recebida.</p>
+          <div class="result-value">R$ 26.472,26</div>
         </div>
+      </div>
+      <div class="results__foot">
+        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
       </div>
     </div>
   </section>
 
-  <!-- BLOCO 9 · FOOTER -->
-  <footer class="footer" id="footer">
-    <div class="container">
-      <a href="https://wa.me/5500000000000" class="footer__whatsapp" target="_blank" rel="noopener noreferrer">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path
-            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
-        </svg>
-        ATENDIMENTO HUMANO ONLINE
-      </a>
-      <div class="footer__divider"></div>
-      <p class="footer__copy">&#169; 2025 Imersão Closer Digital 10k. Todos os direitos reservados.<br />
-        <small>Este produto não garante a obtenção de resultados. Qualquer referência ao desempenho é apenas
-          ilustrativa.</small>
-      </p>
-      <div class="footer__social">
-        <a href="https://www.instagram.com/jezsoares/" target="_blank" rel="noopener noreferrer">&#64;jezsoares</a>
+  <!-- PRICING -->
+  <section class="pricing" id="inscricao">
+    <div class="wrap">
+      <div class="pricing__card">
+        <div class="pricing__logo">Profissão Closer</div>
+        <div class="pricing__urgency">O Lote 1 termina hoje · 16/03/2026</div>
+        <ul class="pricing__list">
+          <li>+8 horas de imersão ao vivo</li>
+          <li>A verdade sobre a profissão</li>
+          <li>Perfil de fechamento (autodiagnóstico)</li>
+          <li>Passo a passo para o primeiro cliente</li>
+          <li>Prospecção inteligente</li>
+          <li>O salto de renda</li>
+          <li>Bônus — Q&A ao vivo</li>
+        </ul>
+        <div class="pricing__old">De R$ 147,00</div>
+        <div class="pricing__label">Adquira agora por:</div>
+        <div class="pricing__price">R$ 47,00</div>
+        <a href="#" class="btn-cta btn-cta--full">Quero garantir minha vaga</a>
+        <p class="pricing__note">Vagas limitadas para manter a qualidade do evento ao vivo</p>
       </div>
     </div>
+  </section>
+  <!-- RESULTADOS / PRINTS WHATSAPP -->
+  <section class="results">
+    <div class="wrap">
+      <h2 class="results__title">
+        Veja os resultados dos <span class="c-yellow">nossos membros.</span>
+      </h2>
+
+      <div class="wpp-grid">
+
+        <!-- Card 1 – Jean Phillipe -->
+        <div class="wpp-card">
+          <div class="wpp-topbar">
+            <div class="wpp-topbar__left">
+              <div class="wpp-avatar wpp-avatar--orange">G</div>
+              <div>
+                <div class="wpp-groupname">Geral</div>
+                <div class="wpp-groupsub">Amor, Bruna, FC-360 | SUP...</div>
+              </div>
+            </div>
+            <div class="wpp-topbar__date">qua., 10 de dez.</div>
+          </div>
+          <div class="wpp-body">
+            <div class="wpp-sender">Jean Phillipe Aluno FC-360</div>
+            <p class="wpp-msg">Fiz uma Black num projeto e fechei R$4.650,00 usando o Método Chave Mestra e todo o
+              direcionamento do <span class="wpp-mention">@Jezreel Soares</span> 🚀🔥🔥</p>
+            <div class="wpp-time">Editada 18:26</div>
+          </div>
+          <div class="wpp-value-tag">R$ 4.650,00</div>
+        </div>
+
+        <!-- Card 2 – Raphael -->
+        <div class="wpp-card">
+          <div class="wpp-topbar">
+            <div class="wpp-topbar__left">
+              <div class="wpp-avatar wpp-avatar--blue">R</div>
+              <div>
+                <div class="wpp-groupname">Raphael Aluno FC-360</div>
+              </div>
+            </div>
+            <div class="wpp-topbar__date">qua., 3 de dez.</div>
+          </div>
+          <div class="wpp-body">
+            <div class="wpp-bubble wpp-bubble--recv">Ai jez, fui o top 1 aqui da black <span class="wpp-ts">18:17</span>
+            </div>
+            <div class="wpp-bubble wpp-bubble--recv">Peguei 100% da meta <span class="wpp-ts">18:17</span></div>
+            <div class="wpp-bubble wpp-bubble--recv">Ganhei uma baita grana <span class="wpp-ts">18:17</span></div>
+            <div class="wpp-bubble wpp-bubble--recv">Maior salário da minha vida kkkk <span class="wpp-ts">18:17</span>
+            </div>
+            <div class="wpp-bubble wpp-bubble--recv">Eu hoje com 22 anos ganhando um salário de 25k, nunca me imaginaria
+              aqui <span class="wpp-ts">18:17</span></div>
+          </div>
+          <div class="wpp-value-tag">R$ 25.000/mês</div>
+        </div>
+
+        <!-- Card 3 – Mirian -->
+        <div class="wpp-card">
+          <div class="wpp-topbar">
+            <div class="wpp-topbar__left">
+              <div class="wpp-avatar wpp-avatar--purple">ME</div>
+              <div>
+                <div class="wpp-groupname">Mirian Eugênia Aluna FC-360</div>
+              </div>
+            </div>
+            <div class="wpp-topbar__date">terça-feira</div>
+          </div>
+          <div class="wpp-body">
+            <div class="wpp-bubble wpp-bubble--recv">Jez! Bom dia!! Bati meus primeiros 10k no mês. Estou muito feliz!
+              Muito obrigada pelos ensinamentos! <span class="wpp-ts">11:20</span></div>
+            <div class="wpp-bubble wpp-bubble--sent">Oi Mirian, boa tarde! <span class="wpp-ts">12:27</span></div>
+            <div class="wpp-bubble wpp-bubble--sent">Poxa que legal!!! Parabéns!!! 👏 <span class="wpp-ts">12:27</span>
+            </div>
+          </div>
+          <div class="wpp-value-tag">R$ 10.000</div>
+        </div>
+
+        <!-- Card 4 – Johnny pix R$7k -->
+        <div class="wpp-card">
+          <div class="wpp-topbar">
+            <div class="wpp-topbar__left">
+              <div class="wpp-avatar wpp-avatar--orange">G</div>
+              <div>
+                <div class="wpp-groupname">Geral</div>
+                <div class="wpp-groupsub">Amor, Bruna, FC-360 | SUP...</div>
+              </div>
+            </div>
+            <div class="wpp-topbar__date">qui., 11 de dez.</div>
+          </div>
+          <div class="wpp-body">
+            <div class="wpp-sender">~ Johnny Ma</div>
+            <div class="wpp-comprovante">
+              <div class="wpp-comp__label">Comprovante</div>
+              <div class="wpp-comp__title">CONSULTORIA E T...</div>
+              <div class="wpp-comp__value">R$ 7.000,00</div>
+              <div class="wpp-comp__date">11 Dez, 2025 · 16:37</div>
+              <div class="wpp-comp__row"><span>Tipo</span><span>Cobrança</span></div>
+              <div class="wpp-comp__row"><span>Meio</span><span>Créd...</span></div>
+            </div>
+            <p class="wpp-msg">Uma das dicas que você me deu e eu apliquei foi receber o valor da entrada na call, sem
+              deixar ele sair. <span class="wpp-mention">@Jezreel Soares</span></p>
+            <div class="wpp-time">20:16</div>
+          </div>
+          <div class="wpp-value-tag">R$ 7.000,00</div>
+        </div>
+
+        <!-- Card 5 – Johnny mentoria R$20k -->
+        <div class="wpp-card">
+          <div class="wpp-topbar">
+            <div class="wpp-topbar__left">
+              <div class="wpp-avatar wpp-avatar--orange">G</div>
+              <div>
+                <div class="wpp-groupname">Geral</div>
+                <div class="wpp-groupsub">Amor, Bruna, FC-360 | SUP...</div>
+              </div>
+            </div>
+            <div class="wpp-topbar__date">qui., 11 de dez.</div>
+          </div>
+          <div class="wpp-body">
+            <div class="wpp-sender">~ Johnny Ma</div>
+            <p class="wpp-msg">Boa tarde, galera. Estou muito feliz. Hoje consegui vender minha primeira mentoria de
+              R$20 mil com R$7 mil de entrada. Muito obrigado <span class="wpp-mention">@Jezreel Soares</span></p>
+            <div class="wpp-time">18:18</div>
+          </div>
+          <div class="wpp-value-tag">R$ 20.000</div>
+        </div>
+
+        <!-- Card 6 – Marcos Vinícius R$26k Pix -->
+        <div class="wpp-card">
+          <div class="wpp-topbar">
+            <div class="wpp-topbar__left">
+              <div class="wpp-avatar wpp-avatar--green">MV</div>
+              <div>
+                <div class="wpp-groupname">Marcos Vinícius</div>
+              </div>
+            </div>
+          </div>
+          <div class="wpp-body">
+            <div class="wpp-bubble wpp-bubble--recv">Fala capitão, beleza? <span class="wpp-ts">17:50</span></div>
+            <div class="wpp-bubble wpp-bubble--sent">Fala irmão, tudo certo e contigo? <span class="wpp-ts">17:50</span>
+            </div>
+            <div class="wpp-pix">
+              <div class="wpp-pix__date">5 de dezembro · 16h49</div>
+              <div class="wpp-pix__value">R$ 26.472<sup>26</sup></div>
+              <div class="wpp-pix__label">Transferência Pix recebida</div>
+            </div>
+            <div class="wpp-bubble wpp-bubble--recv">Rompemos 💰🚀 Boraa! <span class="wpp-ts">17:51</span></div>
+          </div>
+          <div class="wpp-value-tag">R$ 26.472,26</div>
+        </div>
+
+      </div><!-- /wpp-grid -->
+
+      <div class="results__foot">
+        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
+      </div>
+    </div>
+  </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Profissão Closer · Jezreel Soares · Todos os direitos reservados.</p>
   </footer>
 
-  <script>
-    (function () {
-      var target = new Date('2026-03-08T09:30:00').getTime();
-      function pad(n) { return n < 10 ? '0' + n : n; }
-      function tick() {
-        var diff = target - Date.now();
-        if (diff < 0) diff = 0;
-        document.getElementById('cd-d').textContent = pad(Math.floor(diff / 86400000));
-        document.getElementById('cd-h').textContent = pad(Math.floor((diff % 86400000) / 3600000));
-        document.getElementById('cd-m').textContent = pad(Math.floor((diff % 3600000) / 60000));
-        document.getElementById('cd-s').textContent = pad(Math.floor((diff % 60000) / 1000));
-        // CTA final countdown (hours:minutes:seconds only)
-        var el2d = document.getElementById('cd-d2');
-        var el2h = document.getElementById('cd-h2');
-        var el2m = document.getElementById('cd-m2');
-        if (el2d) el2d.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-        if (el2h) el2h.textContent = pad(Math.floor((diff % 3600000) / 60000));
-        if (el2m) el2m.textContent = pad(Math.floor((diff % 60000) / 1000));
-      }
-      tick(); setInterval(tick, 1000);
-    })();
-  </script>
 </body>
 
 </html>
