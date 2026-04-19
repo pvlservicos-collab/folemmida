@@ -9,6 +9,10 @@
   box-sizing: border-box
 }
 
+html, body {
+  overflow-x: hidden !important;
+}
+
 html {
   scroll-behavior: smooth
 }
@@ -42,7 +46,6 @@ body {
   font-family: 'Exo 2', sans-serif;
   font-weight: 300;
   line-height: 1.72;
-  overflow-x: hidden;
 }
 
 /* ─── STARS CANVAS ─── */
@@ -1545,6 +1548,9 @@ footer,
 .pv-btn {
   margin-top: clamp(1.8rem, 4vh, 2.8rem);
   display: inline-flex;
+  white-space: normal;
+  text-align: center;
+  max-width: 100%;
 }
 
 /* ─── CTA ─── */
@@ -1718,10 +1724,12 @@ footer {
     grid-template-columns: 60px 1fr
   }
 
-  /* Planet 15% smaller on tablet/mobile */
-  .planet-orbit-system {
-    transform: scale(0.85);
-    transform-origin: center center;
+  /* Planet 30% smaller on mobile & bring text up */
+  .hero-right {
+    order: -1;
+    transform: scale(0.70);
+    margin-bottom: -4rem; /* brings text up */
+    margin-top: -1.5rem;
   }
 
   /* Larger headline so text fills more space */
@@ -1733,6 +1741,18 @@ footer {
 @media(max-width:720px) {
   .nav-links {
     display: none
+  }
+
+  /* Stack buttons */
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    width: 100%;
   }
 
   /* Nav logo flush left on small screens */
