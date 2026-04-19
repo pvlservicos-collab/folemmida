@@ -1729,7 +1729,7 @@ footer {
     order: -1;
     transform: scale(0.70);
     margin-bottom: -4rem; /* brings text up */
-    margin-top: -3.5rem; /* reduce space above the sun */
+    margin-top: -5.5rem; /* reduce space above the sun */
   }
 
   /* Larger headline so text fills more space */
