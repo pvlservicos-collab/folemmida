@@ -2,436 +2,1057 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Imersão Closer Digital – Jezreel Soares</title>
-  <link rel="stylesheet" href="index.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Folem Mídia — Escala & Resultados</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link
-    href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet" />
+    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Orbitron:wght@400;500;600;700;900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero__bg"></div>
-    <div class="hero__container">
-      <div class="hero__card">
-        <div class="hero__badge">Evento ao vivo · 08/03</div>
-        <h1 class="hero__title">
-          Ganhe de <span class="c-orange">5 a 16 mil</span><br>
-          Trabalhando de casa<br>
-          Como <span class="c-orange">Closer No Digital</span>
+  <canvas id="stars-canvas"></canvas>
+
+  <!-- NAV — full width bar, inner content fixed width -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <div class="logo-icon">
+          <div class="logo-planet"></div>
+          <div class="logo-ring"></div>
+        </div>
+        Folem<span>Mídia</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#trafego">Tráfego Pago</a></li>
+        <li><a href="#consultoria">Consultoria</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+        <li><a href="#contato" class="nav-cta">Falar com especialista →</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero" id="home">
+    <canvas id="hero-particles"></canvas>
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Agência de Performance</div>
+        <h1 class="hero-title">
+          Leve seu<br>negócio a<br>
+          <span class="accent" style="-webkit-text-fill-color:var(--gold)">outro nível.</span>
         </h1>
-        <p class="hero__sub">
-          Mesmo sem experiência em vendas, sem seguidores e começando do zero,
-          você pode aprender a trabalhar de casa dedicando cerca de 3 horas por dia.
-        </p>
-        <p class="hero__info">
-          Serão mais de <strong>8h de imersão ao vivo</strong> no dia <strong>08/03</strong>.
-        </p>
-        <div class="video-block">
-          <div class="video-play-btn">
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="white">
-              <polygon points="5,3 19,12 5,21" />
-            </svg>
+        <p class="hero-desc">Ajudamos experts e empresas a escalar faturamento com tráfego estratégico, consultoria
+          especializada e design que converte.</p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn-primary">Quero escalar agora →</a>
+          <a href="#trafego" class="btn-ghost">Ver serviços</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-num count-up" data-target="50" data-prefix="+" data-suffix="">+50</span>
+            <span class="hero-stat-label">Negócios escalados</span>
           </div>
-          <p class="video-hint">Assista a apresentação completa</p>
+          <div class="hero-stat">
+            <span class="hero-stat-num count-up" data-target="2" data-prefix="R$" data-suffix="M+">R$2M+</span>
+            <span class="hero-stat-label">Em vendas geradas</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-num count-up" data-target="98" data-prefix="" data-suffix="%">98%</span>
+            <span class="hero-stat-label">Taxa de satisfação</span>
+          </div>
         </div>
-        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
       </div>
-      <div class="hero__visual">
-        <div class="hero__photo"><span class="ph-initials">JS</span></div>
-        <div class="hero__glow"></div>
+      <!-- PLANET -->
+      <div class="hero-right">
+        <div class="planet-orbit-system" id="planet-system" aria-hidden="true">
+          <div class="hor hor-t2"></div>
+          <div class="hor hor-t1"></div>
+          <div class="hor hor-5"></div>
+          <div class="hor hor-4"></div>
+          <div class="hor hor-3" id="hr3"></div>
+          <div class="hor hor-2"></div>
+          <div class="hor hor-1" id="hr1"></div>
+          <div class="orbit-dot"></div>
+          <div class="orbit-dot orbit-dot-2"></div>
+          <!-- Saturn rings — BACK half (behind planet) -->
+          <div class="saturn-rings sr-back" id="saturn-back">
+            <div class="sr sr-2"></div>
+            <div class="sr sr-3"></div>
+            <div class="sr sr-4"></div>
+            <div class="sr sr-5"></div>
+          </div>
+          <!-- Planet sphere -->
+          <div class="hero-planet" id="hero-planet-core">
+            <div class="planet-burst" id="planet-burst"></div>
+          </div>
+          <!-- Saturn rings — FRONT half (in front of planet) -->
+          <div class="saturn-rings sr-front" id="saturn-front">
+            <div class="sr sr-2"></div>
+            <div class="sr sr-3"></div>
+            <div class="sr sr-4"></div>
+            <div class="sr sr-5"></div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- INSIGHT -->
-  <section class="insight">
-    <div class="wrap insight__wrap">
-      <div class="insight__photo"><span class="ph-initials">JS</span></div>
-      <div class="insight__text">
-        <h2 class="insight__title">
-          Se você chegou até aqui,<br>três coisas já ficaram claras:
-        </h2>
-        <ul class="dash-list">
-          <li><span class="c-orange">Closer Digital</span> é uma profissão real.</li>
-          <li>Existe <span class="c-orange">dinheiro envolvido</span> para quem fecha.</li>
-          <li>A maioria fracassa por entrar sem <span class="c-orange">método</span>.</li>
-        </ul>
-        <div class="insight__box">
-          O <strong>Evento no dia 08/03</strong> existe para resolver isso
-          <strong>ANTES</strong> de você apostar meses da sua vida.
+  <!-- TICKER — below hero -->
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
+          PAGO</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
+          ESTRATÉGICA</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
+          PAGO</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
+          ESTRATÉGICA</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <!-- duplicate -->
+      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
+          PAGO</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
+          ESTRATÉGICA</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
+          PAGO</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
+          ESTRATÉGICA</span></span>
+      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+    </div>
+  </div>
+
+  <!-- ═══ TRÁFEGO PAGO ═══ -->
+  <section id="trafego" class="service-section sect-trafego">
+    <div class="container">
+      <div class="product-intro reveal">
+        <span class="product-num-badge">01</span>
+        <div class="product-intro-text">
+          <p class="section-eyebrow">Serviço</p>
+          <h2 class="product-section-title">Tráfego <span class="accent">Pago</span></h2>
+          <p class="product-tagline">Anúncios que atraem clientes reais, no momento certo, no lugar certo.</p>
+        </div>
+      </div>
+      <div class="service-explain-grid reveal">
+        <div class="service-explain-main">
+          <h3 class="service-explain-title">O que fazemos por você</h3>
+          <p class="body-text">Gerenciamos seus anúncios do zero ao avançado — pesquisa de audiência, criação de
+            criativos, segmentação precisa, testes A/B e otimização contínua. Nosso foco é ROI positivo desde a primeira
+            semana.</p>
+          <p class="body-text">Trabalhamos com as principais plataformas de mídia paga, adaptando a estratégia ao
+            comportamento da sua audiência ideal.</p>
+          <div class="service-platforms">
+            <span class="platform-badge">Meta Ads</span>
+            <span class="platform-badge">Google Ads</span>
+            <span class="platform-badge">YouTube Ads</span>
+            <span class="platform-badge">TikTok Ads</span>
+          </div>
+        </div>
+        <div class="service-features">
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <circle cx="11" cy="11" r="8" />
+                <path d="m21 21-4.35-4.35" />
+              </svg></div>
+            <div>
+              <h4>Pesquisa & Segmentação</h4>
+              <p>Mapeamos sua audiência ideal com precisão cirúrgica para atingir quem realmente compra.</p>
+            </div>
+          </div>
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M3 9h18M9 21V9" />
+              </svg></div>
+            <div>
+              <h4>Criativos que Convertem</h4>
+              <p>Desenvolvemos textos, imagens e vídeos testados para maximizar CTR e reduzir custo por lead.</p>
+            </div>
+          </div>
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4l-5.5 5.5L13 6l-7 7" />
+              </svg></div>
+            <div>
+              <h4>Otimização Contínua</h4>
+              <p>Monitoramos e ajustamos campanhas diariamente para manter o ROAS sempre crescente.</p>
+            </div>
+          </div>
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2z" />
+                <path d="M15 13v8h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2z" />
+                <path d="M9 10V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5" />
+              </svg></div>
+            <div>
+              <h4>Relatórios Transparentes</h4>
+              <p>Dashboards em tempo real. Você sabe exatamente onde cada real do investimento vai.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOR WHO -->
-  <section class="forwho">
-    <div class="wrap">
-      <h2 class="sec-title">Esse evento é para mim?</h2>
-      <div class="forwho__grid">
-        <div class="forwho__col">
-          <h3 class="forwho__sub">É pra você se:</h3>
-          <ul class="dot-list">
-            <li>Está cansado da rotina corrida e de ganhar pouco pelo esforço que entrega.</li>
-            <li>Sente que o tempo passa e você continua preso num trabalho sem reconhecimento.</li>
-            <li>Quer trabalhar de casa, ter liberdade e ser bem pago pelo seu resultado.</li>
-            <li>Vê o mercado digital crescendo, mas não sabe por onde começar.</li>
-          </ul>
-        </div>
-        <div class="forwho__sep"></div>
-        <div class="forwho__col">
-          <h3 class="forwho__sub">O que você vai descobrir na aula ao vivo:</h3>
-          <ul class="dot-list">
-            <li>O que faz um Closer Digital e por que essa profissão cresce tanto.</li>
-            <li>Como começar do zero e ganhar de 3 a 10 mil por mês como Closer Digital.</li>
-            <li>Onde encontrar empresas e experts que estão contratando Closers.</li>
-            <li>Os erros que travam iniciantes e como evitá-los.</li>
-          </ul>
-        </div>
+  <!-- Resultados Tráfego + Instagram Mockup -->
+  <section class="profiles-section sect-trafego-results">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Resultados reais · Tráfego Pago</p>
+        <h2 class="section-title">Por perfil de <span class="accent">negócio</span></h2>
+        <p class="section-subtitle">Veja o impacto concreto do tráfego estratégico em cada tipo de negócio</p>
       </div>
-      <div class="forwho__foot">
-        <p>Não perca essa oportunidade de mudar sua carreira e entrar na profissão que mais cresce no digital.</p>
-        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- INSTRUCTOR -->
-  <section class="instructor">
-    <div class="wrap instructor__wrap">
-      <div class="instructor__left">
-        <div class="instructor__photo"><span class="ph-initials">JS</span></div>
-        <div class="instructor__badge">+40 milhões em vendas</div>
-      </div>
-      <div class="instructor__right">
-        <p class="instructor__pre">Quem conduz o evento vive isso no campo.</p>
-        <h2 class="instructor__name">Jezreel Soares</h2>
-        <p class="instructor__bio">
-          Jezreel Soares já participou de operações que somam mais de 40 milhões em vendas,
-          liderou e estruturou times comerciais em algumas das maiores operações do digital.
-        </p>
-        <p class="instructor__motto">Aqui não tem teoria. <strong>Tem prática.</strong></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- VIDEOS DEPOIMENTO -->
-  <section class="videos">
-    <div class="wrap">
-      <h2 class="sec-title">
-        Pessoas comuns já usaram esse mesmo caminho para sair do zero,
-        fazer suas primeiras calls e gerar comissões no digital.
-      </h2>
-      <div class="videos__grid">
-        <div class="video-card">
-          <div class="video-thumb">
-            <div class="video-play-btn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                <polygon points="5,3 19,12 5,21" />
+      <!-- Instagram Mockup Case -->
+      <div class="ig-mockup-section reveal">
+        <div class="ig-card">
+          <div class="ig-header">
+            <div class="ig-avatar-ring">
+              <div class="ig-avatar-inner">QA</div>
+            </div>
+            <div class="ig-header-info">
+              <span class="ig-username">@doinstagram</span>
+              <span class="ig-subtext">Case de Sucesso · Tráfego Pago</span>
+            </div>
+            <div class="ig-dots">
+              <div class="ig-dot"></div>
+              <div class="ig-dot"></div>
+              <div class="ig-dot"></div>
+            </div>
+          </div>
+          <div class="ig-post-body">
+            <div class="ig-post-tag">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
               </svg>
+              Crescimento verificado
+            </div>
+            <div class="ig-metrics-grid">
+              <div class="ig-metric-box"><span class="ig-metric-val">R$127k</span><span
+                  class="ig-metric-label">Faturamento/mês</span></div>
+              <div class="ig-metric-box"><span class="ig-metric-val">+297%</span><span class="ig-metric-label">Em 3
+                  meses</span></div>
+              <div class="ig-metric-box"><span class="ig-metric-val">4.6x</span><span class="ig-metric-label">ROAS
+                  médio</span></div>
+              <div class="ig-metric-box"><span class="ig-metric-val">R$32k</span><span
+                  class="ig-metric-label">Faturamento inicial</span></div>
             </div>
           </div>
-          <p class="video-name">Ely Nascimento</p>
+          <div class="ig-footer">
+            <span class="ig-likes">❤️ 3.241 curtidas</span>
+            <p class="ig-caption"><strong>@doinstagram</strong> Saímos de R$32k para R$127k em faturamento mensal em
+              apenas 3 meses de trabalho com tráfego estratégico. Os números falam por si. 🚀</p>
+          </div>
         </div>
-        <div class="video-card">
-          <div class="video-thumb">
-            <div class="video-play-btn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                <polygon points="5,3 19,12 5,21" />
+        <div class="ig-case-text">
+          <h3 class="ig-case-title">E-commerce que escalou<br><span style="color:var(--blue)">4x em 90 dias</span></h3>
+          <p class="ig-case-desc">Com uma estratégia de tráfego focada em Meta Ads e Google Shopping, transformamos uma
+            loja virtual que faturava R$32k/mês em uma máquina de vendas que gerou R$127k em apenas 3 meses. Cada real
+            investido voltou multiplicado.</p>
+          <div class="ig-stat-row">
+            <div class="ig-stat-item"><span class="ig-stat-val">4.6x</span><span class="ig-stat-label">Retorno sobre
+                investimento</span></div>
+            <div class="ig-stat-item"><span class="ig-stat-val">-62%</span><span class="ig-stat-label">Custo por
+                aquisição</span></div>
+            <div class="ig-stat-item"><span class="ig-stat-val">3 meses</span><span class="ig-stat-label">Para escalar
+                4x</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="profiles-grid">
+        <div class="profile-card reveal reveal-delay-1">
+          <div class="profile-badge">Infoprodutor</div>
+          <h3 class="profile-name">Lançamentos & Cursos Online</h3>
+          <div class="profile-metric">
+            <div><span class="metric-label">Leads por mês</span><span class="metric-change">145 →
+                <strong>680</strong></span><span class="metric-pct">+368%</span></div>
+            <div style="text-align:right"><span class="metric-label">ROI</span><span class="metric-value">4.2x</span>
+            </div>
+          </div>
+          <div class="chart-container"><canvas id="chart-t1" height="155"></canvas></div>
+        </div>
+        <div class="profile-card reveal reveal-delay-2">
+          <div class="profile-badge">E-commerce</div>
+          <h3 class="profile-name">Loja Virtual & Produtos Físicos</h3>
+          <div class="profile-metric">
+            <div><span class="metric-label">Faturamento mensal</span><span class="metric-change">R$32k →
+                <strong>R$127k</strong></span><span class="metric-pct">+297%</span></div>
+            <div style="text-align:right"><span class="metric-label">ROAS</span><span class="metric-value">4.6x</span>
+            </div>
+          </div>
+          <div class="chart-container"><canvas id="chart-t2" height="155"></canvas></div>
+        </div>
+        <div class="profile-card reveal reveal-delay-3">
+          <div class="profile-badge">Negócio Local</div>
+          <h3 class="profile-name">Clínicas, Salões & Serviços</h3>
+          <div class="profile-metric">
+            <div><span class="metric-label">Agendamentos/mês</span><span class="metric-change">42 →
+                <strong>195</strong></span><span class="metric-pct">+364%</span></div>
+            <div style="text-align:right"><span class="metric-label">Redução CAC</span><span
+                class="metric-value">-74%</span></div>
+          </div>
+          <div class="chart-container"><canvas id="chart-t3" height="155"></canvas></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CONSULTORIA ═══ -->
+  <section id="consultoria" class="service-section sect-consultoria">
+    <div class="container">
+      <div class="product-intro reveal">
+        <span class="product-num-badge">02</span>
+        <div class="product-intro-text">
+          <p class="section-eyebrow">Serviço</p>
+          <h2 class="product-section-title">Consultoria <span class="accent">Estratégica</span></h2>
+          <p class="product-tagline">Diagnóstico, planejamento e execução para quem quer crescer com inteligência.</p>
+        </div>
+      </div>
+      <div class="service-explain-grid reveal">
+        <div class="service-explain-main">
+          <h3 class="service-explain-title">Mais que uma consultoria</h3>
+          <p class="body-text">Nos tornamos parte do seu time. Analisamos cada aspecto do seu negócio digital e
+            construímos um plano de crescimento executável e personalizado.</p>
+          <p class="body-text">Nossa metodologia combina análise de dados com visão estratégica para identificar onde
+            você está deixando dinheiro na mesa.</p>
+          <div class="service-platforms">
+            <span class="platform-badge">Funil de Vendas</span>
+            <span class="platform-badge">Posicionamento</span>
+            <span class="platform-badge">Precificação</span>
+            <span class="platform-badge">Canais Digitais</span>
+          </div>
+        </div>
+        <div class="service-features">
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                <polyline points="14 2 14 8 20 8" />
+                <line x1="16" y1="13" x2="8" y2="13" />
+                <line x1="16" y1="17" x2="8" y2="17" />
+              </svg></div>
+            <div>
+              <h4>Diagnóstico Completo</h4>
+              <p>Mapeamos gargalos e oportunidades escondidas no seu negócio com análise aprofundada.</p>
+            </div>
+          </div>
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <polygon points="3 11 22 2 13 21 11 13 3 11" />
+              </svg></div>
+            <div>
+              <h4>Plano de Escala</h4>
+              <p>Estratégia com metas claras, timeline e KPIs definidos para cada etapa do crescimento.</p>
+            </div>
+          </div>
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+              </svg></div>
+            <div>
+              <h4>Mentoria Contínua</h4>
+              <p>Reuniões semanais de acompanhamento e suporte direto com nossos especialistas.</p>
+            </div>
+          </div>
+          <div class="service-feature">
+            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+              </svg></div>
+            <div>
+              <h4>Implementação Assistida</h4>
+              <p>Não apenas orientamos — ajudamos a colocar em prática cada passo do plano estratégico.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Resultados Consultoria + IG Mockup -->
+  <section class="profiles-section sect-consultoria-results">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow">Crescimento real · Consultoria</p>
+        <h2 class="section-title">Evolução por <span class="accent">perfil</span></h2>
+        <p class="section-subtitle">Trajetória de crescimento em 6 meses com nossa consultoria estratégica</p>
+      </div>
+
+      <!-- Instagram Mockup Case -->
+      <div class="ig-mockup-section reveal" style="direction:rtl">
+        <div class="ig-card" style="direction:ltr">
+          <div class="ig-header">
+            <div class="ig-avatar-ring">
+              <div class="ig-avatar-inner">QA</div>
+            </div>
+            <div class="ig-header-info">
+              <span class="ig-username">@doinstagram</span>
+              <span class="ig-subtext">Case de Sucesso · Consultoria</span>
+            </div>
+            <div class="ig-dots">
+              <div class="ig-dot"></div>
+              <div class="ig-dot"></div>
+              <div class="ig-dot"></div>
+            </div>
+          </div>
+          <div class="ig-post-body">
+            <div class="ig-post-tag">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
+                <polyline points="17 6 23 6 23 12" />
               </svg>
+              Crescimento verificado
+            </div>
+            <div class="ig-metrics-grid">
+              <div class="ig-metric-box"><span class="ig-metric-val">R$97k</span><span
+                  class="ig-metric-label">Faturamento/mês</span></div>
+              <div class="ig-metric-box"><span class="ig-metric-val">+246%</span><span class="ig-metric-label">Em 6
+                  meses</span></div>
+              <div class="ig-metric-box"><span class="ig-metric-val">9.4%</span><span class="ig-metric-label">Conversão
+                  atual</span></div>
+              <div class="ig-metric-box"><span class="ig-metric-val">R$28k</span><span
+                  class="ig-metric-label">Faturamento inicial</span></div>
             </div>
           </div>
-          <p class="video-name">Santos Vinícius / Elias Farias</p>
+          <div class="ig-footer">
+            <span class="ig-likes">❤️ 2.187 curtidas</span>
+            <p class="ig-caption"><strong>@doinstagram</strong> De R$28k para R$97k/mês em 6 meses de consultoria
+              estratégica. Diagnóstico preciso + plano executável = resultados reais. 📈</p>
+          </div>
         </div>
-        <div class="video-card">
-          <div class="video-thumb">
-            <div class="video-play-btn">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                <polygon points="5,3 19,12 5,21" />
-              </svg>
-            </div>
+        <div class="ig-case-text" style="direction:ltr">
+          <h3 class="ig-case-title">Expert que triplicou<br><span style="color:var(--purple)">o faturamento em 6
+              meses</span></h3>
+          <p class="ig-case-desc">Com diagnóstico completo e um plano de escala personalizado, identificamos os gargalos
+            que impediam o crescimento e construímos uma estratégia que multiplicou o faturamento mensal em menos de
+            meio ano.</p>
+          <div class="ig-stat-row">
+            <div class="ig-stat-item"><span class="ig-stat-val">+246%</span><span
+                class="ig-stat-label">Faturamento</span></div>
+            <div class="ig-stat-item"><span class="ig-stat-val">9.4%</span><span class="ig-stat-label">Taxa de
+                conversão</span></div>
+            <div class="ig-stat-item"><span class="ig-stat-val">6 meses</span><span class="ig-stat-label">Para
+                triplicar</span></div>
           </div>
-          <p class="video-name">Mirian Eugênia</p>
+        </div>
+      </div>
+
+      <div class="profiles-grid">
+        <div class="profile-card reveal reveal-delay-1">
+          <div class="profile-badge">Expert / Mentor</div>
+          <h3 class="profile-name">Cursos, Mentorias & Infoprodutos</h3>
+          <div class="profile-metric">
+            <div><span class="metric-label">Faturamento mensal</span><span class="metric-change">R$28k →
+                <strong>R$97k</strong></span><span class="metric-pct">em 6 meses</span></div>
+            <div style="text-align:right"><span class="metric-label">Crescimento</span><span
+                class="metric-value">+246%</span></div>
+          </div>
+          <div class="chart-container"><canvas id="chart-c1" height="155"></canvas></div>
+        </div>
+        <div class="profile-card reveal reveal-delay-2">
+          <div class="profile-badge">Empresa B2B</div>
+          <h3 class="profile-name">Serviços Corporativos & SaaS</h3>
+          <div class="profile-metric">
+            <div><span class="metric-label">Leads qualificados/mês</span><span class="metric-change">12 → <strong>72
+                  leads</strong></span><span class="metric-pct">em 6 meses</span></div>
+            <div style="text-align:right"><span class="metric-label">Crescimento</span><span
+                class="metric-value">+500%</span></div>
+          </div>
+          <div class="chart-container"><canvas id="chart-c2" height="155"></canvas></div>
+        </div>
+        <div class="profile-card reveal reveal-delay-3">
+          <div class="profile-badge">Coach / Profissional Liberal</div>
+          <h3 class="profile-name">Coaches, Terapeutas & Consultores</h3>
+          <div class="profile-metric">
+            <div><span class="metric-label">Taxa de conversão</span><span class="metric-change">2.2% →
+                <strong>9.4%</strong></span><span class="metric-pct">em 6 meses</span></div>
+            <div style="text-align:right"><span class="metric-label">Crescimento</span><span
+                class="metric-value">+327%</span></div>
+          </div>
+          <div class="chart-container"><canvas id="chart-c3" height="155"></canvas></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- RESULTADOS / PRINTS -->
-  <section class="results">
-    <div class="wrap">
-      <h2 class="sec-title">
-        Veja os resultados dos <span class="c-green">nossos membros.</span>
-      </h2>
-      <div class="results__grid">
-        <div class="result-card">
-          <div class="result-card__top">
-            <div class="result-avatar">JP</div>
-            <div>
-              <div class="result-name">Jean Phillipe</div>
-              <div class="result-role">Aluno FC-360 · 10 de dez.</div>
-            </div>
-          </div>
-          <p class="result-text">Fiz uma Black num projeto e fechei R$4.650,00 usando o Método Chave Mestra e todo o
-            direcionamento do @Jezreel Soares.</p>
-          <div class="result-value">R$ 4.650,00</div>
-        </div>
-        <div class="result-card">
-          <div class="result-card__top">
-            <div class="result-avatar">RA</div>
-            <div>
-              <div class="result-name">Raphael</div>
-              <div class="result-role">Aluno FC-360 · 3 de dez.</div>
-            </div>
-          </div>
-          <p class="result-text">Fui ao top 1 aqui na Black. Peguei 100% da meta. Com 22 anos ganhando um salário de
-            25k, nunca me imaginaria aqui.</p>
-          <div class="result-value">R$ 25.000/mês</div>
-        </div>
-        <div class="result-card">
-          <div class="result-card__top">
-            <div class="result-avatar">ME</div>
-            <div>
-              <div class="result-name">Mirian Eugênia</div>
-              <div class="result-role">Aluna FC-360 · terça-feira</div>
-            </div>
-          </div>
-          <p class="result-text">Batei meus primeiros 10k no mês. Estou muito feliz! Muito obrigada pelos ensinamentos!
-          </p>
-          <div class="result-value">R$ 10.000</div>
-        </div>
-        <div class="result-card">
-          <div class="result-card__top">
-            <div class="result-avatar">JM</div>
-            <div>
-              <div class="result-name">Johnny Ma</div>
-              <div class="result-role">Aluno FC-360 · 11 de dez.</div>
-            </div>
-          </div>
-          <p class="result-text">Uma das dicas que você me deu e eu apliquei foi receber o valor da entrada na call, sem
-            deixar ele sair.</p>
-          <div class="result-value">R$ 7.000 em uma call</div>
-        </div>
-        <div class="result-card">
-          <div class="result-card__top">
-            <div class="result-avatar">JM</div>
-            <div>
-              <div class="result-name">Johnny Ma</div>
-              <div class="result-role">Aluno FC-360 · 11 de dez.</div>
-            </div>
-          </div>
-          <p class="result-text">Hoje consegui vender minha primeira mentoria de R$20 mil com R$7 mil de entrada. Muito
-            obrigado @Jezreel Soares.</p>
-          <div class="result-value">R$ 20.000</div>
-        </div>
-        <div class="result-card">
-          <div class="result-card__top">
-            <div class="result-avatar">MV</div>
-            <div>
-              <div class="result-name">Marcos Vinícius</div>
-              <div class="result-role">5 de dezembro</div>
-            </div>
-          </div>
-          <p class="result-text">Queria compartilhar com você esse último resultado. Rompemos! Transferência Pix
-            recebida.</p>
-          <div class="result-value">R$ 26.472,26</div>
-        </div>
+  <!-- ═══ DEPOIMENTOS ═══ -->
+  <section id="depoimentos" class="testimonials-section">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" style="color:var(--gold)">Depoimentos</p>
+        <h2 class="section-title">O que nossos <span class="accent"
+            style="-webkit-text-fill-color:var(--gold)">clientes</span> dizem</h2>
       </div>
-      <div class="results__foot">
-        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Em 60 dias a Folem Mídia triplicou o número de leads qualificados do meu negócio. A consultoria
+            foi cirúrgica."</blockquote>
+          <div class="testimonial-author">
+            <div class="avatar">RM</div>
+            <div>
+              <div class="author-name">Ricardo Mendes</div>
+              <div class="author-role">Infoprodutor · Saúde</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="stars">★★★★★</div>
+          <blockquote>"Saímos de R$30k para R$120k por mês em menos de 4 meses. O tráfego que eles gerenciam é
+            completamente diferente."</blockquote>
+          <div class="testimonial-author">
+            <div class="avatar">AS</div>
+            <div>
+              <div class="author-name">Ana Silva</div>
+              <div class="author-role">CEO · E-commerce</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="stars">★★★★★</div>
+          <blockquote>"A estratégia de consultoria dobrou minha taxa de conversão. Parceria de verdade — não somem
+            depois de fechar o contrato."</blockquote>
+          <div class="testimonial-author">
+            <div class="avatar">LC</div>
+            <div>
+              <div class="author-name">Lucas Costa</div>
+              <div class="author-role">Coach · Finanças</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- PRICING -->
-  <section class="pricing" id="inscricao">
-    <div class="wrap">
-      <div class="pricing__card">
-        <div class="pricing__logo">Profissão Closer</div>
-        <div class="pricing__urgency">O Lote 1 termina hoje · 16/03/2026</div>
-        <ul class="pricing__list">
-          <li>+8 horas de imersão ao vivo</li>
-          <li>A verdade sobre a profissão</li>
-          <li>Perfil de fechamento (autodiagnóstico)</li>
-          <li>Passo a passo para o primeiro cliente</li>
-          <li>Prospecção inteligente</li>
-          <li>O salto de renda</li>
-          <li>Bônus — Q&A ao vivo</li>
-        </ul>
-        <div class="pricing__old">De R$ 147,00</div>
-        <div class="pricing__label">Adquira agora por:</div>
-        <div class="pricing__price">R$ 47,00</div>
-        <a href="#" class="btn-cta btn-cta--full">Quero garantir minha vaga</a>
-        <p class="pricing__note">Vagas limitadas para manter a qualidade do evento ao vivo</p>
+  <!-- ═══ PROCESSO VERTICAL com linha animada ═══ -->
+  <section class="process-section" id="processo">
+    <div class="container">
+      <div class="section-header reveal">
+        <p class="section-eyebrow" style="color:var(--gold)">Como funciona</p>
+        <h2 class="section-title">Da estratégia à <span class="accent"
+            style="-webkit-text-fill-color:var(--gold)">escala</span></h2>
+      </div>
+
+      <div class="pv-step-container" id="pv-container">
+        <!-- Vertical line track (absolute, shared) -->
+        <div class="pv-track" id="pv-track">
+          <div class="pv-line-bg"></div>
+          <div class="pv-line-fill" id="pv-fill"></div>
+        </div>
+
+        <!-- Steps -->
+        <div class="pv-steps" id="pv-steps">
+          <div class="pv-step" data-index="0">
+            <div class="pv-dot">
+              <div class="pv-dot-circle"><span class="pv-num">01</span></div>
+            </div>
+            <div class="pv-content">
+              <h4>Diagnóstico</h4>
+              <p>Mapeamos cada aspecto do seu negócio — funil, oferta, canais e audiência — para identificar exatamente
+                onde estão os bloqueios de crescimento.</p>
+            </div>
+          </div>
+          <div class="pv-step" data-index="1">
+            <div class="pv-dot">
+              <div class="pv-dot-circle"><span class="pv-num">02</span></div>
+            </div>
+            <div class="pv-content">
+              <h4>Estratégia</h4>
+              <p>Criamos um plano personalizado com metas claras, canais priorizados, investimentos definidos e KPIs que
+                realmente importam para o seu negócio.</p>
+            </div>
+          </div>
+          <div class="pv-step" data-index="2">
+            <div class="pv-dot">
+              <div class="pv-dot-circle"><span class="pv-num">03</span></div>
+            </div>
+            <div class="pv-content">
+              <h4>Execução</h4>
+              <p>Colocamos tudo no ar com velocidade: campanhas, criativos, páginas de conversão e automações. Do
+                briefing ao ao vivo em tempo recorde.</p>
+            </div>
+          </div>
+          <div class="pv-step" data-index="3">
+            <div class="pv-dot">
+              <div class="pv-dot-circle"><span class="pv-num">04</span></div>
+            </div>
+            <div class="pv-content">
+              <h4>Otimização</h4>
+              <p>Monitoramos, testamos e ajustamos continuamente. Cada dado é uma oportunidade de escalar mais — e não
+                paramos até chegar no teto do crescimento.</p>
+              <a href="#contato" class="btn-primary btn-large pv-btn">Fale conosco agora, implemente na sua operação →</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
-  <!-- RESULTADOS / PRINTS WHATSAPP -->
-  <section class="results">
-    <div class="wrap">
-      <h2 class="results__title">
-        Veja os resultados dos <span class="c-yellow">nossos membros.</span>
-      </h2>
 
-      <div class="wpp-grid">
-
-        <!-- Card 1 – Jean Phillipe -->
-        <div class="wpp-card">
-          <div class="wpp-topbar">
-            <div class="wpp-topbar__left">
-              <div class="wpp-avatar wpp-avatar--orange">G</div>
-              <div>
-                <div class="wpp-groupname">Geral</div>
-                <div class="wpp-groupsub">Amor, Bruna, FC-360 | SUP...</div>
-              </div>
-            </div>
-            <div class="wpp-topbar__date">qua., 10 de dez.</div>
-          </div>
-          <div class="wpp-body">
-            <div class="wpp-sender">Jean Phillipe Aluno FC-360</div>
-            <p class="wpp-msg">Fiz uma Black num projeto e fechei R$4.650,00 usando o Método Chave Mestra e todo o
-              direcionamento do <span class="wpp-mention">@Jezreel Soares</span> 🚀🔥🔥</p>
-            <div class="wpp-time">Editada 18:26</div>
-          </div>
-          <div class="wpp-value-tag">R$ 4.650,00</div>
+  <!-- ═══ CTA ═══ -->
+  <section id="contato" class="cta-section">
+    <div class="cta-glow"></div>
+    <div class="container">
+      <div class="cta-box reveal">
+        <p class="section-eyebrow" style="text-align:center;color:var(--gold)">Pronto para crescer?</p>
+        <h2 class="cta-title">Seu negócio merece<br><span class="accent">escalar.</span></h2>
+        <p class="cta-desc">Fale com um especialista da Folem Mídia e descubra como transformar o seu faturamento nos
+          próximos 90 dias.</p>
+        <div class="cta-actions">
+          <a href="https://folemmidia.com" class="btn-primary" target="_blank" rel="noopener">Falar com especialista
+            →</a>
+          <a href="https://instagram.com/folemmidia" class="btn-ghost" target="_blank" rel="noopener">Ver no
+            Instagram</a>
         </div>
-
-        <!-- Card 2 – Raphael -->
-        <div class="wpp-card">
-          <div class="wpp-topbar">
-            <div class="wpp-topbar__left">
-              <div class="wpp-avatar wpp-avatar--blue">R</div>
-              <div>
-                <div class="wpp-groupname">Raphael Aluno FC-360</div>
-              </div>
-            </div>
-            <div class="wpp-topbar__date">qua., 3 de dez.</div>
-          </div>
-          <div class="wpp-body">
-            <div class="wpp-bubble wpp-bubble--recv">Ai jez, fui o top 1 aqui da black <span class="wpp-ts">18:17</span>
-            </div>
-            <div class="wpp-bubble wpp-bubble--recv">Peguei 100% da meta <span class="wpp-ts">18:17</span></div>
-            <div class="wpp-bubble wpp-bubble--recv">Ganhei uma baita grana <span class="wpp-ts">18:17</span></div>
-            <div class="wpp-bubble wpp-bubble--recv">Maior salário da minha vida kkkk <span class="wpp-ts">18:17</span>
-            </div>
-            <div class="wpp-bubble wpp-bubble--recv">Eu hoje com 22 anos ganhando um salário de 25k, nunca me imaginaria
-              aqui <span class="wpp-ts">18:17</span></div>
-          </div>
-          <div class="wpp-value-tag">R$ 25.000/mês</div>
-        </div>
-
-        <!-- Card 3 – Mirian -->
-        <div class="wpp-card">
-          <div class="wpp-topbar">
-            <div class="wpp-topbar__left">
-              <div class="wpp-avatar wpp-avatar--purple">ME</div>
-              <div>
-                <div class="wpp-groupname">Mirian Eugênia Aluna FC-360</div>
-              </div>
-            </div>
-            <div class="wpp-topbar__date">terça-feira</div>
-          </div>
-          <div class="wpp-body">
-            <div class="wpp-bubble wpp-bubble--recv">Jez! Bom dia!! Bati meus primeiros 10k no mês. Estou muito feliz!
-              Muito obrigada pelos ensinamentos! <span class="wpp-ts">11:20</span></div>
-            <div class="wpp-bubble wpp-bubble--sent">Oi Mirian, boa tarde! <span class="wpp-ts">12:27</span></div>
-            <div class="wpp-bubble wpp-bubble--sent">Poxa que legal!!! Parabéns!!! 👏 <span class="wpp-ts">12:27</span>
-            </div>
-          </div>
-          <div class="wpp-value-tag">R$ 10.000</div>
-        </div>
-
-        <!-- Card 4 – Johnny pix R$7k -->
-        <div class="wpp-card">
-          <div class="wpp-topbar">
-            <div class="wpp-topbar__left">
-              <div class="wpp-avatar wpp-avatar--orange">G</div>
-              <div>
-                <div class="wpp-groupname">Geral</div>
-                <div class="wpp-groupsub">Amor, Bruna, FC-360 | SUP...</div>
-              </div>
-            </div>
-            <div class="wpp-topbar__date">qui., 11 de dez.</div>
-          </div>
-          <div class="wpp-body">
-            <div class="wpp-sender">~ Johnny Ma</div>
-            <div class="wpp-comprovante">
-              <div class="wpp-comp__label">Comprovante</div>
-              <div class="wpp-comp__title">CONSULTORIA E T...</div>
-              <div class="wpp-comp__value">R$ 7.000,00</div>
-              <div class="wpp-comp__date">11 Dez, 2025 · 16:37</div>
-              <div class="wpp-comp__row"><span>Tipo</span><span>Cobrança</span></div>
-              <div class="wpp-comp__row"><span>Meio</span><span>Créd...</span></div>
-            </div>
-            <p class="wpp-msg">Uma das dicas que você me deu e eu apliquei foi receber o valor da entrada na call, sem
-              deixar ele sair. <span class="wpp-mention">@Jezreel Soares</span></p>
-            <div class="wpp-time">20:16</div>
-          </div>
-          <div class="wpp-value-tag">R$ 7.000,00</div>
-        </div>
-
-        <!-- Card 5 – Johnny mentoria R$20k -->
-        <div class="wpp-card">
-          <div class="wpp-topbar">
-            <div class="wpp-topbar__left">
-              <div class="wpp-avatar wpp-avatar--orange">G</div>
-              <div>
-                <div class="wpp-groupname">Geral</div>
-                <div class="wpp-groupsub">Amor, Bruna, FC-360 | SUP...</div>
-              </div>
-            </div>
-            <div class="wpp-topbar__date">qui., 11 de dez.</div>
-          </div>
-          <div class="wpp-body">
-            <div class="wpp-sender">~ Johnny Ma</div>
-            <p class="wpp-msg">Boa tarde, galera. Estou muito feliz. Hoje consegui vender minha primeira mentoria de
-              R$20 mil com R$7 mil de entrada. Muito obrigado <span class="wpp-mention">@Jezreel Soares</span></p>
-            <div class="wpp-time">18:18</div>
-          </div>
-          <div class="wpp-value-tag">R$ 20.000</div>
-        </div>
-
-        <!-- Card 6 – Marcos Vinícius R$26k Pix -->
-        <div class="wpp-card">
-          <div class="wpp-topbar">
-            <div class="wpp-topbar__left">
-              <div class="wpp-avatar wpp-avatar--green">MV</div>
-              <div>
-                <div class="wpp-groupname">Marcos Vinícius</div>
-              </div>
-            </div>
-          </div>
-          <div class="wpp-body">
-            <div class="wpp-bubble wpp-bubble--recv">Fala capitão, beleza? <span class="wpp-ts">17:50</span></div>
-            <div class="wpp-bubble wpp-bubble--sent">Fala irmão, tudo certo e contigo? <span class="wpp-ts">17:50</span>
-            </div>
-            <div class="wpp-pix">
-              <div class="wpp-pix__date">5 de dezembro · 16h49</div>
-              <div class="wpp-pix__value">R$ 26.472<sup>26</sup></div>
-              <div class="wpp-pix__label">Transferência Pix recebida</div>
-            </div>
-            <div class="wpp-bubble wpp-bubble--recv">Rompemos 💰🚀 Boraa! <span class="wpp-ts">17:51</span></div>
-          </div>
-          <div class="wpp-value-tag">R$ 26.472,26</div>
-        </div>
-
-      </div><!-- /wpp-grid -->
-
-      <div class="results__foot">
-        <a href="#inscricao" class="btn-cta">Quero garantir minha vaga</a>
       </div>
     </div>
   </section>
+
   <!-- FOOTER -->
-  <footer class="footer">
-    <p>© 2026 Profissão Closer · Jezreel Soares · Todos os direitos reservados.</p>
+  <footer>
+    <div class="container footer-inner">
+      <div class="footer-logo">Folem<span>Mídia</span></div>
+      <div class="footer-links">
+        <a href="#trafego">Tráfego</a>
+        <a href="#consultoria">Consultoria</a>
+        <a href="#depoimentos">Depoimentos</a>
+        <a href="#contato">Contato</a>
+        <a href="https://folemmidia.com" target="_blank" rel="noopener">folemmidia.com</a>
+      </div>
+      <p class="footer-copy">© 2025 Folem Mídia. Todos os direitos reservados.</p>
+    </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script>
+    /* ═══ GLOBAL STARS ═══ */
+    (function () {
+      var c = document.getElementById('stars-canvas'), ctx = c.getContext('2d');
+      function resize() { c.width = window.innerWidth; c.height = window.innerHeight }
+      resize(); window.addEventListener('resize', resize);
+      var s = [];
+      for (var i = 0; i < 270; i++) s.push({ x: Math.random(), y: Math.random(), r: Math.random() * .9 + .18, b: Math.random() * .5 + .1, sp: Math.random() * .012 + .003, ph: Math.random() * Math.PI * 2, g: Math.random() < .07 });
+      for (var j = 0; j < 38; j++)  s.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.5 + .8, b: Math.random() * .38 + .08, sp: Math.random() * .007 + .001, ph: Math.random() * Math.PI * 2, g: Math.random() < .22 });
+      for (var k = 0; k < 10; k++)  s.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.8 + 2.2, b: Math.random() * .25 + .05, sp: Math.random() * .004 + .001, ph: Math.random() * Math.PI * 2, g: Math.random() < .45 });
+      var t = 0;
+      function draw() {
+        ctx.clearRect(0, 0, c.width, c.height);
+        for (var n = 0; n < s.length; n++) {
+          var p = s[n], a = p.b * .35 + (Math.sin(t * p.sp + p.ph) + 1) * .5 * p.b * .65;
+          ctx.beginPath(); ctx.arc(p.x * c.width, p.y * c.height, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = p.g ? 'rgba(245,200,66,' + a + ')' : 'rgba(255,255,255,' + a + ')'; ctx.fill();
+        }
+        t += .016; requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ═══ HERO PARTICLES ═══ */
+    (function () {
+      var canvas = document.getElementById('hero-particles');
+      var section = canvas.closest('section');
+      if (!canvas || !section) return;
+      var ctx = canvas.getContext('2d');
+      function resize() { canvas.width = section.offsetWidth; canvas.height = section.offsetHeight }
+      resize(); window.addEventListener('resize', resize);
+      var pts = [];
+      for (var i = 0; i < 420; i++) pts.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * .85 + .15, ba: Math.random() * .32 + .06, sp: Math.random() * .009 + .002, ph: Math.random() * Math.PI * 2, vx: (Math.random() - .5) * .14, vy: (Math.random() - .5) * .12 });
+      var t = 0;
+      function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        for (var n = 0; n < pts.length; n++) {
+          var p = pts[n];
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < -10) p.x = canvas.width + 10; if (p.x > canvas.width + 10) p.x = -10;
+          if (p.y < -10) p.y = canvas.height + 10; if (p.y > canvas.height + 10) p.y = -10;
+          var alpha = p.ba * (.35 + (Math.sin(t * p.sp + p.ph) + 1) * .5 * .65);
+          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255,255,255,' + alpha + ')'; ctx.fill();
+        }
+        t += .016; requestAnimationFrame(draw);
+      }
+      draw();
+    })();
+
+    /* ═══ PLANET AUTO-LOAD + SCROLL ANIMATION ═══ */
+    (function () {
+      var system    = document.getElementById('planet-system');
+      var planet    = document.getElementById('hero-planet-core');
+      var ringBack  = document.getElementById('saturn-back');
+      var ringFront = document.getElementById('saturn-front');
+      var burstEl   = document.getElementById('planet-burst');
+      var hr1  = document.getElementById('hr1');
+      var hr3  = document.getElementById('hr3');
+      var hero = document.getElementById('home');
+      if (!system || !planet || !hero) return;
+
+      /* ── Scroll-exit state ── */
+      var curScale = 1, curY = 0, curOp = 1;
+      var tgtScale = 1, tgtY = 0, tgtOp = 1;
+      var raf = null;
+
+      /* ── Auto-load energy sequence state ── */
+      var growT   = 0;
+      var burstT  = 0;
+      var settled = false;
+      var autoRaf = null;
+
+      /* Timeline (ms) */
+      var GROW_DURATION = 2800;
+      var GROW_START    = 300;
+      var BURST_START   = GROW_START + GROW_DURATION;   /* ~3.1 s */
+      var BURST_RISE    = 320;
+      var BURST_FALL    = 900;
+      var REST_GROW     = 0.55;
+
+      var t0 = null;
+
+      function easeOutCubic(x)  { return 1 - Math.pow(1 - x, 3); }
+      function easeInOutSine(x) { return -(Math.cos(Math.PI * x) - 1) / 2; }
+
+      /* Apply transform to both ring halves */
+      function setRingTransform(gb) {
+        var tilt = (68 + gb * 14).toFixed(1);
+        var t = 'translate(-50%,-50%) rotate(-30deg) rotateX(' + tilt + 'deg)';
+        if (ringBack)  ringBack.style.transform  = t;
+        if (ringFront) ringFront.style.transform = t;
+      }
+
+      function applyPlanetGlow(g, b) {
+        b = b || 0;
+        var gb = Math.min(1, g + b * 0.6);
+
+        if (hr1) hr1.style.opacity = (0.16 + gb * 0.30).toFixed(3);
+
+        if (hr3) hr3.style.boxShadow = gb > 0.15 ?
+          '0 0 ' + (14 + gb * 52 + b * 40).toFixed(0) + 'px rgba(245,200,66,' + (0.04 + gb * 0.14 + b * 0.18).toFixed(3) + ')' :
+          'none';
+
+        var s1 = (60 + gb * 60 + b * 45).toFixed(0);
+        var s2 = (140 + gb * 120 + b * 90).toFixed(0);
+        planet.style.boxShadow =
+          '0 0 ' + s1 + 'px rgba(245,200,66,' + (0.14 + gb * 0.28 + b * 0.22).toFixed(3) + '),' +
+          '0 0 ' + s2 + 'px rgba(245,200,66,' + (0.07 + gb * 0.16 + b * 0.14).toFixed(3) + '),' +
+          'inset -32px -24px 65px rgba(0,0,0,.88)';
+
+        setRingTransform(gb);
+
+        /* ── Energy burst corona ── */
+        if (burstEl) {
+          /* During grow: subtle warm glow builds up, expanding toward planet */
+          var burstOp  = (g * 0.168 + b * 0.468).toFixed(3);
+          /* Scale: starts small, blooms at burst peak, then overshoots outward on decay */
+          var burstSc  = (0.5 + g * 0.55 + b * 0.75).toFixed(3);
+          burstEl.style.opacity   = burstOp;
+          burstEl.style.transform = 'scale(' + burstSc + ')';
+        }
+      }
+
+      /* ── Auto-load sequence ── */
+      function autoAnimate(ts) {
+        if (!t0) t0 = ts;
+        var elapsed = ts - t0;
+
+        /* Phase 1: slow grow */
+        if (elapsed < BURST_START) {
+          var growRaw = Math.max(0, (elapsed - GROW_START) / GROW_DURATION);
+          growT = easeInOutSine(Math.min(1, growRaw));
+          var scaleG = 1 + growT * 0.30;
+          system.style.transform = 'translateY(0px) scale(' + scaleG.toFixed(4) + ')';
+          applyPlanetGlow(growT, 0);
+          autoRaf = requestAnimationFrame(autoAnimate);
+          return;
+        }
+
+        /* Phase 2: burst rise */
+        var afterBurst = elapsed - BURST_START;
+        if (afterBurst < BURST_RISE) {
+          burstT = easeOutCubic(afterBurst / BURST_RISE);
+          var scaleB = 1 + growT * 0.30 + burstT * 0.18;
+          system.style.transform = 'translateY(0px) scale(' + scaleB.toFixed(4) + ')';
+          applyPlanetGlow(growT, burstT);
+          autoRaf = requestAnimationFrame(autoAnimate);
+          return;
+        }
+
+        /* Phase 3: burst decay — glow expands outward then fades */
+        var afterFall = afterBurst - BURST_RISE;
+        if (afterFall < BURST_FALL) {
+          var fallP    = afterFall / BURST_FALL;
+          var decayB   = 1 - easeOutCubic(fallP);
+          var growFade = 1 - easeInOutSine(Math.min(1, fallP));
+          growT = REST_GROW + growFade * (1 - REST_GROW);
+          /* Burst scale keeps expanding outward as it fades (explosion dispersal) */
+          var burstExpandSc = (1.25 + fallP * 0.9).toFixed(3);
+          var burstFadeOp   = (decayB * 0.468).toFixed(3);
+          if (burstEl) {
+            burstEl.style.opacity   = burstFadeOp;
+            burstEl.style.transform = 'scale(' + burstExpandSc + ')';
+          }
+          var scaleR = 1 + growT * 0.30 + decayB * 0.18;
+          system.style.transform = 'translateY(0px) scale(' + scaleR.toFixed(4) + ')';
+          /* Apply glow without touching burstEl again */
+          applyPlanetGlowNoB(growT, decayB);
+          autoRaf = requestAnimationFrame(autoAnimate);
+          return;
+        }
+
+        /* Sequence complete */
+        growT   = REST_GROW;
+        burstT  = 0;
+        settled = true;
+        if (burstEl) { burstEl.style.opacity = '0'; burstEl.style.transform = 'scale(0.5)'; }
+        applyPlanetGlow(growT, 0);
+        onScroll();
+      }
+
+      /* applyPlanetGlow variant that skips burstEl (handled separately in phase 3) */
+      function applyPlanetGlowNoB(g, b) {
+        b = b || 0;
+        var gb = Math.min(1, g + b * 0.6);
+        if (hr1) hr1.style.opacity = (0.16 + gb * 0.30).toFixed(3);
+        if (hr3) hr3.style.boxShadow = gb > 0.15 ?
+          '0 0 ' + (14 + gb * 52 + b * 40).toFixed(0) + 'px rgba(245,200,66,' + (0.04 + gb * 0.14 + b * 0.18).toFixed(3) + ')' : 'none';
+        var s1 = (60 + gb * 60 + b * 45).toFixed(0);
+        var s2 = (140 + gb * 120 + b * 90).toFixed(0);
+        planet.style.boxShadow =
+          '0 0 ' + s1 + 'px rgba(245,200,66,' + (0.14 + gb * 0.28 + b * 0.22).toFixed(3) + '),' +
+          '0 0 ' + s2 + 'px rgba(245,200,66,' + (0.07 + gb * 0.16 + b * 0.14).toFixed(3) + '),' +
+          'inset -32px -24px 65px rgba(0,0,0,.88)';
+        setRingTransform(gb);
+      }
+
+      /* ── Scroll exit ── */
+      function onScroll() {
+        var heroH = hero.offsetHeight || window.innerHeight;
+        var sc    = Math.max(0, window.scrollY);
+        var raw   = Math.min(1, sc / heroH);
+        var baseGrow = settled ? REST_GROW : growT;
+        var exitP    = raw < 0.65 ? 0 : (raw - 0.65) / 0.35;
+        tgtScale = (1 + baseGrow * 0.30) * (1 - exitP * 0.28);
+        tgtY     = -exitP * 220;
+        tgtOp    = exitP < 0.3 ? 1 : Math.max(0, 1 - (exitP - 0.3) / 0.7);
+        if (sc > 30 && !raf) raf = requestAnimationFrame(scrollAnimate);
+      }
+
+      function scrollAnimate() {
+        raf = null;
+        if (autoRaf) { cancelAnimationFrame(autoRaf); autoRaf = null; settled = true; }
+        var L = 0.09;
+        curScale += (tgtScale - curScale) * L;
+        curY     += (tgtY     - curY)     * L;
+        curOp    += (tgtOp    - curOp)    * L;
+        system.style.transform = 'translateY(' + curY.toFixed(2) + 'px) scale(' + curScale.toFixed(4) + ')';
+        system.style.opacity   = curOp.toFixed(4);
+        applyPlanetGlow(growT, 0);
+        var moving =
+          Math.abs(curScale - tgtScale) > .0005 ||
+          Math.abs(curY     - tgtY)     > .3    ||
+          Math.abs(curOp    - tgtOp)    > .003;
+        if (moving) raf = requestAnimationFrame(scrollAnimate);
+      }
+
+      autoRaf = requestAnimationFrame(autoAnimate);
+      window.addEventListener('scroll', onScroll, { passive: true });
+    })();
+
+    /* ═══ NAV SCROLL ═══ */
+    window.addEventListener('scroll', function () {
+      document.getElementById('nav').classList.toggle('nav-scrolled', window.scrollY > 40);
+    });
+
+    /* ═══ COUNTER ANIMATION ═══ */
+    function runCounter(el) {
+      var target = parseInt(el.dataset.target);
+      var prefix = el.dataset.prefix || '';
+      var suffix = el.dataset.suffix || '';
+      var duration = 2200;
+      var start = null;
+      function step(ts) {
+        if (!start) start = ts;
+        var p = Math.min((ts - start) / duration, 1);
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = prefix + Math.floor(eased * target) + suffix;
+        if (p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+    }
+    var countObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting && !e.target.dataset.counted) {
+          e.target.dataset.counted = '1';
+          runCounter(e.target);
+          countObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: .5 });
+    document.querySelectorAll('.count-up').forEach(function (el) { countObs.observe(el) });
+
+    /* ═══ SECTION GALAXY CANVASES ═══ */
+    function makeGalaxy(sel, r, g, b, count) {
+      document.querySelectorAll(sel).forEach(function (sec) {
+        var cv = document.createElement('canvas'); cv.className = 'section-galaxy-canvas';
+        sec.insertBefore(cv, sec.firstChild);
+        var pts = [], blobs = [];
+        for (var i = 0; i < count; i++) { var big = Math.random() < .04; pts.push({ x: Math.random(), y: Math.random(), r: big ? Math.random() * 2.2 + 1.3 : Math.random() * 1 + .16, a: big ? Math.random() * .48 + .20 : Math.random() * .48 + .06, big: big }) }
+        for (var j = 0; j < 5; j++) blobs.push({ x: Math.random(), y: Math.random(), rx: Math.random() * .45 + .14, ry: Math.random() * .32 + .10, a: Math.random() * .022 + .006 });
+        function paint() {
+          var w = sec.offsetWidth, h = sec.offsetHeight; if (!w || !h) return;
+          cv.width = w; cv.height = h; var ctx = cv.getContext('2d'); ctx.clearRect(0, 0, w, h);
+          blobs.forEach(function (bl) {
+            var grd = ctx.createRadialGradient(bl.x * w, bl.y * h, 0, bl.x * w, bl.y * h, bl.rx * w);
+            grd.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + bl.a + ')'); grd.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)');
+            ctx.beginPath(); ctx.ellipse(bl.x * w, bl.y * h, bl.rx * w, bl.ry * h, 0, 0, Math.PI * 2); ctx.fillStyle = grd; ctx.fill();
+          });
+          pts.forEach(function (p) {
+            var px = p.x * w, py = p.y * h;
+            if (p.big) { var hl = ctx.createRadialGradient(px, py, 0, px, py, p.r * 7); hl.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + (p.a * .36) + ')'); hl.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)'); ctx.beginPath(); ctx.arc(px, py, p.r * 7, 0, Math.PI * 2); ctx.fillStyle = hl; ctx.fill() }
+            ctx.beginPath(); ctx.arc(px, py, p.r, 0, Math.PI * 2); ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + p.a + ')'; ctx.fill();
+          });
+        }
+        paint(); new ResizeObserver(paint).observe(sec);
+      });
+    }
+    makeGalaxy('.sect-trafego,.sect-trafego-results', 74, 143, 255, 240);
+    makeGalaxy('.sect-consultoria,.sect-consultoria-results', 144, 96, 255, 240);
+
+    /* ═══ SCROLL REVEAL ═══ */
+    var ro = new IntersectionObserver(function (e) {
+      e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('visible'); ro.unobserve(x.target) } });
+    }, { threshold: .08 });
+    document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el) });
+
+    /* ═══ PROCESS VERTICAL SCROLL LINE ═══ */
+    (function () {
+      var fill = document.getElementById('pv-fill');
+      var steps = document.querySelectorAll('.pv-step');
+      var sect = document.getElementById('processo');
+      var track = document.getElementById('pv-track');
+      var stepsContainer = document.getElementById('pv-steps');
+      if (!fill || !sect || !steps.length) return;
+
+      /* Position the track to align with the steps column */
+      function layoutTrack() {
+        /* The track must cover from first dot center to last dot center */
+        var firstDot = steps[0].querySelector('.pv-dot-circle');
+        var lastDot = steps[steps.length - 1].querySelector('.pv-dot-circle');
+        if (!firstDot || !lastDot) return;
+        var f = firstDot.getBoundingClientRect();
+        var l = lastDot.getBoundingClientRect();
+        var s = stepsContainer.getBoundingClientRect();
+        var dotCenter = f.left + f.width / 2 - s.left;
+        track.style.left = dotCenter + 'px';
+        track.style.transform = 'translateX(-50%)';
+        track.style.top = (f.top + f.height / 2 - s.top) + 'px';
+        track.style.bottom = (s.bottom - l.bottom + l.height / 2) + 'px';
+      }
+
+      function onScroll() {
+        var rect = sect.getBoundingClientRect();
+        var wh = window.innerHeight;
+        /* progress: 0 when top of section hits center, 1 when bottom leaves center */
+        var prog = Math.min(1, Math.max(0, (-rect.top + wh * 0.4) / (rect.height - wh * 0.2)));
+        fill.style.height = (prog * 100) + '%';
+
+        /* Activate steps */
+        steps.forEach(function (step, i) {
+          var threshold = (i + 0.5) / steps.length;
+          step.classList.toggle('active', prog >= threshold);
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', function () { layoutTrack(); onScroll() });
+      /* Position track after DOM paint */
+      requestAnimationFrame(function () { layoutTrack(); onScroll() });
+    })();
+
+    /* Track absolute positioning helper */
+    document.addEventListener('DOMContentLoaded', function () {
+      var stepsEl = document.getElementById('pv-steps');
+      var trackEl = document.getElementById('pv-track');
+      if (stepsEl && trackEl) {
+        /* Move track inside the steps container for relative positioning */
+        stepsEl.style.position = 'relative';
+        stepsEl.appendChild(trackEl);
+        trackEl.style.position = 'absolute';
+        trackEl.style.width = '2px';
+      }
+    });
+
+    /* ═══ CHARTS ═══ */
+    var BLUE = 'rgba(74,143,255,1)', PURP = 'rgba(144,96,255,1)',
+      MUTED = 'rgba(255,255,255,.10)',
+      TXT = 'rgba(255,255,255,.48)', GRID = 'rgba(255,255,255,.05)';
+    Chart.defaults.color = TXT; Chart.defaults.font.family = "'Exo 2',sans-serif"; Chart.defaults.font.size = 11;
+
+    var chartObs = new IntersectionObserver(function (e) {
+      e.forEach(function (x) { if (x.isIntersecting && !x.target.dataset.done) { x.target.dataset.done = '1'; buildChart(x.target.id); chartObs.unobserve(x.target) } });
+    }, { threshold: .25 });
+    ['chart-t1', 'chart-t2', 'chart-t3', 'chart-c1', 'chart-c2', 'chart-c3'].forEach(function (id) { var el = document.getElementById(id); if (el) chartObs.observe(el) });
+
+    function sc() { return { x: { grid: { color: GRID }, ticks: { color: TXT } }, y: { grid: { color: GRID }, ticks: { color: TXT }, beginAtZero: true } } }
+    function tip(col) { return { backgroundColor: 'rgba(5,5,18,.97)', borderColor: col.replace('1)', '0.3)'), borderWidth: 1, titleColor: col, bodyColor: 'rgba(255,255,255,.85)', padding: 10 } }
+
+    function barChart(id, lbl, a, d, col) {
+      new Chart(document.getElementById(id), {
+        type: 'bar',
+        data: { labels: ['Antes', 'Depois'], datasets: [{ label: lbl, data: [a, d], backgroundColor: [MUTED, col], borderRadius: 5, borderSkipped: false }] },
+        options: { animation: { duration: 1100, easing: 'easeOutQuart' }, responsive: true, maintainAspectRatio: true, plugins: { legend: { labels: { color: TXT, boxWidth: 10, boxHeight: 10, padding: 10 } }, tooltip: tip(col) }, scales: sc() }
+      });
+    }
+    function lineChart(id, lbl, data, col) {
+      var base = col === BLUE ? '74,143,255' : '144,96,255';
+      new Chart(document.getElementById(id), {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'], datasets: [{
+            label: lbl, data: data, borderColor: col, borderWidth: 2.2, pointBackgroundColor: col, pointRadius: 4, pointHoverRadius: 6, fill: true, tension: .42,
+            backgroundColor: function (ctx) { var ch = ctx.chart, a = ch.chartArea; if (!a) return 'rgba(' + base + ',.06)'; var g = ch.ctx.createLinearGradient(0, a.top, 0, a.bottom); g.addColorStop(0, 'rgba(' + base + ',.22)'); g.addColorStop(1, 'rgba(' + base + ',0)'); return g }
+          }]
+        },
+        options: { animation: { duration: 1400, easing: 'easeOutQuart' }, responsive: true, maintainAspectRatio: true, plugins: { legend: { labels: { color: TXT, boxWidth: 10, boxHeight: 10, padding: 10 } }, tooltip: tip(col) }, scales: sc() }
+      });
+    }
+    function buildChart(id) {
+      if (id === 'chart-t1') barChart(id, 'Leads / mês', 145, 680, BLUE);
+      if (id === 'chart-t2') barChart(id, 'Faturamento (R$ mil)', 32, 127, BLUE);
+      if (id === 'chart-t3') barChart(id, 'Agendamentos / mês', 42, 195, BLUE);
+      if (id === 'chart-c1') lineChart(id, 'Faturamento (R$ mil)', [28, 36, 48, 62, 78, 97], PURP);
+      if (id === 'chart-c2') lineChart(id, 'Leads qualificados', [12, 19, 28, 39, 54, 72], PURP);
+      if (id === 'chart-c3') lineChart(id, 'Conversão (%)', [2.2, 3.5, 4.8, 6.3, 7.9, 9.4], PURP);
+    }
+
+    /* Process layout fix — add CSS for the wrapper structure */
+    var pvStyle = document.createElement('style');
+    pvStyle.textContent =
+      '.pv-step-container{position:relative}' +
+      '.pv-steps{position:relative;padding-left:80px}' +
+      '#pv-track{position:absolute;left:26px;top:28px;bottom:28px;width:2px;pointer-events:none}' +
+      '.pv-line-bg{position:absolute;inset:0;background:rgba(255,255,255,.07);border-radius:2px}' +
+      '.pv-line-fill{position:absolute;top:0;left:0;right:0;height:0%;background:linear-gradient(to bottom,#F5C842,rgba(245,200,66,.3));border-radius:2px;transition:height .15s linear}' +
+      '.pv-step{display:grid;grid-template-columns:80px 1fr;column-gap:2rem;padding:clamp(1.8rem,4vh,2.8rem) 0;position:relative;margin-left:-80px}' +
+      '.pv-cta{margin-top:clamp(2.5rem,6vh,4rem);padding-top:clamp(2rem,5vh,3rem);border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:center}';
+    document.head.appendChild(pvStyle);
+  </script>
 </body>
 
 </html>
