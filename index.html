@@ -4,1054 +4,815 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Folem Mídia — Escala & Resultados</title>
+  <title>Follem Mídia pages — Páginas Ultra Rápidas</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Orbitron:wght@400;500;600;700;900&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@300;400;600;700;800&family=Barlow+Condensed:wght@300;400;500;600;700&family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,200;0,9..40,300;0,9..40,400;1,9..40,300&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
 
+  <!-- ██████████████████████████████████████████████████
+     UTILITÁRIOS GLOBAIS
+     Canvas de estrelas + Overlay azul do universo
+██████████████████████████████████████████████████ -->
   <canvas id="stars-canvas"></canvas>
+  <div class="blue-top-overlay"></div>
 
-  <!-- NAV — full width bar, inner content fixed width -->
+  <!-- ██████████████████████████████████████████████████
+     LIGHTBOX DA GALERIA
+     Abre ao clicar em qualquer imagem da galeria
+██████████████████████████████████████████████████ -->
+  <div id="galleryLb" class="gallery-lb">
+    <div class="lb-backdrop"></div>
+    <img id="lbImg" class="lb-image" src="" alt="">
+    <button class="lb-close" id="lbClose">✕</button>
+  </div>
+
+  <!-- ██████████████████████████████████████████████████
+     NAVEGAÇÃO
+██████████████████████████████████████████████████ -->
   <nav id="nav">
     <div class="nav-inner">
-      <a href="#home" class="nav-logo">
-        <div class="logo-icon">
-          <div class="logo-planet"></div>
-          <div class="logo-ring"></div>
-        </div>
-        Folem<span>Mídia</span>
+      <a href="#" class="nav-logo">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+          <path d="M11 1 L14 8 L11 6.5 L8 8 Z" fill="rgba(255,255,255,.9)" />
+          <path d="M8 8 L11 6.5 L14 8 L13 17 L11 21 L9 17 Z" fill="url(#nl)" />
+          <circle cx="7.5" cy="16.5" r="1.8" fill="rgba(255,255,255,.5)" />
+          <circle cx="14.5" cy="16.5" r="1.8" fill="rgba(255,255,255,.5)" />
+          <defs>
+            <linearGradient id="nl" x1="11" y1="6.5" x2="11" y2="21" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="rgba(255,255,255,.9)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,.08)" />
+            </linearGradient>
+          </defs>
+        </svg>
+        Follem Mídia<span>Page</span>
       </a>
-      <ul class="nav-links">
-        <li><a href="#trafego">Tráfego Pago</a></li>
-        <li><a href="#consultoria">Consultoria</a></li>
-        <li><a href="#depoimentos">Depoimentos</a></li>
-        <li><a href="#contato" class="nav-cta">Falar com especialista →</a></li>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#comparativo">Diferenciais</a></li>
+        <li><a href="#portfolio">Portfólio</a></li>
+        <li><a href="#clientes">Clientes</a></li>
+        <li><a href="#cta" class="nav-cta">Solicitar proposta</a></li>
       </ul>
+      <button class="nav-hamburger" id="navBurger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </nav>
 
-  <!-- ═══ HERO ═══ -->
-  <section class="hero" id="home">
-    <canvas id="hero-particles"></canvas>
+  <!-- ██████████████████████████████████████████████████
+     HERO — SEÇÃO 1
+     Vídeo f1.mp4 como fundo full-bleed da seção
+     f1.webp como poster (carrega antes do vídeo)
+     Overlay gradiente para legibilidade do texto
+██████████████████████████████████████████████████ -->
+  <section class="hero" id="hero">
+
+    <!-- Vídeo / Imagem de fundo (full-bleed) -->
+    <div class="hero-bg">
+      <video class="hero-bg-vid" autoplay muted loop playsinline poster="f1.webp">
+        <source src="f1.mp4" type="video/mp4">
+      </video>
+    </div>
+    <!-- Overlay gradiente sobre o vídeo -->
+    <div class="hero-overlay"></div>
+
+    <!-- Conteúdo: 2 colunas (texto | cards) -->
     <div class="hero-inner">
-      <div class="hero-left">
-        <div class="hero-eyebrow"><span class="eyebrow-dot"></span>Agência de Performance</div>
+
+      <!-- Coluna esquerda: texto principal -->
+      <div class="hero-left reveal">
+        <span class="hero-eyebrow">
+          <span class="eyebrow-dot"></span>Performance-First Agency
+        </span>
         <h1 class="hero-title">
-          Leve seu<br>negócio a<br>
-          <span class="accent" style="-webkit-text-fill-color:var(--gold)">outro nível.</span>
+          Sua página<br>carrega em<br><em class="title-accent">0.8 segundos.</em>
         </h1>
-        <p class="hero-desc">Ajudamos experts e empresas a escalar faturamento com tráfego estratégico, consultoria
-          especializada e design que converte.</p>
+        <p class="hero-desc">De ideia ao ar, desenvolvemos landing pages de alta performance que convertem. Enquanto
+          seus concorrentes perdem clientes esperando, sua página já fechou o negócio.</p>
         <div class="hero-actions">
-          <a href="#contato" class="btn-primary">Quero escalar agora →</a>
-          <a href="#trafego" class="btn-ghost">Ver serviços</a>
+          <a href="#cta" class="btn-ghost-sm">Explorar serviços</a>
+          <a href="#cta" class="btn-primary-sm">Ver planos →</a>
         </div>
-        <div class="hero-stats">
-          <div class="hero-stat">
-            <span class="hero-stat-num count-up" data-target="50" data-prefix="+" data-suffix="">+50</span>
-            <span class="hero-stat-label">Negócios escalados</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num count-up" data-target="2" data-prefix="R$" data-suffix="M+">R$2M+</span>
-            <span class="hero-stat-label">Em vendas geradas</span>
-          </div>
-          <div class="hero-stat">
-            <span class="hero-stat-num count-up" data-target="98" data-prefix="" data-suffix="%">98%</span>
-            <span class="hero-stat-label">Taxa de satisfação</span>
-          </div>
+        <div class="hero-stat-chips">
+          <div class="hsc"><span class="hsc-num">+340%</span><span class="hsc-lbl">Conversões médias</span></div>
+          <div class="hsc"><span class="hsc-num">99</span><span class="hsc-lbl">PageSpeed Score</span></div>
+          <div class="hsc"><span class="hsc-num">0.8s</span><span class="hsc-lbl">LCP médio</span></div>
         </div>
       </div>
-      <!-- PLANET -->
-      <div class="hero-right">
-        <div class="planet-orbit-system" id="planet-system" aria-hidden="true">
-          <div class="hor hor-t2"></div>
-          <div class="hor hor-t1"></div>
-          <div class="hor hor-5"></div>
-          <div class="hor hor-4"></div>
-          <div class="hor hor-3" id="hr3"></div>
-          <div class="hor hor-2"></div>
-          <div class="hor hor-1" id="hr1"></div>
-          <div class="orbit-dot"></div>
-          <div class="orbit-dot orbit-dot-2"></div>
-          <!-- Saturn rings — BACK half (behind planet) -->
-          <div class="saturn-rings sr-back" id="saturn-back">
-            <div class="sr sr-2"></div>
-            <div class="sr sr-3"></div>
-            <div class="sr sr-4"></div>
-            <div class="sr sr-5"></div>
+
+      <!-- Coluna direita: 2 cards de vidro -->
+      <div class="hero-right reveal reveal-d2">
+        <div class="social-float">
+          <span class="sf-lbl">SOCIAL<br>MEDIA</span>
+          <a href="#" class="sf-icon">f</a>
+          <a href="#" class="sf-icon">in</a>
+          <a href="#" class="sf-icon">✕</a>
+        </div>
+        <div class="hero-cards">
+          <!-- Card superior: performance score -->
+          <div class="hero-card hc-top">
+            <div class="hc-header">
+              <span class="hc-logo-sm">Folem Mídia Page</span>
+              <span class="hc-idx">01/03</span>
+            </div>
+            <div class="hc-preview">
+              <svg viewBox="0 0 60 84" fill="none" width="46">
+                <path d="M30 3 C30 3 46 24 46 56 L46 80 L30 85 L14 80 L14 56 C14 24 30 3 30 3Z"
+                  fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.18)" stroke-width="1" />
+                <circle cx="30" cy="40" r="8" fill="none" stroke="rgba(255,255,255,0.22)" stroke-width="1.5" />
+                <ellipse cx="30" cy="97" rx="10" ry="16" fill="url(#mfl)" opacity="0.7" />
+                <defs>
+                  <radialGradient id="mfl" cx="50%" cy="10%">
+                    <stop offset="0%" stop-color="#FFE04A" />
+                    <stop offset="100%" stop-color="#FF6B00" stop-opacity="0" />
+                  </radialGradient>
+                </defs>
+              </svg>
+              <div style="display:flex;flex-direction:column;gap:3px">
+                <span
+                  style="color:rgba(255,255,255,.3);font-size:.55rem;letter-spacing:.08em;font-family:'Barlow Condensed',sans-serif;text-transform:uppercase">Score</span>
+                <span style="color:#4ade80;font-size:.6rem;font-family:'DM Sans',sans-serif">● Live</span>
+              </div>
+            </div>
+            <div class="hc-big-num">99+</div>
+            <div class="hc-big-sub">Performance Score<br>em todos os projetos</div>
           </div>
-          <!-- Planet sphere -->
-          <div class="hero-planet" id="hero-planet-core">
-            <div class="planet-burst" id="planet-burst"></div>
+          <!-- Card inferior: LCP -->
+          <div class="hero-card hc-bot">
+            <div class="hc2-num">0.8s</div>
+            <div class="hc2-sub">Tempo médio de carregamento</div>
+            <<div class="hc2-pills">
+              <span class="hc2-pill">GTmetrix A+</span>
+              <span class="hc2-pill">Core Web ✓</span>
+              <span class="hc2-pill">LCP &lt;1s</span>
           </div>
-          <!-- Saturn rings — FRONT half (in front of planet) -->
-          <div class="saturn-rings sr-front" id="saturn-front">
-            <div class="sr sr-2"></div>
-            <div class="sr sr-3"></div>
-            <div class="sr sr-4"></div>
-            <div class="sr sr-5"></div>
-          </div>
+          <a href="#cta" class="hc2-cta">Solicitar proposta →</a>
         </div>
       </div>
     </div>
+
+    </div>
   </section>
 
-  <!-- TICKER — below hero -->
+  <!-- TICKER (faixa de textos em loop) -->
   <div class="ticker-wrap">
     <div class="ticker-track">
-      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
-          PAGO</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
-          ESTRATÉGICA</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
-          PAGO</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
-          ESTRATÉGICA</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <!-- duplicate -->
-      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
-          PAGO</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
-          ESTRATÉGICA</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <span class="ticker-item"><span class="ticker-dot-blue"></span><span class="ticker-label-blue">TRÁFEGO
-          PAGO</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
-      <span class="ticker-item"><span class="ticker-dot-purple"></span><span class="ticker-label-purple">CONSULTORIA
-          ESTRATÉGICA</span></span>
-      <span class="ticker-item" style="color:rgba(255,255,255,.18);letter-spacing:0">·····</span>
+      <span class="tk"><span class="tk-dot"></span>Performance Score 99</span>
+      <span class="tk"><span class="tk-dot dk"></span>LCP Médio 0.8s</span>
+      <span class="tk"><span class="tk-dot"></span>+340% Conversões</span>
+      <span class="tk"><span class="tk-dot dk"></span>GTmetrix A+</span>
+      <span class="tk"><span class="tk-dot"></span>Mobile-First Design</span>
+      <span class="tk"><span class="tk-dot dk"></span>Core Web Vitals ✓</span>
+      <span class="tk"><span class="tk-dot"></span>Zero Layout Shift</span>
+      <span class="tk"><span class="tk-dot dk"></span>Entrega em 7 dias</span>
+      <span class="tk"><span class="tk-dot"></span>Performance Score 99</span>
+      <span class="tk"><span class="tk-dot dk"></span>LCP Médio 0.8s</span>
+      <span class="tk"><span class="tk-dot"></span>+340% Conversões</span>
+      <span class="tk"><span class="tk-dot dk"></span>GTmetrix A+</span>
+      <span class="tk"><span class="tk-dot"></span>Mobile-First Design</span>
+      <span class="tk"><span class="tk-dot dk"></span>Core Web Vitals ✓</span>
+      <span class="tk"><span class="tk-dot"></span>Zero Layout Shift</span>
+      <span class="tk"><span class="tk-dot dk"></span>Entrega em 7 dias</span>
     </div>
   </div>
 
-  <!-- ═══ TRÁFEGO PAGO ═══ -->
-  <section id="trafego" class="service-section sect-trafego">
+  <!-- ██████████████████████████████████████████████████
+     SEÇÃO 2 — COMPARATIVO DE PERFORMANCE
+     Diagrama de fluxo: Redes Sociais → Página → Vendas
+     Esquerda: página lenta (−Vendas)
+     Direita: VeloPage (＋Vendas)
+██████████████████████████████████████████████████ -->
+  <section class="funnel-section" id="comparativo">
     <div class="container">
-      <div class="product-intro reveal">
-        <span class="product-num-badge">01</span>
-        <div class="product-intro-text">
-          <p class="section-eyebrow">Serviço</p>
-          <h2 class="product-section-title">Tráfego <span class="accent">Pago</span></h2>
-          <p class="product-tagline">Anúncios que atraem clientes reais, no momento certo, no lugar certo.</p>
-        </div>
+
+      <div class="section-header reveal">
+        <span class="section-eyebrow">Por que velocidade importa</span>
+        <h2 class="section-title">Cada segundo <span class="grad-dim">custa clientes.</span></h2>
+        <p class="section-subtitle">Veja o que acontece com o tráfego que você paga quando a página não é otimizada.</p>
       </div>
-      <div class="service-explain-grid reveal">
-        <div class="service-explain-main">
-          <h3 class="service-explain-title">O que fazemos por você</h3>
-          <p class="body-text">Gerenciamos seus anúncios do zero ao avançado — pesquisa de audiência, criação de
-            criativos, segmentação precisa, testes A/B e otimização contínua. Nosso foco é ROI positivo desde a primeira
-            semana.</p>
-          <p class="body-text">Trabalhamos com as principais plataformas de mídia paga, adaptando a estratégia ao
-            comportamento da sua audiência ideal.</p>
-          <div class="service-platforms">
-            <span class="platform-badge">Meta Ads</span>
-            <span class="platform-badge">Google Ads</span>
-            <span class="platform-badge">YouTube Ads</span>
-            <span class="platform-badge">TikTok Ads</span>
+
+      <div class="funnel-grid">
+
+        <!-- ░░░░ CARD ESQUERDO: PÁGINA LENTA — −Vendas ░░░░ -->
+        <div class="funnel-card fc-slow reveal reveal-d1">
+          <div class="fc-head">
+            <span class="fc-tag fc-tag-bad">⚠ Página Lenta</span>
+            <span class="fc-score-n fc-score-bad">47</span>
+          </div>
+
+          <!-- Diagrama SVG de fluxo: Social → Página lenta → −Vendas -->
+          <div class="fc-diagram">
+            <svg viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto"
+              style="display:block">
+
+              <!-- ── ÍCONE FACEBOOK ── -->
+              <rect x="10" y="38" width="46" height="46" rx="11" fill="rgba(24,119,242,.14)"
+                stroke="rgba(24,119,242,.42)" stroke-width="1.5" />
+              <text x="33" y="70" font-family="Georgia,serif" font-size="24" font-weight="900"
+                fill="rgba(24,119,242,.88)" text-anchor="middle">f</text>
+              <text x="33" y="96" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)"
+                text-anchor="middle" letter-spacing="1">FACEBOOK</text>
+
+              <!-- ── ÍCONE INSTAGRAM ── -->
+              <rect x="10" y="102" width="46" height="46" rx="11" fill="rgba(225,48,108,.12)"
+                stroke="rgba(225,48,108,.38)" stroke-width="1.5" />
+              <rect x="18" y="111" width="30" height="28" rx="7" fill="none" stroke="rgba(225,48,108,.68)"
+                stroke-width="1.5" />
+              <circle cx="33" cy="125" r="7.5" fill="none" stroke="rgba(225,48,108,.68)" stroke-width="1.5" />
+              <circle cx="39" cy="113.5" r="2" fill="rgba(225,48,108,.68)" />
+              <text x="33" y="161" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)"
+                text-anchor="middle" letter-spacing="1">INSTAGRAM</text>
+
+              <!-- ── ÍCONE TIKTOK ── -->
+              <rect x="10" y="168" width="46" height="46" rx="11" fill="rgba(255,255,255,.05)"
+                stroke="rgba(255,255,255,.18)" stroke-width="1.5" />
+              <line x1="30" y1="177" x2="30" y2="200" stroke="rgba(255,255,255,.6)" stroke-width="2.2"
+                stroke-linecap="round" />
+              <ellipse cx="25" cy="200" rx="6" ry="4" fill="rgba(255,255,255,.35)" stroke="rgba(255,255,255,.62)"
+                stroke-width="1.2" />
+              <line x1="30" y1="177" x2="42" y2="174" stroke="rgba(255,255,255,.6)" stroke-width="2.2"
+                stroke-linecap="round" />
+              <line x1="42" y1="174" x2="42" y2="195" stroke="rgba(255,255,255,.6)" stroke-width="2.2"
+                stroke-linecap="round" />
+              <ellipse cx="36" cy="195" rx="6" ry="4" fill="rgba(255,255,255,.35)" stroke="rgba(255,255,255,.62)"
+                stroke-width="1.2" />
+              <text x="33" y="226" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)"
+                text-anchor="middle" letter-spacing="1">TIKTOK</text>
+
+              <!-- ── LINHAS: SOCIAL → PÁGINA ── -->
+              <path d="M56,61 C112,61 158,108 196,120" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5" />
+              <path d="M56,125 C108,125 155,128 196,130" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5" />
+              <path d="M56,191 C112,191 158,152 196,140" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5" />
+              <!-- Pontos nas pontas -->
+              <circle cx="56" cy="61" r="2.5" fill="rgba(255,255,255,.22)" />
+              <circle cx="56" cy="125" r="2.5" fill="rgba(255,255,255,.22)" />
+              <circle cx="56" cy="191" r="2.5" fill="rgba(255,255,255,.22)" />
+
+              <!-- ── CAIXA DA PÁGINA (lenta, borda vermelha) ── -->
+              <rect x="196" y="98" width="96" height="64" rx="11" fill="rgba(6,4,14,.96)" stroke="rgba(248,113,113,.28)"
+                stroke-width="1.5" />
+              <text x="244" y="123" font-family="Syne,sans-serif" font-size="12.5" font-weight="600"
+                fill="rgba(255,255,255,.72)" text-anchor="middle">Página</text>
+              <text x="244" y="143" font-family="sans-serif" font-size="11" fill="rgba(248,113,113,.78)"
+                text-anchor="middle">⏳ 8.4s</text>
+
+              <!-- Usuários abandonados (pontos fantasma acima da caixa) -->
+              <circle cx="218" cy="82" r="4" fill="rgba(248,113,113,.07)" stroke="rgba(248,113,113,.2)" stroke-width="1"
+                stroke-dasharray="2 2" />
+              <circle cx="234" cy="76" r="3.5" fill="rgba(248,113,113,.06)" stroke="rgba(248,113,113,.16)"
+                stroke-width="1" stroke-dasharray="2 2" />
+              <circle cx="252" cy="80" r="4" fill="rgba(248,113,113,.07)" stroke="rgba(248,113,113,.2)" stroke-width="1"
+                stroke-dasharray="2 2" />
+              <circle cx="270" cy="76" r="3" fill="rgba(248,113,113,.05)" stroke="rgba(248,113,113,.14)"
+                stroke-width="1" stroke-dasharray="2 2" />
+              <text x="244" y="234" font-family="sans-serif" font-size="8.5" fill="rgba(248,113,113,.4)"
+                text-anchor="middle">72% abandona antes de converter</text>
+
+              <!-- ── SAÍDA: linha fina/gargalo ── -->
+              <circle cx="292" cy="130" r="2.5" fill="rgba(248,113,113,.3)" />
+              <path d="M292,130 C316,130 325,130 342,130" fill="none" stroke="rgba(248,113,113,.28)" stroke-width="1.5"
+                stroke-dasharray="4 3" />
+
+              <!-- ── SAÍDA: 2 USUÁRIOS (−Vendas) ── -->
+              <!-- Pessoa 1 -->
+              <circle cx="351" cy="120" r="5.5" fill="rgba(248,113,113,.18)" stroke="rgba(248,113,113,.5)"
+                stroke-width="1.5" />
+              <rect x="342" y="128" width="18" height="14" rx="9" fill="rgba(248,113,113,.12)"
+                stroke="rgba(248,113,113,.38)" stroke-width="1" />
+              <!-- Pessoa 2 (ligeiramente atrás) -->
+              <circle cx="368" cy="122" r="5" fill="rgba(248,113,113,.13)" stroke="rgba(248,113,113,.35)"
+                stroke-width="1.2" />
+              <rect x="359" y="129" width="17" height="13" rx="8" fill="rgba(248,113,113,.08)"
+                stroke="rgba(248,113,113,.28)" stroke-width="1" />
+
+              <!-- ── LABEL −VENDAS ── -->
+              <text x="420" y="122" font-family="Syne,sans-serif" font-size="15" font-weight="700"
+                fill="rgba(248,113,113,.88)" text-anchor="middle">-Vendas</text>
+
+            </svg>
+          </div>
+
+          <div class="fc-stats-row">
+            <div class="fc-stat"><span class="fcs-v fcs-bad">72%</span><span class="fcs-k">Abandono</span></div>
+            <div class="fc-stat"><span class="fcs-v fcs-bad">1.2%</span><span class="fcs-k">Conversão</span></div>
+            <div class="fc-stat"><span class="fcs-v fcs-bad">R$ −</span><span class="fcs-k">ROI</span></div>
           </div>
         </div>
-        <div class="service-features">
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg></div>
-            <div>
-              <h4>Pesquisa & Segmentação</h4>
-              <p>Mapeamos sua audiência ideal com precisão cirúrgica para atingir quem realmente compra.</p>
-            </div>
+
+        <!-- ░░░░ CARD DIREITO: VELOPAGE — +Vendas ░░░░ -->
+        <div class="funnel-card fc-fast reveal reveal-d2">
+          <div class="fc-head">
+            <span class="fc-tag fc-tag-good">⚡ Folem Mídia Page</span>
+            <span class="fc-score-n fc-score-good">99</span>
           </div>
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <rect x="3" y="3" width="18" height="18" rx="2" />
-                <path d="M3 9h18M9 21V9" />
-              </svg></div>
-            <div>
-              <h4>Criativos que Convertem</h4>
-              <p>Desenvolvemos textos, imagens e vídeos testados para maximizar CTR e reduzir custo por lead.</p>
-            </div>
+
+          <!-- Diagrama SVG de fluxo: Social → Página rápida → +Vendas -->
+          <div class="fc-diagram">
+            <svg viewBox="0 0 560 250" xmlns="http://www.w3.org/2000/svg" width="100%" height="auto"
+              style="display:block">
+
+              <!-- ── ÍCONE FACEBOOK ── -->
+              <rect x="10" y="38" width="46" height="46" rx="11" fill="rgba(24,119,242,.14)"
+                stroke="rgba(24,119,242,.42)" stroke-width="1.5" />
+              <text x="33" y="70" font-family="Georgia,serif" font-size="24" font-weight="900"
+                fill="rgba(24,119,242,.88)" text-anchor="middle">f</text>
+              <text x="33" y="96" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)"
+                text-anchor="middle" letter-spacing="1">FACEBOOK</text>
+
+              <!-- ── ÍCONE INSTAGRAM ── -->
+              <rect x="10" y="102" width="46" height="46" rx="11" fill="rgba(225,48,108,.12)"
+                stroke="rgba(225,48,108,.38)" stroke-width="1.5" />
+              <rect x="18" y="111" width="30" height="28" rx="7" fill="none" stroke="rgba(225,48,108,.68)"
+                stroke-width="1.5" />
+              <circle cx="33" cy="125" r="7.5" fill="none" stroke="rgba(225,48,108,.68)" stroke-width="1.5" />
+              <circle cx="39" cy="113.5" r="2" fill="rgba(225,48,108,.68)" />
+              <text x="33" y="161" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)"
+                text-anchor="middle" letter-spacing="1">INSTAGRAM</text>
+
+              <!-- ── ÍCONE TIKTOK ── -->
+              <rect x="10" y="168" width="46" height="46" rx="11" fill="rgba(255,255,255,.05)"
+                stroke="rgba(255,255,255,.18)" stroke-width="1.5" />
+              <line x1="30" y1="177" x2="30" y2="200" stroke="rgba(255,255,255,.6)" stroke-width="2.2"
+                stroke-linecap="round" />
+              <ellipse cx="25" cy="200" rx="6" ry="4" fill="rgba(255,255,255,.35)" stroke="rgba(255,255,255,.62)"
+                stroke-width="1.2" />
+              <line x1="30" y1="177" x2="42" y2="174" stroke="rgba(255,255,255,.6)" stroke-width="2.2"
+                stroke-linecap="round" />
+              <line x1="42" y1="174" x2="42" y2="195" stroke="rgba(255,255,255,.6)" stroke-width="2.2"
+                stroke-linecap="round" />
+              <ellipse cx="36" cy="195" rx="6" ry="4" fill="rgba(255,255,255,.35)" stroke="rgba(255,255,255,.62)"
+                stroke-width="1.2" />
+              <text x="33" y="226" font-family="sans-serif" font-size="8.5" fill="rgba(255,255,255,.28)"
+                text-anchor="middle" letter-spacing="1">TIKTOK</text>
+
+              <!-- ── LINHAS: SOCIAL → PÁGINA ── -->
+              <path d="M56,61 C112,61 158,108 196,120" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5" />
+              <path d="M56,125 C108,125 155,128 196,130" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5" />
+              <path d="M56,191 C112,191 158,152 196,140" fill="none" stroke="rgba(255,255,255,.1)" stroke-width="1.5" />
+              <circle cx="56" cy="61" r="2.5" fill="rgba(255,255,255,.22)" />
+              <circle cx="56" cy="125" r="2.5" fill="rgba(255,255,255,.22)" />
+              <circle cx="56" cy="191" r="2.5" fill="rgba(255,255,255,.22)" />
+
+              <!-- ── CAIXA DA PÁGINA (rápida, borda azul + brilho externo) ── -->
+              <rect x="192" y="94" width="104" height="72" rx="13" fill="none" stroke="rgba(93,148,255,.1)"
+                stroke-width="4" />
+              <rect x="196" y="98" width="96" height="64" rx="11" fill="rgba(6,8,22,.97)" stroke="rgba(93,148,255,.38)"
+                stroke-width="1.5" />
+              <text x="244" y="123" font-family="Syne,sans-serif" font-size="12.5" font-weight="600"
+                fill="rgba(255,255,255,.78)" text-anchor="middle">Página</text>
+              <text x="244" y="143" font-family="sans-serif" font-size="11" fill="rgba(93,148,255,.85)"
+                text-anchor="middle">⚡ 0.8s</text>
+              <text x="244" y="234" font-family="sans-serif" font-size="8.5" fill="rgba(93,148,255,.4)"
+                text-anchor="middle">98% permanece e avança até converter</text>
+
+              <!-- ── SAÍDA: 5 linhas paralelas (fluxo amplo) ── -->
+              <circle cx="292" cy="130" r="2.5" fill="rgba(93,148,255,.4)" />
+              <path d="M292,110 C312,107 325,98  342,96" fill="none" stroke="rgba(93,148,255,.2)" stroke-width="1" />
+              <path d="M292,120 C312,117 325,112 342,112" fill="none" stroke="rgba(93,148,255,.22)" stroke-width="1" />
+              <path d="M292,130 C312,130 325,130 342,130" fill="none" stroke="rgba(93,148,255,.32)"
+                stroke-width="1.8" />
+              <path d="M292,140 C312,143 325,148 342,148" fill="none" stroke="rgba(93,148,255,.22)" stroke-width="1" />
+              <path d="M292,150 C312,154 325,162 342,164" fill="none" stroke="rgba(93,148,255,.2)" stroke-width="1" />
+
+              <!-- ── SAÍDA: 8 USUÁRIOS em 2 colunas (+Vendas) ── -->
+              <!-- Coluna 1 (cx=352) -->
+              <circle cx="352" cy="90" r="5.5" fill="rgba(93,148,255,.2)" stroke="rgba(93,148,255,.58)"
+                stroke-width="1.5" />
+              <rect x="343" y="98" width="18" height="14" rx="9" fill="rgba(93,148,255,.12)"
+                stroke="rgba(93,148,255,.4)" stroke-width="1" />
+              <circle cx="352" cy="116" r="5.5" fill="rgba(93,148,255,.2)" stroke="rgba(93,148,255,.58)"
+                stroke-width="1.5" />
+              <rect x="343" y="124" width="18" height="14" rx="9" fill="rgba(93,148,255,.12)"
+                stroke="rgba(93,148,255,.4)" stroke-width="1" />
+              <circle cx="352" cy="142" r="5.5" fill="rgba(93,148,255,.2)" stroke="rgba(93,148,255,.58)"
+                stroke-width="1.5" />
+              <rect x="343" y="150" width="18" height="14" rx="9" fill="rgba(93,148,255,.12)"
+                stroke="rgba(93,148,255,.4)" stroke-width="1" />
+              <circle cx="352" cy="168" r="5.5" fill="rgba(93,148,255,.2)" stroke="rgba(93,148,255,.58)"
+                stroke-width="1.5" />
+              <rect x="343" y="176" width="18" height="14" rx="9" fill="rgba(93,148,255,.12)"
+                stroke="rgba(93,148,255,.4)" stroke-width="1" />
+              <!-- Coluna 2 (cx=373, deslocado) -->
+              <circle cx="373" cy="103" r="5" fill="rgba(93,148,255,.16)" stroke="rgba(93,148,255,.45)"
+                stroke-width="1.2" />
+              <rect x="364" y="111" width="17" height="13" rx="8" fill="rgba(93,148,255,.1)"
+                stroke="rgba(93,148,255,.32)" stroke-width="1" />
+              <circle cx="373" cy="129" r="5" fill="rgba(93,148,255,.16)" stroke="rgba(93,148,255,.45)"
+                stroke-width="1.2" />
+              <rect x="364" y="137" width="17" height="13" rx="8" fill="rgba(93,148,255,.1)"
+                stroke="rgba(93,148,255,.32)" stroke-width="1" />
+              <circle cx="373" cy="155" r="5" fill="rgba(93,148,255,.16)" stroke="rgba(93,148,255,.45)"
+                stroke-width="1.2" />
+              <rect x="364" y="163" width="17" height="13" rx="8" fill="rgba(93,148,255,.1)"
+                stroke="rgba(93,148,255,.32)" stroke-width="1" />
+
+              <!-- ── LABEL +VENDAS ── -->
+              <text x="422" y="130" font-family="Syne,sans-serif" font-size="15" font-weight="700"
+                fill="rgba(93,148,255,.95)" text-anchor="middle">+Vendas</text>
+
+            </svg>
           </div>
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <path d="M2 20h.01M7 20v-4M12 20v-8M17 20V8M22 4l-5.5 5.5L13 6l-7 7" />
-              </svg></div>
-            <div>
-              <h4>Otimização Contínua</h4>
-              <p>Monitoramos e ajustamos campanhas diariamente para manter o ROAS sempre crescente.</p>
-            </div>
-          </div>
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <path d="M9 19v-6a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2z" />
-                <path d="M15 13v8h4a2 2 0 0 0 2-2v-6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2z" />
-                <path d="M9 10V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v5" />
-              </svg></div>
-            <div>
-              <h4>Relatórios Transparentes</h4>
-              <p>Dashboards em tempo real. Você sabe exatamente onde cada real do investimento vai.</p>
-            </div>
+
+          <div class="fc-stats-row">
+            <div class="fc-stat"><span class="fcs-v fcs-good">2%</span><span class="fcs-k">Abandono</span></div>
+            <div class="fc-stat"><span class="fcs-v fcs-good">8.7%</span><span class="fcs-k">Conversão</span></div>
+            <div class="fc-stat"><span class="fcs-v fcs-good">7×</span><span class="fcs-k">ROI</span></div>
           </div>
         </div>
+
+      </div><!-- /funnel-grid -->
+
+      <div class="funnel-note reveal">
+        🔥 Em média, clientes VeloPage geram <strong>7× mais conversões</strong> versus páginas não otimizadas.
       </div>
+
     </div>
   </section>
 
-  <!-- Resultados Tráfego + Instagram Mockup -->
-  <section class="profiles-section sect-trafego-results">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-eyebrow">Resultados reais · Tráfego Pago</p>
-        <h2 class="section-title">Por perfil de <span class="accent">negócio</span></h2>
-        <p class="section-subtitle">Veja o impacto concreto do tráfego estratégico em cada tipo de negócio</p>
-      </div>
+  <!-- ██████████████████████████████████████████████████
+     SEÇÃO 3 — GALERIA / PORTFÓLIO
+     4 colunas de imagens rolando de cima para baixo
+     Hover: pausa a coluna
+     Clique: abre lightbox com a imagem ampliada
+     Imagens: im1.webp até im12.webp (3 por coluna × 4)
+     Background sólido escuro
+██████████████████████████████████████████████████ -->
+  <section class="gallery-section" id="portfolio">
 
-      <!-- Instagram Mockup Case -->
-      <div class="ig-mockup-section reveal">
-        <div class="ig-card">
-          <div class="ig-header">
-            <div class="ig-avatar-ring">
-              <div class="ig-avatar-inner">QA</div>
-            </div>
-            <div class="ig-header-info">
-              <span class="ig-username">@doinstagram</span>
-              <span class="ig-subtext">Case de Sucesso · Tráfego Pago</span>
-            </div>
-            <div class="ig-dots">
-              <div class="ig-dot"></div>
-              <div class="ig-dot"></div>
-              <div class="ig-dot"></div>
-            </div>
+    <div class="container">
+      <div class="gal-header reveal">
+        <div>
+          <span class="section-eyebrow">Portfólio</span>
+          <h2 class="section-title" style="margin-bottom:0">Páginas que <span class="grad-dim">vendem.</span></h2>
+        </div>
+        <p class="section-subtitle">Score acima de 95 em todos os projetos.<br>Clique para ampliar.</p>
+      </div>
+    </div>
+
+    <!-- Viewport das colunas (clipa o overflow vertical) -->
+    <div class="gallery-viewport">
+      <div class="gal-fade-top"></div>
+      <div class="gal-fade-bot"></div>
+
+      <div class="gallery-columns">
+
+        <!-- Coluna 1: im1, im2, im3 -->
+        <div class="gallery-col">
+          <div class="gallery-track gt-1">
+            <div class="gallery-img-wrap"><img src="im1.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im2.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im3.webp" alt="" loading="lazy"></div>
+            <!-- Duplicatas para loop infinito -->
+            <div class="gallery-img-wrap"><img src="im1.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im2.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im3.webp" alt="" loading="lazy"></div>
           </div>
-          <div class="ig-post-body">
-            <div class="ig-post-tag">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                <polyline points="17 6 23 6 23 12" />
+        </div>
+
+        <!-- Coluna 2: im4, im5, im6 -->
+        <div class="gallery-col">
+          <div class="gallery-track gt-2">
+            <div class="gallery-img-wrap"><img src="im4.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im5.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im6.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im4.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im5.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im6.webp" alt="" loading="lazy"></div>
+          </div>
+        </div>
+
+        <!-- Coluna 3: im7, im8, im9 -->
+        <div class="gallery-col">
+          <div class="gallery-track gt-3">
+            <div class="gallery-img-wrap"><img src="im7.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im8.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im9.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im7.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im8.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im9.webp" alt="" loading="lazy"></div>
+          </div>
+        </div>
+
+        <!-- Coluna 4: im10, im11, im12 -->
+        <div class="gallery-col">
+          <div class="gallery-track gt-4">
+            <div class="gallery-img-wrap"><img src="im10.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im11.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im12.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im10.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im11.webp" alt="" loading="lazy"></div>
+            <div class="gallery-img-wrap"><img src="im12.webp" alt="" loading="lazy"></div>
+          </div>
+        </div>
+
+      </div><!-- /gallery-columns -->
+    </div><!-- /gallery-viewport -->
+
+  </section>
+
+  <!-- ██████████████████████████████████████████████████
+     SEÇÃO 4 — CLIENTES
+     Texto à esquerda + 3 cards enfileirados à direita
+     Cada card: avatar, conversão antes→depois, sparkline, citação
+██████████████████████████████████████████████████ -->
+  <section class="clients-section" id="clientes">
+    <div class="container">
+      <div class="cl-layout">
+
+        <!-- Texto esquerdo -->
+        <div class="cl-left reveal">
+          <span class="cl-eyebrow"><span class="cl-dot"></span>Resultados reais</span>
+          <h2 class="cl-title">Clientes que<br>decolaram.</h2>
+          <p class="cl-desc">Transformamos páginas comuns em máquinas de conversão. Números reais de quem apostou em
+            performance.</p>
+          <div class="cl-tags">
+            <span class="cl-tag">Descoberta do cliente</span>
+            <span class="cl-tag">Definição de KPIs</span>
+            <span class="cl-tag">Análise de concorrência</span>
+          </div>
+          <a href="#cta" class="btn-outline" style="margin-top:1.8rem">Ver todos os casos →</a>
+        </div>
+
+        <!-- 3 cards enfileirados -->
+        <div class="cl-cards">
+
+          <!-- Cliente 1 -->
+          <div class="cl-card reveal reveal-d1">
+            <div class="cl-card-top"><span class="cl-card-idx">01</span></div>
+            <div class="cl-av-row">
+              <div class="cl-av-wrap">
+                <svg class="cl-av-ring" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="31" fill="none" stroke="url(#ag1)" stroke-width="2.5" />
+                  <defs>
+                    <linearGradient id="ag1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(255,255,255,.6)" />
+                      <stop offset="50%" stop-color="rgba(255,255,255,.12)" />
+                      <stop offset="100%" stop-color="rgba(255,255,255,.6)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="cl-av">MF</div>
+              </div>
+              <div class="cl-info">
+                <span class="cl-name">Marcos Fitness</span>
+                <span class="cl-handle">@marcos.fitness</span>
+              </div>
+            </div>
+            <div class="cl-conv">
+              <div class="cl-cv-side"><span class="cl-cv-pct cv-before">2.3%</span><span class="cl-cv-lbl">Antes</span>
+              </div>
+              <svg width="32" height="12" viewBox="0 0 32 12">
+                <path d="M0 6 L24 6 M18 1 L30 6 L18 11" stroke="rgba(255,255,255,.25)" stroke-width="1.5"
+                  stroke-linecap="round" fill="none" />
               </svg>
-              Crescimento verificado
+              <div class="cl-cv-side"><span class="cl-cv-pct cv-after">8.7%</span><span class="cl-cv-lbl">Depois</span>
+              </div>
+              <span class="cl-cv-badge">+278%</span>
             </div>
-            <div class="ig-metrics-grid">
-              <div class="ig-metric-box"><span class="ig-metric-val">R$127k</span><span
-                  class="ig-metric-label">Faturamento/mês</span></div>
-              <div class="ig-metric-box"><span class="ig-metric-val">+297%</span><span class="ig-metric-label">Em 3
-                  meses</span></div>
-              <div class="ig-metric-box"><span class="ig-metric-val">4.6x</span><span class="ig-metric-label">ROAS
-                  médio</span></div>
-              <div class="ig-metric-box"><span class="ig-metric-val">R$32k</span><span
-                  class="ig-metric-label">Faturamento inicial</span></div>
-            </div>
+            <svg class="cl-spark" viewBox="0 0 200 48" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.2)" />
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M0,44 L40,42 L75,38 L100,30 L125,20 L155,11 L180,6 L200,2 L200,48 L0,48Z" fill="url(#sg1)" />
+              <path d="M0,44 L40,42 L75,38 L100,30 L125,20 L155,11 L180,6 L200,2" fill="none"
+                stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" />
+              <circle cx="200" cy="2" r="3" fill="#fff" />
+            </svg>
+            <blockquote class="cl-quote">"Minha taxa de conversão triplicou em 3 semanas."</blockquote>
           </div>
-          <div class="ig-footer">
-            <span class="ig-likes">❤️ 3.241 curtidas</span>
-            <p class="ig-caption"><strong>@doinstagram</strong> Saímos de R$32k para R$127k em faturamento mensal em
-              apenas 3 meses de trabalho com tráfego estratégico. Os números falam por si. 🚀</p>
-          </div>
-        </div>
-        <div class="ig-case-text">
-          <h3 class="ig-case-title">E-commerce que escalou<br><span style="color:var(--blue)">4x em 90 dias</span></h3>
-          <p class="ig-case-desc">Com uma estratégia de tráfego focada em Meta Ads e Google Shopping, transformamos uma
-            loja virtual que faturava R$32k/mês em uma máquina de vendas que gerou R$127k em apenas 3 meses. Cada real
-            investido voltou multiplicado.</p>
-          <div class="ig-stat-row">
-            <div class="ig-stat-item"><span class="ig-stat-val">4.6x</span><span class="ig-stat-label">Retorno sobre
-                investimento</span></div>
-            <div class="ig-stat-item"><span class="ig-stat-val">-62%</span><span class="ig-stat-label">Custo por
-                aquisição</span></div>
-            <div class="ig-stat-item"><span class="ig-stat-val">3 meses</span><span class="ig-stat-label">Para escalar
-                4x</span></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="profiles-grid">
-        <div class="profile-card reveal reveal-delay-1">
-          <div class="profile-badge">Infoprodutor</div>
-          <h3 class="profile-name">Lançamentos & Cursos Online</h3>
-          <div class="profile-metric">
-            <div><span class="metric-label">Leads por mês</span><span class="metric-change">145 →
-                <strong>680</strong></span><span class="metric-pct">+368%</span></div>
-            <div style="text-align:right"><span class="metric-label">ROI</span><span class="metric-value">4.2x</span>
+          <!-- Cliente 2 -->
+          <div class="cl-card reveal reveal-d2">
+            <div class="cl-card-top"><span class="cl-card-idx">02</span></div>
+            <div class="cl-av-row">
+              <div class="cl-av-wrap">
+                <svg class="cl-av-ring" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="31" fill="none" stroke="url(#ag2)" stroke-width="2.5" />
+                  <defs>
+                    <linearGradient id="ag2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(255,255,255,.6)" />
+                      <stop offset="50%" stop-color="rgba(255,255,255,.12)" />
+                      <stop offset="100%" stop-color="rgba(255,255,255,.6)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="cl-av" style="color:rgba(255,220,120,.7)">AC</div>
+              </div>
+              <div class="cl-info">
+                <span class="cl-name">Ana Clínica Est.</span>
+                <span class="cl-handle">@ana.clinica.est</span>
+              </div>
             </div>
-          </div>
-          <div class="chart-container"><canvas id="chart-t1" height="155"></canvas></div>
-        </div>
-        <div class="profile-card reveal reveal-delay-2">
-          <div class="profile-badge">E-commerce</div>
-          <h3 class="profile-name">Loja Virtual & Produtos Físicos</h3>
-          <div class="profile-metric">
-            <div><span class="metric-label">Faturamento mensal</span><span class="metric-change">R$32k →
-                <strong>R$127k</strong></span><span class="metric-pct">+297%</span></div>
-            <div style="text-align:right"><span class="metric-label">ROAS</span><span class="metric-value">4.6x</span>
-            </div>
-          </div>
-          <div class="chart-container"><canvas id="chart-t2" height="155"></canvas></div>
-        </div>
-        <div class="profile-card reveal reveal-delay-3">
-          <div class="profile-badge">Negócio Local</div>
-          <h3 class="profile-name">Clínicas, Salões & Serviços</h3>
-          <div class="profile-metric">
-            <div><span class="metric-label">Agendamentos/mês</span><span class="metric-change">42 →
-                <strong>195</strong></span><span class="metric-pct">+364%</span></div>
-            <div style="text-align:right"><span class="metric-label">Redução CAC</span><span
-                class="metric-value">-74%</span></div>
-          </div>
-          <div class="chart-container"><canvas id="chart-t3" height="155"></canvas></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CONSULTORIA ═══ -->
-  <section id="consultoria" class="service-section sect-consultoria">
-    <div class="container">
-      <div class="product-intro reveal">
-        <span class="product-num-badge">02</span>
-        <div class="product-intro-text">
-          <p class="section-eyebrow">Serviço</p>
-          <h2 class="product-section-title">Consultoria <span class="accent">Estratégica</span></h2>
-          <p class="product-tagline">Diagnóstico, planejamento e execução para quem quer crescer com inteligência.</p>
-        </div>
-      </div>
-      <div class="service-explain-grid reveal">
-        <div class="service-explain-main">
-          <h3 class="service-explain-title">Mais que uma consultoria</h3>
-          <p class="body-text">Nos tornamos parte do seu time. Analisamos cada aspecto do seu negócio digital e
-            construímos um plano de crescimento executável e personalizado.</p>
-          <p class="body-text">Nossa metodologia combina análise de dados com visão estratégica para identificar onde
-            você está deixando dinheiro na mesa.</p>
-          <div class="service-platforms">
-            <span class="platform-badge">Funil de Vendas</span>
-            <span class="platform-badge">Posicionamento</span>
-            <span class="platform-badge">Precificação</span>
-            <span class="platform-badge">Canais Digitais</span>
-          </div>
-        </div>
-        <div class="service-features">
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-                <polyline points="14 2 14 8 20 8" />
-                <line x1="16" y1="13" x2="8" y2="13" />
-                <line x1="16" y1="17" x2="8" y2="17" />
-              </svg></div>
-            <div>
-              <h4>Diagnóstico Completo</h4>
-              <p>Mapeamos gargalos e oportunidades escondidas no seu negócio com análise aprofundada.</p>
-            </div>
-          </div>
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <polygon points="3 11 22 2 13 21 11 13 3 11" />
-              </svg></div>
-            <div>
-              <h4>Plano de Escala</h4>
-              <p>Estratégia com metas claras, timeline e KPIs definidos para cada etapa do crescimento.</p>
-            </div>
-          </div>
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-                <circle cx="9" cy="7" r="4" />
-              </svg></div>
-            <div>
-              <h4>Mentoria Contínua</h4>
-              <p>Reuniões semanais de acompanhamento e suporte direto com nossos especialistas.</p>
-            </div>
-          </div>
-          <div class="service-feature">
-            <div class="service-feature-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="1.8">
-                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-              </svg></div>
-            <div>
-              <h4>Implementação Assistida</h4>
-              <p>Não apenas orientamos — ajudamos a colocar em prática cada passo do plano estratégico.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Resultados Consultoria + IG Mockup -->
-  <section class="profiles-section sect-consultoria-results">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-eyebrow">Crescimento real · Consultoria</p>
-        <h2 class="section-title">Evolução por <span class="accent">perfil</span></h2>
-        <p class="section-subtitle">Trajetória de crescimento em 6 meses com nossa consultoria estratégica</p>
-      </div>
-
-      <!-- Instagram Mockup Case -->
-      <div class="ig-mockup-section reveal" style="direction:rtl">
-        <div class="ig-card" style="direction:ltr">
-          <div class="ig-header">
-            <div class="ig-avatar-ring">
-              <div class="ig-avatar-inner">QA</div>
-            </div>
-            <div class="ig-header-info">
-              <span class="ig-username">@doinstagram</span>
-              <span class="ig-subtext">Case de Sucesso · Consultoria</span>
-            </div>
-            <div class="ig-dots">
-              <div class="ig-dot"></div>
-              <div class="ig-dot"></div>
-              <div class="ig-dot"></div>
-            </div>
-          </div>
-          <div class="ig-post-body">
-            <div class="ig-post-tag">
-              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18" />
-                <polyline points="17 6 23 6 23 12" />
+            <div class="cl-conv">
+              <div class="cl-cv-side"><span class="cl-cv-pct cv-before">1.1%</span><span class="cl-cv-lbl">Antes</span>
+              </div>
+              <svg width="32" height="12" viewBox="0 0 32 12">
+                <path d="M0 6 L24 6 M18 1 L30 6 L18 11" stroke="rgba(255,255,255,.25)" stroke-width="1.5"
+                  stroke-linecap="round" fill="none" />
               </svg>
-              Crescimento verificado
+              <div class="cl-cv-side"><span class="cl-cv-pct cv-after">6.4%</span><span class="cl-cv-lbl">Depois</span>
+              </div>
+              <span class="cl-cv-badge">+481%</span>
             </div>
-            <div class="ig-metrics-grid">
-              <div class="ig-metric-box"><span class="ig-metric-val">R$97k</span><span
-                  class="ig-metric-label">Faturamento/mês</span></div>
-              <div class="ig-metric-box"><span class="ig-metric-val">+246%</span><span class="ig-metric-label">Em 6
-                  meses</span></div>
-              <div class="ig-metric-box"><span class="ig-metric-val">9.4%</span><span class="ig-metric-label">Conversão
-                  atual</span></div>
-              <div class="ig-metric-box"><span class="ig-metric-val">R$28k</span><span
-                  class="ig-metric-label">Faturamento inicial</span></div>
-            </div>
+            <svg class="cl-spark" viewBox="0 0 200 48" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.2)" />
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M0,46 L50,44 L80,40 L105,32 L130,22 L158,12 L180,7 L200,2 L200,48 L0,48Z" fill="url(#sg2)" />
+              <path d="M0,46 L50,44 L80,40 L105,32 L130,22 L158,12 L180,7 L200,2" fill="none"
+                stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" />
+              <circle cx="200" cy="2" r="3" fill="#fff" />
+            </svg>
+            <blockquote class="cl-quote">"Velocidade impactou direto as minhas consultas."</blockquote>
           </div>
-          <div class="ig-footer">
-            <span class="ig-likes">❤️ 2.187 curtidas</span>
-            <p class="ig-caption"><strong>@doinstagram</strong> De R$28k para R$97k/mês em 6 meses de consultoria
-              estratégica. Diagnóstico preciso + plano executável = resultados reais. 📈</p>
-          </div>
-        </div>
-        <div class="ig-case-text" style="direction:ltr">
-          <h3 class="ig-case-title">Expert que triplicou<br><span style="color:var(--purple)">o faturamento em 6
-              meses</span></h3>
-          <p class="ig-case-desc">Com diagnóstico completo e um plano de escala personalizado, identificamos os gargalos
-            que impediam o crescimento e construímos uma estratégia que multiplicou o faturamento mensal em menos de
-            meio ano.</p>
-          <div class="ig-stat-row">
-            <div class="ig-stat-item"><span class="ig-stat-val">+246%</span><span
-                class="ig-stat-label">Faturamento</span></div>
-            <div class="ig-stat-item"><span class="ig-stat-val">9.4%</span><span class="ig-stat-label">Taxa de
-                conversão</span></div>
-            <div class="ig-stat-item"><span class="ig-stat-val">6 meses</span><span class="ig-stat-label">Para
-                triplicar</span></div>
-          </div>
-        </div>
-      </div>
 
-      <div class="profiles-grid">
-        <div class="profile-card reveal reveal-delay-1">
-          <div class="profile-badge">Expert / Mentor</div>
-          <h3 class="profile-name">Cursos, Mentorias & Infoprodutos</h3>
-          <div class="profile-metric">
-            <div><span class="metric-label">Faturamento mensal</span><span class="metric-change">R$28k →
-                <strong>R$97k</strong></span><span class="metric-pct">em 6 meses</span></div>
-            <div style="text-align:right"><span class="metric-label">Crescimento</span><span
-                class="metric-value">+246%</span></div>
+          <!-- Cliente 3 -->
+          <div class="cl-card reveal reveal-d3">
+            <div class="cl-card-top"><span class="cl-card-idx">03</span></div>
+            <div class="cl-av-row">
+              <div class="cl-av-wrap">
+                <svg class="cl-av-ring" viewBox="0 0 70 70">
+                  <circle cx="35" cy="35" r="31" fill="none" stroke="url(#ag3)" stroke-width="2.5" />
+                  <defs>
+                    <linearGradient id="ag3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(255,255,255,.6)" />
+                      <stop offset="50%" stop-color="rgba(255,255,255,.12)" />
+                      <stop offset="100%" stop-color="rgba(255,255,255,.6)" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                <div class="cl-av" style="color:rgba(140,220,255,.7)">RP</div>
+              </div>
+              <div class="cl-info">
+                <span class="cl-name">Ricardo Perf.</span>
+                <span class="cl-handle">@ricardoperf</span>
+              </div>
+            </div>
+            <div class="cl-conv">
+              <div class="cl-cv-side"><span class="cl-cv-pct cv-before">3.2%</span><span class="cl-cv-lbl">Antes</span>
+              </div>
+              <svg width="32" height="12" viewBox="0 0 32 12">
+                <path d="M0 6 L24 6 M18 1 L30 6 L18 11" stroke="rgba(255,255,255,.25)" stroke-width="1.5"
+                  stroke-linecap="round" fill="none" />
+              </svg>
+              <div class="cl-cv-side"><span class="cl-cv-pct cv-after">11.5%</span><span class="cl-cv-lbl">Depois</span>
+              </div>
+              <span class="cl-cv-badge">+259%</span>
+            </div>
+            <svg class="cl-spark" viewBox="0 0 200 48" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="sg3" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="rgba(255,255,255,.2)" />
+                  <stop offset="100%" stop-color="rgba(255,255,255,0)" />
+                </linearGradient>
+              </defs>
+              <path d="M0,45 L30,43 L60,40 L85,34 L110,26 L138,16 L162,9 L185,4 L200,2 L200,48 L0,48Z"
+                fill="url(#sg3)" />
+              <path d="M0,45 L30,43 L60,40 L85,34 L110,26 L138,16 L162,9 L185,4 L200,2" fill="none"
+                stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round" />
+              <circle cx="200" cy="2" r="3" fill="#fff" />
+            </svg>
+            <blockquote class="cl-quote">"ROI positivo em menos de 2 semanas."</blockquote>
           </div>
-          <div class="chart-container"><canvas id="chart-c1" height="155"></canvas></div>
-        </div>
-        <div class="profile-card reveal reveal-delay-2">
-          <div class="profile-badge">Empresa B2B</div>
-          <h3 class="profile-name">Serviços Corporativos & SaaS</h3>
-          <div class="profile-metric">
-            <div><span class="metric-label">Leads qualificados/mês</span><span class="metric-change">12 → <strong>72
-                  leads</strong></span><span class="metric-pct">em 6 meses</span></div>
-            <div style="text-align:right"><span class="metric-label">Crescimento</span><span
-                class="metric-value">+500%</span></div>
-          </div>
-          <div class="chart-container"><canvas id="chart-c2" height="155"></canvas></div>
-        </div>
-        <div class="profile-card reveal reveal-delay-3">
-          <div class="profile-badge">Coach / Profissional Liberal</div>
-          <h3 class="profile-name">Coaches, Terapeutas & Consultores</h3>
-          <div class="profile-metric">
-            <div><span class="metric-label">Taxa de conversão</span><span class="metric-change">2.2% →
-                <strong>9.4%</strong></span><span class="metric-pct">em 6 meses</span></div>
-            <div style="text-align:right"><span class="metric-label">Crescimento</span><span
-                class="metric-value">+327%</span></div>
-          </div>
-          <div class="chart-container"><canvas id="chart-c3" height="155"></canvas></div>
-        </div>
+
+        </div><!-- /cl-cards -->
       </div>
     </div>
   </section>
 
-  <!-- ═══ DEPOIMENTOS ═══ -->
-  <section id="depoimentos" class="testimonials-section">
+  <!-- ██████████████████████████████████████████████████
+     SEÇÃO 5 — CTA (CHAMADA PARA AÇÃO)
+██████████████████████████████████████████████████ -->
+  <section class="cta-section" id="cta">
     <div class="container">
-      <div class="section-header reveal">
-        <p class="section-eyebrow" style="color:var(--gold)">Depoimentos</p>
-        <h2 class="section-title">O que nossos <span class="accent"
-            style="-webkit-text-fill-color:var(--gold)">clientes</span> dizem</h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial-card reveal reveal-delay-1">
-          <div class="stars">★★★★★</div>
-          <blockquote>"Em 60 dias a Folem Mídia triplicou o número de leads qualificados do meu negócio. A consultoria
-            foi cirúrgica."</blockquote>
-          <div class="testimonial-author">
-            <div class="avatar">RM</div>
-            <div>
-              <div class="author-name">Ricardo Mendes</div>
-              <div class="author-role">Infoprodutor · Saúde</div>
-            </div>
-          </div>
+      <div class="cta-inner reveal">
+        <div class="cta-glow"></div>
+        <span class="section-eyebrow">Pronto para decolar?</span>
+        <h2 class="cta-title">Sua página ultra rápida<br>começa hoje.</h2>
+        <p class="cta-desc">Entrega em 7 dias. Score 95+ garantido. Se não atingir, refazemos sem custo.</p>
+        <div class="cta-pills">
+          <span class="cta-pill">✓ Score 95+ garantido</span>
+          <span class="cta-pill">✓ Entrega em 7 dias</span>
+          <span class="cta-pill">✓ Mobile-first</span>
+          <span class="cta-pill">✓ Suporte 30 dias</span>
         </div>
-        <div class="testimonial-card reveal reveal-delay-2">
-          <div class="stars">★★★★★</div>
-          <blockquote>"Saímos de R$30k para R$120k por mês em menos de 4 meses. O tráfego que eles gerenciam é
-            completamente diferente."</blockquote>
-          <div class="testimonial-author">
-            <div class="avatar">AS</div>
-            <div>
-              <div class="author-name">Ana Silva</div>
-              <div class="author-role">CEO · E-commerce</div>
-            </div>
-          </div>
-        </div>
-        <div class="testimonial-card reveal reveal-delay-3">
-          <div class="stars">★★★★★</div>
-          <blockquote>"A estratégia de consultoria dobrou minha taxa de conversão. Parceria de verdade — não somem
-            depois de fechar o contrato."</blockquote>
-          <div class="testimonial-author">
-            <div class="avatar">LC</div>
-            <div>
-              <div class="author-name">Lucas Costa</div>
-              <div class="author-role">Coach · Finanças</div>
-            </div>
-          </div>
+        <div class="cta-btns">
+          <a href="#" class="btn-primary-sm btn-lg">Solicitar proposta →</a>
+          <a href="#" class="btn-ghost-sm">Falar no WhatsApp</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ PROCESSO VERTICAL com linha animada ═══ -->
-  <section class="process-section" id="processo">
-    <div class="container">
-      <div class="section-header reveal">
-        <p class="section-eyebrow" style="color:var(--gold)">Como funciona</p>
-        <h2 class="section-title">Da estratégia à <span class="accent"
-            style="-webkit-text-fill-color:var(--gold)">escala</span></h2>
-      </div>
-
-      <div class="pv-step-container" id="pv-container">
-        <!-- Vertical line track (absolute, shared) -->
-        <div class="pv-track" id="pv-track">
-          <div class="pv-line-bg"></div>
-          <div class="pv-line-fill" id="pv-fill"></div>
-        </div>
-
-        <!-- Steps -->
-        <div class="pv-steps" id="pv-steps">
-          <div class="pv-step" data-index="0">
-            <div class="pv-dot">
-              <div class="pv-dot-circle"><span class="pv-num">01</span></div>
-            </div>
-            <div class="pv-content">
-              <h4>Diagnóstico</h4>
-              <p>Mapeamos cada aspecto do seu negócio — funil, oferta, canais e audiência — para identificar exatamente
-                onde estão os bloqueios de crescimento.</p>
-            </div>
-          </div>
-          <div class="pv-step" data-index="1">
-            <div class="pv-dot">
-              <div class="pv-dot-circle"><span class="pv-num">02</span></div>
-            </div>
-            <div class="pv-content">
-              <h4>Estratégia</h4>
-              <p>Criamos um plano personalizado com metas claras, canais priorizados, investimentos definidos e KPIs que
-                realmente importam para o seu negócio.</p>
-            </div>
-          </div>
-          <div class="pv-step" data-index="2">
-            <div class="pv-dot">
-              <div class="pv-dot-circle"><span class="pv-num">03</span></div>
-            </div>
-            <div class="pv-content">
-              <h4>Execução</h4>
-              <p>Colocamos tudo no ar com velocidade: campanhas, criativos, páginas de conversão e automações. Do
-                briefing ao ao vivo em tempo recorde.</p>
-            </div>
-          </div>
-          <div class="pv-step" data-index="3">
-            <div class="pv-dot">
-              <div class="pv-dot-circle"><span class="pv-num">04</span></div>
-            </div>
-            <div class="pv-content">
-              <h4>Otimização</h4>
-              <p>Monitoramos, testamos e ajustamos continuamente. Cada dado é uma oportunidade de escalar mais — e não
-                paramos até chegar no teto do crescimento.</p>
-              <a href="#contato" class="btn-primary btn-large pv-btn">Fale conosco →</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══ CTA ═══ -->
-  <section id="contato" class="cta-section">
-    <div class="cta-glow"></div>
-    <div class="container">
-      <div class="cta-box reveal">
-        <p class="section-eyebrow" style="text-align:center;color:var(--gold)">Pronto para crescer?</p>
-        <h2 class="cta-title">Seu negócio merece<br><span class="accent">escalar.</span></h2>
-        <p class="cta-desc">Fale com um especialista da Folem Mídia e descubra como transformar o seu faturamento nos
-          próximos 90 dias.</p>
-        <div class="cta-actions">
-          <a href="https://folemmidia.com" class="btn-primary" target="_blank" rel="noopener">Falar com especialista
-            →</a>
-          <a href="https://instagram.com/folemmidia" class="btn-ghost" target="_blank" rel="noopener">Ver no
-            Instagram</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
+  <!-- ██████████████████████████████████████████████████
+     RODAPÉ
+██████████████████████████████████████████████████ -->
   <footer>
-    <div class="container footer-inner">
-      <div class="footer-logo">Folem<span>Mídia</span></div>
-      <div class="footer-links">
-        <a href="#trafego">Tráfego</a>
-        <a href="#consultoria">Consultoria</a>
-        <a href="#depoimentos">Depoimentos</a>
-        <a href="#contato">Contato</a>
-        <a href="https://folemmidia.com" target="_blank" rel="noopener">folemmidia.com</a>
+    <div class="container">
+      <div class="ft-inner">
+        <div class="ft-logo">Velo<span>Page</span></div>
+        <div class="ft-links">
+          <a href="#">Portfólio</a><a href="#">Serviços</a>
+          <a href="#">Clientes</a><a href="#">Contato</a>
+        </div>
+        <span class="ft-copy">© 2025 Folem Mídia Page. Todos os direitos reservados.</span>
       </div>
-      <p class="footer-copy">© 2025 Folem Mídia. Todos os direitos reservados.</p>
     </div>
   </footer>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <!-- ██████████████████████████████████████████████████
+     SCRIPTS
+██████████████████████████████████████████████████ -->
   <script>
-    /* ═══ GLOBAL STARS ═══ */
+
+    /* ── ESTRELAS (canvas background) ── */
     (function () {
-      var c = document.getElementById('stars-canvas'), ctx = c.getContext('2d');
-      function resize() { c.width = window.innerWidth; c.height = window.innerHeight }
+      const c = document.getElementById('stars-canvas'), ctx = c.getContext('2d');
+      let W, H, stars = [];
+      function resize() { W = c.width = window.innerWidth; H = c.height = window.innerHeight; }
       resize(); window.addEventListener('resize', resize);
-      var s = [];
-      for (var i = 0; i < 270; i++) s.push({ x: Math.random(), y: Math.random(), r: Math.random() * .9 + .18, b: Math.random() * .5 + .1, sp: Math.random() * .012 + .003, ph: Math.random() * Math.PI * 2, g: Math.random() < .07 });
-      for (var j = 0; j < 38; j++)  s.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.5 + .8, b: Math.random() * .38 + .08, sp: Math.random() * .007 + .001, ph: Math.random() * Math.PI * 2, g: Math.random() < .22 });
-      for (var k = 0; k < 10; k++)  s.push({ x: Math.random(), y: Math.random(), r: Math.random() * 1.8 + 2.2, b: Math.random() * .25 + .05, sp: Math.random() * .004 + .001, ph: Math.random() * Math.PI * 2, g: Math.random() < .45 });
-      var t = 0;
-      function draw() {
-        ctx.clearRect(0, 0, c.width, c.height);
-        for (var n = 0; n < s.length; n++) {
-          var p = s[n], a = p.b * .35 + (Math.sin(t * p.sp + p.ph) + 1) * .5 * p.b * .65;
-          ctx.beginPath(); ctx.arc(p.x * c.width, p.y * c.height, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = p.g ? 'rgba(245,200,66,' + a + ')' : 'rgba(255,255,255,' + a + ')'; ctx.fill();
-        }
-        t += .016; requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-    /* ═══ HERO PARTICLES ═══ */
-    (function () {
-      var canvas = document.getElementById('hero-particles');
-      var section = canvas.closest('section');
-      if (!canvas || !section) return;
-      var ctx = canvas.getContext('2d');
-      function resize() { canvas.width = section.offsetWidth; canvas.height = section.offsetHeight }
-      resize(); window.addEventListener('resize', resize);
-      var pts = [];
-      for (var i = 0; i < 420; i++) pts.push({ x: Math.random() * canvas.width, y: Math.random() * canvas.height, r: Math.random() * .85 + .15, ba: Math.random() * .32 + .06, sp: Math.random() * .009 + .002, ph: Math.random() * Math.PI * 2, vx: (Math.random() - .5) * .14, vy: (Math.random() - .5) * .12 });
-      var t = 0;
-      function draw() {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (var n = 0; n < pts.length; n++) {
-          var p = pts[n];
-          p.x += p.vx; p.y += p.vy;
-          if (p.x < -10) p.x = canvas.width + 10; if (p.x > canvas.width + 10) p.x = -10;
-          if (p.y < -10) p.y = canvas.height + 10; if (p.y > canvas.height + 10) p.y = -10;
-          var alpha = p.ba * (.35 + (Math.sin(t * p.sp + p.ph) + 1) * .5 * .65);
-          ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-          ctx.fillStyle = 'rgba(255,255,255,' + alpha + ')'; ctx.fill();
-        }
-        t += .016; requestAnimationFrame(draw);
-      }
-      draw();
-    })();
-
-    /* ═══ PLANET AUTO-LOAD + SCROLL ANIMATION ═══ */
-    (function () {
-      var system    = document.getElementById('planet-system');
-      var planet    = document.getElementById('hero-planet-core');
-      var ringBack  = document.getElementById('saturn-back');
-      var ringFront = document.getElementById('saturn-front');
-      var burstEl   = document.getElementById('planet-burst');
-      var hr1  = document.getElementById('hr1');
-      var hr3  = document.getElementById('hr3');
-      var hero = document.getElementById('home');
-      if (!system || !planet || !hero) return;
-
-      /* ── Scroll-exit state ── */
-      var curScale = 1, curY = 0, curOp = 1;
-      var tgtScale = 1, tgtY = 0, tgtOp = 1;
-      var raf = null;
-
-      /* ── Auto-load energy sequence state ── */
-      var growT   = 0;
-      var burstT  = 0;
-      var settled = false;
-      var autoRaf = null;
-
-      /* Timeline (ms) */
-      var GROW_DURATION = 2800;
-      var GROW_START    = 300;
-      var BURST_START   = GROW_START + GROW_DURATION;   /* ~3.1 s */
-      var BURST_RISE    = 320;
-      var BURST_FALL    = 900;
-      var REST_GROW     = 0.55;
-
-      var t0 = null;
-
-      function easeOutCubic(x)  { return 1 - Math.pow(1 - x, 3); }
-      function easeInOutSine(x) { return -(Math.cos(Math.PI * x) - 1) / 2; }
-
-      /* Apply transform to both ring halves */
-      function setRingTransform(gb) {
-        var tilt = (68 + gb * 14).toFixed(1);
-        var t = 'translate(-50%,-50%) rotate(-30deg) rotateX(' + tilt + 'deg)';
-        if (ringBack)  ringBack.style.transform  = t;
-        if (ringFront) ringFront.style.transform = t;
-      }
-
-      function applyPlanetGlow(g, b) {
-        b = b || 0;
-        var gb = Math.min(1, g + b * 0.6);
-
-        if (hr1) hr1.style.opacity = (0.16 + gb * 0.30).toFixed(3);
-
-        if (hr3) hr3.style.boxShadow = gb > 0.15 ?
-          '0 0 ' + (14 + gb * 52 + b * 40).toFixed(0) + 'px rgba(245,200,66,' + (0.04 + gb * 0.14 + b * 0.18).toFixed(3) + ')' :
-          'none';
-
-        var s1 = (60 + gb * 60 + b * 45).toFixed(0);
-        var s2 = (140 + gb * 120 + b * 90).toFixed(0);
-        planet.style.boxShadow =
-          '0 0 ' + s1 + 'px rgba(245,200,66,' + (0.14 + gb * 0.28 + b * 0.22).toFixed(3) + '),' +
-          '0 0 ' + s2 + 'px rgba(245,200,66,' + (0.07 + gb * 0.16 + b * 0.14).toFixed(3) + '),' +
-          'inset -32px -24px 65px rgba(0,0,0,.88)';
-
-        setRingTransform(gb);
-
-        /* ── Energy burst corona ── */
-        if (burstEl) {
-          /* During grow: subtle warm glow builds up, expanding toward planet */
-          var burstOp  = (g * 0.168 + b * 0.468).toFixed(3);
-          /* Scale: starts small, blooms at burst peak, then overshoots outward on decay */
-          var burstSc  = (0.5 + g * 0.55 + b * 0.75).toFixed(3);
-          burstEl.style.opacity   = burstOp;
-          burstEl.style.transform = 'scale(' + burstSc + ')';
-        }
-      }
-
-      /* ── Auto-load sequence ── */
-      function autoAnimate(ts) {
-        if (!t0) t0 = ts;
-        var elapsed = ts - t0;
-
-        /* Phase 1: slow grow */
-        if (elapsed < BURST_START) {
-          var growRaw = Math.max(0, (elapsed - GROW_START) / GROW_DURATION);
-          growT = easeInOutSine(Math.min(1, growRaw));
-          var scaleG = 1 + growT * 0.30;
-          system.style.transform = 'translateY(0px) scale(' + scaleG.toFixed(4) + ')';
-          applyPlanetGlow(growT, 0);
-          autoRaf = requestAnimationFrame(autoAnimate);
-          return;
-        }
-
-        /* Phase 2: burst rise */
-        var afterBurst = elapsed - BURST_START;
-        if (afterBurst < BURST_RISE) {
-          burstT = easeOutCubic(afterBurst / BURST_RISE);
-          var scaleB = 1 + growT * 0.30 + burstT * 0.18;
-          system.style.transform = 'translateY(0px) scale(' + scaleB.toFixed(4) + ')';
-          applyPlanetGlow(growT, burstT);
-          autoRaf = requestAnimationFrame(autoAnimate);
-          return;
-        }
-
-        /* Phase 3: burst decay — glow expands outward then fades */
-        var afterFall = afterBurst - BURST_RISE;
-        if (afterFall < BURST_FALL) {
-          var fallP    = afterFall / BURST_FALL;
-          var decayB   = 1 - easeOutCubic(fallP);
-          var growFade = 1 - easeInOutSine(Math.min(1, fallP));
-          growT = REST_GROW + growFade * (1 - REST_GROW);
-          /* Burst scale keeps expanding outward as it fades (explosion dispersal) */
-          var burstExpandSc = (1.25 + fallP * 0.9).toFixed(3);
-          var burstFadeOp   = (decayB * 0.468).toFixed(3);
-          if (burstEl) {
-            burstEl.style.opacity   = burstFadeOp;
-            burstEl.style.transform = 'scale(' + burstExpandSc + ')';
-          }
-          var scaleR = 1 + growT * 0.30 + decayB * 0.18;
-          system.style.transform = 'translateY(0px) scale(' + scaleR.toFixed(4) + ')';
-          /* Apply glow without touching burstEl again */
-          applyPlanetGlowNoB(growT, decayB);
-          autoRaf = requestAnimationFrame(autoAnimate);
-          return;
-        }
-
-        /* Sequence complete */
-        growT   = REST_GROW;
-        burstT  = 0;
-        settled = true;
-        if (burstEl) { burstEl.style.opacity = '0'; burstEl.style.transform = 'scale(0.5)'; }
-        applyPlanetGlow(growT, 0);
-        onScroll();
-      }
-
-      /* applyPlanetGlow variant that skips burstEl (handled separately in phase 3) */
-      function applyPlanetGlowNoB(g, b) {
-        b = b || 0;
-        var gb = Math.min(1, g + b * 0.6);
-        if (hr1) hr1.style.opacity = (0.16 + gb * 0.30).toFixed(3);
-        if (hr3) hr3.style.boxShadow = gb > 0.15 ?
-          '0 0 ' + (14 + gb * 52 + b * 40).toFixed(0) + 'px rgba(245,200,66,' + (0.04 + gb * 0.14 + b * 0.18).toFixed(3) + ')' : 'none';
-        var s1 = (60 + gb * 60 + b * 45).toFixed(0);
-        var s2 = (140 + gb * 120 + b * 90).toFixed(0);
-        planet.style.boxShadow =
-          '0 0 ' + s1 + 'px rgba(245,200,66,' + (0.14 + gb * 0.28 + b * 0.22).toFixed(3) + '),' +
-          '0 0 ' + s2 + 'px rgba(245,200,66,' + (0.07 + gb * 0.16 + b * 0.14).toFixed(3) + '),' +
-          'inset -32px -24px 65px rgba(0,0,0,.88)';
-        setRingTransform(gb);
-      }
-
-      /* ── Scroll exit ── */
-      function onScroll() {
-        var heroH = hero.offsetHeight || window.innerHeight;
-        var sc    = Math.max(0, window.scrollY);
-        var raw   = Math.min(1, sc / heroH);
-        var baseGrow = settled ? REST_GROW : growT;
-        var exitP    = raw < 0.65 ? 0 : (raw - 0.65) / 0.35;
-        tgtScale = (1 + baseGrow * 0.30) * (1 - exitP * 0.28);
-        tgtY     = -exitP * 220;
-        tgtOp    = exitP < 0.3 ? 1 : Math.max(0, 1 - (exitP - 0.3) / 0.7);
-        if (sc > 30 && !raf) raf = requestAnimationFrame(scrollAnimate);
-      }
-
-      function scrollAnimate() {
-        raf = null;
-        if (autoRaf) { cancelAnimationFrame(autoRaf); autoRaf = null; settled = true; }
-        var L = 0.09;
-        curScale += (tgtScale - curScale) * L;
-        curY     += (tgtY     - curY)     * L;
-        curOp    += (tgtOp    - curOp)    * L;
-        system.style.transform = 'translateY(' + curY.toFixed(2) + 'px) scale(' + curScale.toFixed(4) + ')';
-        system.style.opacity   = curOp.toFixed(4);
-        applyPlanetGlow(growT, 0);
-        var moving =
-          Math.abs(curScale - tgtScale) > .0005 ||
-          Math.abs(curY     - tgtY)     > .3    ||
-          Math.abs(curOp    - tgtOp)    > .003;
-        if (moving) raf = requestAnimationFrame(scrollAnimate);
-      }
-
-      autoRaf = requestAnimationFrame(autoAnimate);
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
-
-    /* ═══ NAV SCROLL ═══ */
-    window.addEventListener('scroll', function () {
-      document.getElementById('nav').classList.toggle('nav-scrolled', window.scrollY > 40);
-    });
-
-    /* ═══ COUNTER ANIMATION ═══ */
-    function runCounter(el) {
-      var target = parseInt(el.dataset.target);
-      var prefix = el.dataset.prefix || '';
-      var suffix = el.dataset.suffix || '';
-      var duration = 2200;
-      var start = null;
-      function step(ts) {
-        if (!start) start = ts;
-        var p = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - p, 3);
-        el.textContent = prefix + Math.floor(eased * target) + suffix;
-        if (p < 1) requestAnimationFrame(step);
-      }
-      requestAnimationFrame(step);
-    }
-    var countObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting && !e.target.dataset.counted) {
-          e.target.dataset.counted = '1';
-          runCounter(e.target);
-          countObs.unobserve(e.target);
-        }
+      for (let i = 0; i < 160; i++)stars.push({
+        x: Math.random() * W, y: Math.random() * H,
+        r: Math.random() * .9 + .15,
+        vx: (Math.random() - .5) * .03, vy: (Math.random() - .5) * .025,
+        a: Math.random() * .38 + .05
       });
-    }, { threshold: .5 });
-    document.querySelectorAll('.count-up').forEach(function (el) { countObs.observe(el) });
-
-    /* ═══ SECTION GALAXY CANVASES ═══ */
-    function makeGalaxy(sel, r, g, b, count) {
-      document.querySelectorAll(sel).forEach(function (sec) {
-        var cv = document.createElement('canvas'); cv.className = 'section-galaxy-canvas';
-        sec.insertBefore(cv, sec.firstChild);
-        var pts = [], blobs = [];
-        for (var i = 0; i < count; i++) { var big = Math.random() < .04; pts.push({ x: Math.random(), y: Math.random(), r: big ? Math.random() * 2.2 + 1.3 : Math.random() * 1 + .16, a: big ? Math.random() * .48 + .20 : Math.random() * .48 + .06, big: big }) }
-        for (var j = 0; j < 5; j++) blobs.push({ x: Math.random(), y: Math.random(), rx: Math.random() * .45 + .14, ry: Math.random() * .32 + .10, a: Math.random() * .022 + .006 });
-        function paint() {
-          var w = sec.offsetWidth, h = sec.offsetHeight; if (!w || !h) return;
-          cv.width = w; cv.height = h; var ctx = cv.getContext('2d'); ctx.clearRect(0, 0, w, h);
-          blobs.forEach(function (bl) {
-            var grd = ctx.createRadialGradient(bl.x * w, bl.y * h, 0, bl.x * w, bl.y * h, bl.rx * w);
-            grd.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + bl.a + ')'); grd.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)');
-            ctx.beginPath(); ctx.ellipse(bl.x * w, bl.y * h, bl.rx * w, bl.ry * h, 0, 0, Math.PI * 2); ctx.fillStyle = grd; ctx.fill();
-          });
-          pts.forEach(function (p) {
-            var px = p.x * w, py = p.y * h;
-            if (p.big) { var hl = ctx.createRadialGradient(px, py, 0, px, py, p.r * 7); hl.addColorStop(0, 'rgba(' + r + ',' + g + ',' + b + ',' + (p.a * .36) + ')'); hl.addColorStop(1, 'rgba(' + r + ',' + g + ',' + b + ',0)'); ctx.beginPath(); ctx.arc(px, py, p.r * 7, 0, Math.PI * 2); ctx.fillStyle = hl; ctx.fill() }
-            ctx.beginPath(); ctx.arc(px, py, p.r, 0, Math.PI * 2); ctx.fillStyle = 'rgba(' + r + ',' + g + ',' + b + ',' + p.a + ')'; ctx.fill();
-          });
-        }
-        paint(); new ResizeObserver(paint).observe(sec);
-      });
-    }
-    makeGalaxy('.sect-trafego,.sect-trafego-results', 74, 143, 255, 240);
-    makeGalaxy('.sect-consultoria,.sect-consultoria-results', 144, 96, 255, 240);
-
-    /* ═══ SCROLL REVEAL ═══ */
-    var ro = new IntersectionObserver(function (e) {
-      e.forEach(function (x) { if (x.isIntersecting) { x.target.classList.add('visible'); ro.unobserve(x.target) } });
-    }, { threshold: .08 });
-    document.querySelectorAll('.reveal').forEach(function (el) { ro.observe(el) });
-
-    /* ═══ PROCESS VERTICAL SCROLL LINE ═══ */
-    (function () {
-      var fill = document.getElementById('pv-fill');
-      var steps = document.querySelectorAll('.pv-step');
-      var sect = document.getElementById('processo');
-      var track = document.getElementById('pv-track');
-      var stepsContainer = document.getElementById('pv-steps');
-      if (!fill || !sect || !steps.length) return;
-
-      /* Position the track to align with the steps column */
-      function layoutTrack() {
-        /* The track must cover from first dot center to last dot center */
-        var firstDot = steps[0].querySelector('.pv-dot-circle');
-        var lastDot = steps[steps.length - 1].querySelector('.pv-dot-circle');
-        if (!firstDot || !lastDot) return;
-        var f = firstDot.getBoundingClientRect();
-        var l = lastDot.getBoundingClientRect();
-        var s = stepsContainer.getBoundingClientRect();
-        var dotCenter = f.left + f.width / 2 - s.left;
-        track.style.left = dotCenter + 'px';
-        track.style.transform = 'translateX(-50%)';
-        track.style.top = (f.top + f.height / 2 - s.top) + 'px';
-        track.style.bottom = (s.bottom - l.bottom + l.height / 2) + 'px';
-      }
-
-      function onScroll() {
-        var rect = sect.getBoundingClientRect();
-        var wh = window.innerHeight;
-        /* progress: 0 when top of section hits center, 1 when bottom leaves center */
-        var prog = Math.min(1, Math.max(0, (-rect.top + wh * 0.4) / (rect.height - wh * 0.2)));
-        fill.style.height = (prog * 100) + '%';
-
-        /* Activate steps */
-        steps.forEach(function (step, i) {
-          var threshold = (i + 0.5) / steps.length;
-          step.classList.toggle('active', prog >= threshold);
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        stars.forEach(s => {
+          s.x += s.vx; s.y += s.vy;
+          if (s.x < 0) s.x = W; if (s.x > W) s.x = 0;
+          if (s.y < 0) s.y = H; if (s.y > H) s.y = 0;
+          ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(200,215,240,${s.a})`; ctx.fill();
         });
+        requestAnimationFrame(draw);
       }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-      window.addEventListener('resize', function () { layoutTrack(); onScroll() });
-      /* Position track after DOM paint */
-      requestAnimationFrame(function () { layoutTrack(); onScroll() });
+      draw();
     })();
 
-    /* Track absolute positioning helper */
-    document.addEventListener('DOMContentLoaded', function () {
-      var stepsEl = document.getElementById('pv-steps');
-      var trackEl = document.getElementById('pv-track');
-      if (stepsEl && trackEl) {
-        /* Move track inside the steps container for relative positioning */
-        stepsEl.style.position = 'relative';
-        stepsEl.appendChild(trackEl);
-        trackEl.style.position = 'absolute';
-        trackEl.style.width = '2px';
-      }
+    /* ── NAV: scroll state ── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('nav-scrolled', scrollY > 40));
+
+    /* ── SCROLL REVEAL ── */
+    const obs = new IntersectionObserver(entries => entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    }), { threshold: .07 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+    /* ── HAMBURGER MENU ── */
+    document.getElementById('navBurger').addEventListener('click', function () {
+      document.getElementById('navLinks').classList.toggle('nav-open');
+      this.classList.toggle('open');
     });
 
-    /* ═══ CHARTS ═══ */
-    var BLUE = 'rgba(74,143,255,1)', PURP = 'rgba(144,96,255,1)',
-      MUTED = 'rgba(255,255,255,.10)',
-      TXT = 'rgba(255,255,255,.48)', GRID = 'rgba(255,255,255,.05)';
-    Chart.defaults.color = TXT; Chart.defaults.font.family = "'Exo 2',sans-serif"; Chart.defaults.font.size = 11;
+    /* ── GALERIA: hover pausa coluna / clique abre lightbox ── */
+    (function () {
+      const lb = document.getElementById('galleryLb');
+      const lbImg = document.getElementById('lbImg');
+      const lbClose = document.getElementById('lbClose');
 
-    var chartObs = new IntersectionObserver(function (e) {
-      e.forEach(function (x) { if (x.isIntersecting && !x.target.dataset.done) { x.target.dataset.done = '1'; buildChart(x.target.id); chartObs.unobserve(x.target) } });
-    }, { threshold: .25 });
-    ['chart-t1', 'chart-t2', 'chart-t3', 'chart-c1', 'chart-c2', 'chart-c3'].forEach(function (id) { var el = document.getElementById(id); if (el) chartObs.observe(el) });
-
-    function sc() { return { x: { grid: { color: GRID }, ticks: { color: TXT } }, y: { grid: { color: GRID }, ticks: { color: TXT }, beginAtZero: true } } }
-    function tip(col) { return { backgroundColor: 'rgba(5,5,18,.97)', borderColor: col.replace('1)', '0.3)'), borderWidth: 1, titleColor: col, bodyColor: 'rgba(255,255,255,.85)', padding: 10 } }
-
-    function barChart(id, lbl, a, d, col) {
-      new Chart(document.getElementById(id), {
-        type: 'bar',
-        data: { labels: ['Antes', 'Depois'], datasets: [{ label: lbl, data: [a, d], backgroundColor: [MUTED, col], borderRadius: 5, borderSkipped: false }] },
-        options: { animation: { duration: 1100, easing: 'easeOutQuart' }, responsive: true, maintainAspectRatio: true, plugins: { legend: { labels: { color: TXT, boxWidth: 10, boxHeight: 10, padding: 10 } }, tooltip: tip(col) }, scales: sc() }
+      /* Hover: pausa/retoma a coluna correspondente */
+      document.querySelectorAll('.gallery-col').forEach(col => {
+        const track = col.querySelector('.gallery-track');
+        col.addEventListener('mouseenter', () => { track.style.animationPlayState = 'paused'; });
+        col.addEventListener('mouseleave', () => { track.style.animationPlayState = 'running'; });
       });
-    }
-    function lineChart(id, lbl, data, col) {
-      var base = col === BLUE ? '74,143,255' : '144,96,255';
-      new Chart(document.getElementById(id), {
-        type: 'line',
-        data: {
-          labels: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'], datasets: [{
-            label: lbl, data: data, borderColor: col, borderWidth: 2.2, pointBackgroundColor: col, pointRadius: 4, pointHoverRadius: 6, fill: true, tension: .42,
-            backgroundColor: function (ctx) { var ch = ctx.chart, a = ch.chartArea; if (!a) return 'rgba(' + base + ',.06)'; var g = ch.ctx.createLinearGradient(0, a.top, 0, a.bottom); g.addColorStop(0, 'rgba(' + base + ',.22)'); g.addColorStop(1, 'rgba(' + base + ',0)'); return g }
-          }]
-        },
-        options: { animation: { duration: 1400, easing: 'easeOutQuart' }, responsive: true, maintainAspectRatio: true, plugins: { legend: { labels: { color: TXT, boxWidth: 10, boxHeight: 10, padding: 10 } }, tooltip: tip(col) }, scales: sc() }
-      });
-    }
-    function buildChart(id) {
-      if (id === 'chart-t1') barChart(id, 'Leads / mês', 145, 680, BLUE);
-      if (id === 'chart-t2') barChart(id, 'Faturamento (R$ mil)', 32, 127, BLUE);
-      if (id === 'chart-t3') barChart(id, 'Agendamentos / mês', 42, 195, BLUE);
-      if (id === 'chart-c1') lineChart(id, 'Faturamento (R$ mil)', [28, 36, 48, 62, 78, 97], PURP);
-      if (id === 'chart-c2') lineChart(id, 'Leads qualificados', [12, 19, 28, 39, 54, 72], PURP);
-      if (id === 'chart-c3') lineChart(id, 'Conversão (%)', [2.2, 3.5, 4.8, 6.3, 7.9, 9.4], PURP);
-    }
 
-    /* Process layout fix — add CSS for the wrapper structure */
-    var pvStyle = document.createElement('style');
-    pvStyle.textContent =
-      '.pv-step-container{position:relative}' +
-      '.pv-steps{position:relative;padding-left:80px}' +
-      '#pv-track{position:absolute;left:26px;top:28px;bottom:28px;width:2px;pointer-events:none}' +
-      '.pv-line-bg{position:absolute;inset:0;background:rgba(255,255,255,.07);border-radius:2px}' +
-      '.pv-line-fill{position:absolute;top:0;left:0;right:0;height:0%;background:linear-gradient(to bottom,#F5C842,rgba(245,200,66,.3));border-radius:2px;transition:height .15s linear}' +
-      '.pv-step{display:grid;grid-template-columns:80px 1fr;column-gap:2rem;padding:clamp(1.8rem,4vh,2.8rem) 0;position:relative;margin-left:-80px}' +
-      '.pv-cta{margin-top:clamp(2.5rem,6vh,4rem);padding-top:clamp(2rem,5vh,3rem);border-top:1px solid rgba(255,255,255,.06);display:flex;justify-content:center}';
-    document.head.appendChild(pvStyle);
+      /* Clique na imagem: abre lightbox */
+      document.querySelectorAll('.gallery-img-wrap img').forEach(img => {
+        img.addEventListener('click', function () {
+          if (!this.src || this.naturalWidth === 0) return;
+          lbImg.src = this.src;
+          lb.classList.add('lb-active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      /* Fechar lightbox: clicar no backdrop ou no botão X */
+      function closeLb() {
+        lb.classList.remove('lb-active');
+        document.body.style.overflow = '';
+      }
+      lbClose.addEventListener('click', closeLb);
+      lb.addEventListener('click', function (e) {
+        if (e.target === this || e.target.classList.contains('lb-backdrop')) closeLb();
+      });
+      document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+    })();
+
   </script>
 </body>
 
